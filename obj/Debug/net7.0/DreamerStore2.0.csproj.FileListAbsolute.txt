@@ -1,0 +1,16 @@
+D:\Study\(2023-2024) Semester 1\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.csproj.AssemblyReference.cache
+D:\Study\(2023-2024) Semester 1\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study\(2023-2024) Semester 1\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.AssemblyInfoInputs.cache
+D:\Study\(2023-2024) Semester 1\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.AssemblyInfo.cs
+D:\Study\(2023-2024) Semester 1\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.csproj.CoreCompileInputs.cache
+D:\Study\(2023-2024) Semester 1\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.MvcApplicationPartsAssemblyInfo.cache
+D:\Study\(2023-2024) Semester 1\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.RazorAssemblyInfo.cache
+D:\Study\(2023-2024) Semester 1\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.RazorAssemblyInfo.cs
+D:\Study\Work Space\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.csproj.AssemblyReference.cache
+D:\Study\Work Space\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study\Work Space\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.AssemblyInfoInputs.cache
+D:\Study\Work Space\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.AssemblyInfo.cs
+D:\Study\Work Space\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.csproj.CoreCompileInputs.cache
+D:\Study\Work Space\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.MvcApplicationPartsAssemblyInfo.cache
+D:\Study\Work Space\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.RazorAssemblyInfo.cache
+D:\Study\Work Space\My SUV\DreamerStore\obj\Debug\net7.0\DreamerStore2.0.RazorAssemblyInfo.cs
