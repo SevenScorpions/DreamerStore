@@ -54,13 +54,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Antlr" Version="3.5.0.2" />
     <PackageReference Include="bootstrap" Version="5.3.2" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="EntityFramework.CodeTemplates.CSharp" Version="6.2.0" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.62.0.3155" />
     <PackageReference Include="jQuery" Version="3.7.1" />
     <PackageReference Include="jQuery.Validation" Version="1.19.5" />
-    <PackageReference Include="Microsoft.AspNet.Web.Optimization" Version="1.1.3" />
     <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="7.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
@@ -69,7 +68,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.10" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Npgsql" Version="7.0.6" />
     <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
@@ -81,6 +80,7 @@
 
   <ItemGroup>
     <Folder Include="Content\" />
+    <Folder Include="wwwroot\img\category\" />
   </ItemGroup>
 
   <ItemGroup>

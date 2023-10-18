@@ -12,7 +12,7 @@ namespace DreamerStore2.Controllers
         }
 
         // GET: HomeController1/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details()
         {
             return View();
         }

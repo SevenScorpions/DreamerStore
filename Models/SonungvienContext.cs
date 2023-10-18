@@ -51,15 +51,14 @@ public partial class SonungvienContext : DbContext
             entity.ToTable("Banner");
 
             entity.Property(e => e.BannerId).HasColumnName("BannerID");
-            entity.Property(e => e.BannerDescription).HasMaxLength(1);
-            entity.Property(e => e.BannerMessage).HasMaxLength(1);
-            entity.Property(e => e.BannerName).HasMaxLength(1);
+            entity.Property(e => e.BannerDescription).HasMaxLength(100);
+            entity.Property(e => e.BannerMessage).HasMaxLength(100);
+            entity.Property(e => e.BannerName).HasMaxLength(100);
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Image)
-                .HasMaxLength(1)
-                .IsUnicode(false);
+                .HasMaxLength(100);
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
         });
@@ -71,21 +70,21 @@ public partial class SonungvienContext : DbContext
             entity.ToTable("Bill");
 
             entity.Property(e => e.BillId).HasColumnName("BillID");
-            entity.Property(e => e.BillAddress).HasMaxLength(1);
+            entity.Property(e => e.BillAddress).HasMaxLength(100);
             entity.Property(e => e.BillCreatedAt).HasColumnType("datetime");
-            entity.Property(e => e.BillEmail).HasMaxLength(1);
-            entity.Property(e => e.BillFirstName).HasMaxLength(1);
-            entity.Property(e => e.BillLastName).HasMaxLength(1);
-            entity.Property(e => e.BillNote).HasMaxLength(1);
-            entity.Property(e => e.BillPhoneNumber).HasMaxLength(1);
-            entity.Property(e => e.BillPostcode).HasMaxLength(1);
-            entity.Property(e => e.BillProvince).HasMaxLength(1);
+            entity.Property(e => e.BillEmail).HasMaxLength(100);
+            entity.Property(e => e.BillFirstName).HasMaxLength(100);
+            entity.Property(e => e.BillLastName).HasMaxLength(100);
+            entity.Property(e => e.BillNote).HasMaxLength(100);
+            entity.Property(e => e.BillPhoneNumber).HasMaxLength(100);
+            entity.Property(e => e.BillPostcode).HasMaxLength(100);
+            entity.Property(e => e.BillProvince).HasMaxLength(100);
             entity.Property(e => e.BillSttId).HasColumnName("BillSttID");
             entity.Property(e => e.BillUpdatedAt).HasColumnType("datetime");
-            entity.Property(e => e.BillWard).HasMaxLength(1);
+            entity.Property(e => e.BillWard).HasMaxLength(100);
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
@@ -112,7 +111,7 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.DetailedProductId).HasColumnName("DetailedProductID");
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
@@ -136,7 +135,7 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.BillSttId).HasColumnName("BillSttID");
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
         });
@@ -148,13 +147,12 @@ public partial class SonungvienContext : DbContext
             entity.ToTable("Category");
 
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
-            entity.Property(e => e.CategoryName).HasMaxLength(1);
+            entity.Property(e => e.CategoryName).HasMaxLength(100);
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Image)
-                .HasMaxLength(1)
-                .IsUnicode(false);
+                .HasMaxLength(100);
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
         });
@@ -168,16 +166,15 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.DetailedProductId).HasColumnName("DetailedProductID");
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.DetailedProductName)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false)
                 .IsFixedLength();
             entity.Property(e => e.DetailedProductPrice).HasColumnName("DetailedProductPRICE");
             entity.Property(e => e.DetailedProductQuantity).HasColumnName("DetailedProductQUANTITY");
             entity.Property(e => e.Image)
-                .HasMaxLength(1)
-                .IsUnicode(false);
+                .HasMaxLength(100);
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
@@ -198,14 +195,13 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.DiscountAvailableFrom).HasColumnType("datetime");
             entity.Property(e => e.DiscountAvailableUntil).HasColumnType("datetime");
-            entity.Property(e => e.DiscountCalUnit).HasMaxLength(1);
-            entity.Property(e => e.DiscountName).HasMaxLength(1);
-            entity.Property(e => e.DiscountRemark).HasMaxLength(1);
+            entity.Property(e => e.DiscountCalUnit).HasMaxLength(100);
+            entity.Property(e => e.DiscountName).HasMaxLength(100);
+            entity.Property(e => e.DiscountRemark).HasMaxLength(100);
             entity.Property(e => e.Image)
-                .HasMaxLength(1)
-                .IsUnicode(false);
+                .HasMaxLength(100);
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
         });
@@ -220,7 +216,7 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.BillId).HasColumnName("BillID");
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
             entity.Property(e => e.UsedAt).HasColumnType("datetime");
@@ -244,13 +240,12 @@ public partial class SonungvienContext : DbContext
 
             entity.Property(e => e.FooterId).HasColumnName("FooterID");
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
-            entity.Property(e => e.FooterDescription).HasMaxLength(1);
-            entity.Property(e => e.FooterName).HasMaxLength(1);
+            entity.Property(e => e.FooterDescription).HasMaxLength(100);
+            entity.Property(e => e.FooterName).HasMaxLength(100);
             entity.Property(e => e.Image)
-                .HasMaxLength(1)
-                .IsUnicode(false);
+                .HasMaxLength(100);
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
         });
@@ -264,11 +259,10 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.LogoId).HasColumnName("LogoID");
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Image)
-                .HasMaxLength(1)
-                .IsUnicode(false);
-            entity.Property(e => e.LogoName).HasMaxLength(1);
+                .HasMaxLength(100);
+            entity.Property(e => e.LogoName).HasMaxLength(100);
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
         });
@@ -282,11 +276,10 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.MenuId).HasColumnName("MenuID");
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Image)
-                .HasMaxLength(1)
-                .IsUnicode(false);
-            entity.Property(e => e.MenuName).HasMaxLength(1);
+                .HasMaxLength(100);
+            entity.Property(e => e.MenuName).HasMaxLength(100);
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
         });
@@ -301,10 +294,9 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
-                .IsUnicode(false);
-            entity.Property(e => e.ProductDescription).HasMaxLength(1);
-            entity.Property(e => e.ProductName).HasMaxLength(1);
+                .HasMaxLength(100);
+            entity.Property(e => e.ProductDescription).HasMaxLength(100);
+            entity.Property(e => e.ProductName).HasMaxLength(100);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
             entity.HasOne(d => d.Category).WithMany(p => p.Products)
@@ -322,7 +314,7 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.ProductImageId).HasColumnName("ProductImageID");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.ProductImageLink)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
 
             entity.HasOne(d => d.Product).WithMany(p => p.ProductImages)
@@ -340,12 +332,11 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.Image)
-                .HasMaxLength(1)
-                .IsUnicode(false);
+                .HasMaxLength(100);
             entity.Property(e => e.Meta)
-                .HasMaxLength(1)
+                .HasMaxLength(100)
                 .IsUnicode(false);
-            entity.Property(e => e.PaymentName).HasMaxLength(1);
+            entity.Property(e => e.PaymentName).HasMaxLength(100);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
         });
 

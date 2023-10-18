@@ -1,0 +1,236 @@
+USE MASTER
+GO
+IF EXISTS (SELECT * FROM SYS.DATABASES WHERE Name = 'SONUNGVIEN')
+BEGIN
+	DROP DATABASE SONUNGVIEN
+END
+GO
+CREATE DATABASE SONUNGVIEN
+GO
+USE SONUNGVIEN
+GO
+CREATE TABLE Category
+( 
+	CategoryID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	CategoryName NVARCHAR(100) NOT NULL,
+
+	[Order] INT,
+	Meta VARCHAR(100),
+	[Image] NVARCHAR(100),
+	Hide BIT,
+	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NOT NULL,
+);
+CREATE TABLE Product
+(
+	ProductID INT NOT NULL IDENTITY (1,1),
+	ProductName NVARCHAR(100) NOT NULL,
+	ProductDescription NVARCHAR(100) NOT NULL,
+	ProductSold INT NOT NULL,
+
+	[Order] INT,
+	Meta VARCHAR(100),
+	Hide BIT,
+	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NOT NULL,
+
+	CategoryID INT NOT NULL,
+	PRIMARY KEY (ProductID),
+	FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
+)
+
+CREATE TABLE Discount
+(
+	DiscountID INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
+	DiscountName NVARCHAR(100) NOT NULL,
+	DiscountCalUnit NVARCHAR(100) NOT NULL,
+	DiscountCondition INT NOT NULL,
+	DiscountMaxValue INT NOT NULL,
+	DiscountRemark NVARCHAR(100) NOT NULL,
+	DiscountAvailableFrom DATETIME NOT NULL,
+	DiscountAvailableUntil DATETIME NOT NULL,
+	DiscountValue INT NOT NULL,
+
+	[Order] INT,
+	Meta VARCHAR(100),
+	[Image] NVARCHAR(100),
+	Hide BIT,
+	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NOT NULL,
+);
+
+CREATE TABLE DetailedProduct
+(
+	DetailedProductID INT NOT NULL IDENTITY (1,1),
+	DetailedProductPRICE INT NOT NULL,
+	DetailedProductQUANTITY INT NOT NULL,
+	DetailedProductName CHAR(100) NOT NULL,
+	ProductID INT NOT NULL,
+
+	[Order] INT,
+	Meta VARCHAR(100),
+	[Image] NVARCHAR(100),
+	Hide BIT,
+	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NOT NULL,
+
+	PRIMARY KEY (DetailedProductID),
+	FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+);
+
+CREATE TABLE BillStt
+(
+	BillSttID INT NOT NULL IDENTITY (1,1),
+	BillSttName INT NOT NULL,
+
+	[Order] INT,
+	Meta VARCHAR(100),
+	Hide BIT,
+	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NOT NULL,
+
+	PRIMARY KEY (BillSttID)
+);
+
+CREATE TABLE TermOfPayment
+(
+	PaymentID INT NOT NULL IDENTITY (1,1),
+	PaymentName NVARCHAR(100) NOT NULL,
+
+	[Order] INT,
+	Meta VARCHAR(100),
+	[Image] NVARCHAR(100),
+	Hide BIT,
+	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NOT NULL,
+
+	PRIMARY KEY (PaymentID)
+);
+
+CREATE TABLE Bill
+(
+	BillID INT NOT NULL IDENTITY (1,1),
+	BillPhoneNumber NVARCHAR(100) NOT NULL,
+	BillLastName NVARCHAR(100) NOT NULL,
+	BillNote NVARCHAR(100) NOT NULL,
+	BillFirstName NVARCHAR(100) NOT NULL,
+	BillPostcode NVARCHAR(100) NOT NULL,
+	BillEmail NVARCHAR(100) NOT NULL,
+	BillProvince NVARCHAR(100) NOT NULL,
+	BillWard NVARCHAR(100) NOT NULL,
+	BillAddress NVARCHAR(100) NOT NULL,
+	BillPrice INT NOT NULL,
+	BillOldPrice INT NOT NULL,
+	BillTaxAmount INT NOT NULL,
+	BillUpdatedAt DATETIME NOT NULL,
+	BillCreatedAt DATETIME NOT NULL,
+	BillSequenceNumber INT NOT NULL,
+	BillFinalPrice INT NOT NULL,
+	BillDiscountAmount INT NOT NULL,
+
+	[Order] INT,
+	Meta VARCHAR(100),
+	Hide BIT,
+	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NOT NULL,
+
+	BillTermOfPayment INT NOT NULL,
+	BillStt INT NOT NULL,
+	PRIMARY KEY (BillID),
+	FOREIGN KEY (BillStt) REFERENCES BillStt(BillSttID),
+	FOREIGN KEY (BillTermOfPayment) REFERENCES TermOfPayment(PaymentID)
+);
+
+CREATE TABLE BillProduct
+(
+	BillID INT NOT NULL IDENTITY (1,1),
+	DetailedProductID INT NOT NULL,
+	Amount INT NOT NULL,
+
+	[Order] INT,
+	Meta VARCHAR(100),
+	Hide BIT,
+	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NOT NULL,
+
+	PRIMARY KEY (BillID, DetailedProductID),
+	FOREIGN KEY (BillID) REFERENCES Bill(BillID),
+	FOREIGN KEY (DetailedProductID) REFERENCES DetailedProduct(DetailedProductID)
+);
+
+CREATE TABLE DiscountUse
+(
+	DiscountID INT NOT NULL,
+	BillID INT NOT NULL,
+	UsedAt DATETIME NOT NULL,
+
+	[Order] INT,
+	Meta VARCHAR(100),
+	Hide BIT,
+	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NOT NULL,
+
+	PRIMARY KEY (DiscountID, BillID),
+	FOREIGN KEY (DiscountID) REFERENCES Discount(DiscountID),
+	FOREIGN KEY (BillID) REFERENCES Bill(BillID)
+);
+CREATE TABLE Menu
+(
+    MenuID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    MenuName NVARCHAR(100) NOT NULL,
+    [Order] INT,
+    Meta VARCHAR(100),
+    [Image] NVARCHAR(100),
+    Hide BIT,
+    CreatedAt DATETIME NOT NULL,
+    UpdatedAt DATETIME NOT NULL
+);
+
+CREATE TABLE Logo
+(
+	LogoID INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
+	LogoName NVARCHAR(100) NOT NULL,
+
+	[Order] INT,
+	Meta VARCHAR(100),
+	[Image] NVARCHAR(100),
+	Hide BIT,
+	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NOT NULL,
+);
+
+CREATE TABLE Footer
+( 
+	FooterID INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
+	FooterName NVARCHAR(100) NOT NULL,
+	FooterDescription NVARCHAR(100) NOT NULL,
+
+	[Order] INT,
+	Meta VARCHAR(100),
+	[Image] NVARCHAR(100),
+	Hide BIT,
+	CreatedAt DATETIME NOT NULL,
+	UpdatedAt DATETIME NOT NULL,
+);
+
+CREATE TABLE Banner
+(
+    BannerID INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
+    BannerName NVARCHAR(100) NOT NULL,
+    BannerMessage NVARCHAR(100) NOT NULL,
+    BannerDescription NVARCHAR(100) NOT NULL,
+    [Order] INT,
+    Meta VARCHAR(100),
+    [Image] NVARCHAR(100),
+    Hide BIT,
+    CreatedAt DATETIME NOT NULL,
+    UpdatedAt DATETIME NOT NULL
+);
+
+CREATE TABLE ProductImage
+(
+	ProductImageID INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
+	ProductImageLink VARCHAR(100),
+	ProductID INT NOT NULL,
+	FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+)

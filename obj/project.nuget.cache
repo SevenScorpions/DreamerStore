@@ -1,15 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "lQBWsM3ACrAtmeEtO1wGInhCNNX4232zCiDE6Thv+xtP7We2sxS4eVu6o2EDdNignO3Cm5y8re2ISAddHFxX7A==",
+  "dgSpecHash": "s9UeAVGyWQreWJjGlLclD2YAOhH/bb3wm5iKaWCx5yzPbXuVlhGOYXCRcr8B36r/+g/a6xmaAdVIAhp7FjlimA==",
   "success": true,
   "projectFilePath": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\DreamerStore2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ADMIN\\.nuget\\packages\\antlr\\3.5.0.2\\antlr.3.5.0.2.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\bootstrap\\5.3.2\\bootstrap.5.3.2.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\entityframework.codetemplates.csharp\\6.2.0\\entityframework.codetemplates.csharp.6.2.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\google.apis\\1.62.0\\google.apis.1.62.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\google.apis.auth\\1.62.0\\google.apis.auth.1.62.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\google.apis.core\\1.62.0\\google.apis.core.1.62.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\google.apis.drive.v3\\1.62.0.3155\\google.apis.drive.v3.1.62.0.3155.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -62,7 +65,6 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\jquery\\3.7.1\\jquery.3.7.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\jquery.validation\\1.19.5\\jquery.validation.1.19.5.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnet.web.optimization\\1.1.3\\microsoft.aspnet.web.optimization.1.1.3.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.11\\microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",
@@ -83,7 +85,7 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.0\\microsoft.data.sqlclient.sni.runtime.5.1.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.12\\microsoft.data.sqlite.core.7.0.12.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.diasymreader\\1.4.0\\microsoft.diasymreader.1.4.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.dotnet.scaffolding.shared\\7.0.9\\microsoft.dotnet.scaffolding.shared.7.0.9.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.dotnet.scaffolding.shared\\7.0.10\\microsoft.dotnet.scaffolding.shared.7.0.10.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.12\\microsoft.entityframeworkcore.7.0.12.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.12\\microsoft.entityframeworkcore.abstractions.7.0.12.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.12\\microsoft.entityframeworkcore.analyzers.7.0.12.nupkg.sha512",
@@ -113,14 +115,13 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\7.0.9\\microsoft.visualstudio.web.codegeneration.7.0.9.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\7.0.9\\microsoft.visualstudio.web.codegeneration.core.7.0.9.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.design\\7.0.9\\microsoft.visualstudio.web.codegeneration.design.7.0.9.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.entityframeworkcore\\7.0.9\\microsoft.visualstudio.web.codegeneration.entityframeworkcore.7.0.9.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.templating\\7.0.9\\microsoft.visualstudio.web.codegeneration.templating.7.0.9.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.utils\\7.0.9\\microsoft.visualstudio.web.codegeneration.utils.7.0.9.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\7.0.9\\microsoft.visualstudio.web.codegenerators.mvc.7.0.9.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.web.infrastructure\\1.0.0\\microsoft.web.infrastructure.1.0.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\7.0.10\\microsoft.visualstudio.web.codegeneration.7.0.10.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\7.0.10\\microsoft.visualstudio.web.codegeneration.core.7.0.10.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.design\\7.0.10\\microsoft.visualstudio.web.codegeneration.design.7.0.10.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.entityframeworkcore\\7.0.10\\microsoft.visualstudio.web.codegeneration.entityframeworkcore.7.0.10.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.templating\\7.0.10\\microsoft.visualstudio.web.codegeneration.templating.7.0.10.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.utils\\7.0.10\\microsoft.visualstudio.web.codegeneration.utils.7.0.10.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.visualstudio.web.codegenerators.mvc\\7.0.10\\microsoft.visualstudio.web.codegenerators.mvc.7.0.10.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
@@ -243,49 +244,7 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\ADMIN\\.nuget\\packages\\webgrease\\1.5.2\\webgrease.1.5.2.nupkg.sha512"
+    "C:\\Users\\ADMIN\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Antlr 3.5.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Antlr",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.Web.Optimization 1.1.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.AspNet.Web.Optimization",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Web.Infrastructure 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.Web.Infrastructure",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'WebGrease 1.5.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "WebGrease",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  "logs": []
 }

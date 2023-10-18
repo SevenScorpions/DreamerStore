@@ -14,13 +14,11 @@ D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\DreamerStore2.deps.json
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\DreamerStore2.runtimeconfig.json
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\DreamerStore2.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\DreamerStore2.pdb
-D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Antlr3.Runtime.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Azure.Core.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Azure.Identity.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\EntityFramework.SqlServer.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\EntityFramework.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Humanizer.dll
-D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\System.Web.Optimization.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Microsoft.Data.Sqlite.dll
@@ -39,7 +37,6 @@ D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Microsoft.IdentityModel
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
-D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Microsoft.Web.Infrastructure.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Mono.TextTemplating.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Newtonsoft.Json.dll
@@ -55,7 +52,6 @@ D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\System.Runtime.Caching.
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\System.Security.Permissions.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\System.Windows.Extensions.dll
-D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\WebGrease.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
@@ -263,3 +259,9 @@ D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\ru\Microsoft.CodeAnalys
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Google.Apis.dll
+D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Google.Apis.Auth.PlatformServices.dll
+D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Google.Apis.Auth.dll
+D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Google.Apis.Core.dll
+D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Google.Apis.Drive.v3.dll
+D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Service\GoogleUploading\cre.json

@@ -6,24 +6,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DreamerStore2.Models;
+using System.Diagnostics;
+using DreamerStore2.Service.GoogleUploadingService;
 
 namespace DreamerStore2.Controllers
 {
     public class CategoriesController : Controller
     {
         private readonly SonungvienContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public CategoriesController(SonungvienContext context)
+        public CategoriesController(SonungvienContext context,IWebHostEnvironment environment)
         {
             _context = context;
+            _webHostEnvironment = environment;
         }
 
         // GET: Categories
         public async Task<IActionResult> Index()
         {
-              return _context.Categories != null ? 
-                          View(await _context.Categories.ToListAsync()) :
-                          Problem("Entity set 'SonungvienContext.Categories'  is null.");
+            return _context.Categories != null ?
+                        View(await _context.Categories.ToListAsync()) :
+                        Problem("Entity set 'SonungvienContext.Categories'  is null.");
         }
 
         // GET: Categories/Details/5
@@ -47,6 +51,7 @@ namespace DreamerStore2.Controllers
         // GET: Categories/Create
         public IActionResult Create()
         {
+
             return View();
         }
 
@@ -55,13 +60,35 @@ namespace DreamerStore2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,Order,Meta,Image,Hide,CreatedAt,UpdatedAt")] Category category)
+        public async Task<IActionResult> Create([Bind("CategoryId,CategoryName,Order,Meta,Image,Hide,CreatedAt,UpdatedAt")] Category category,IFormFile photo)
         {
+            if(photo!=null)
+            {
+                GoogleUploadingService.Instance.Upload(photo);
+                category.Image = photo.FileName;
+            }
+            category.CreatedAt = DateTime.Now;
+            category.UpdatedAt = DateTime.Now;
+            Debug.WriteLine(ModelState.IsValid);
             if (ModelState.IsValid)
             {
                 _context.Add(category);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            if (!ModelState.IsValid)
+            {
+                foreach (var modelStateValue in ModelState.Values)
+                {
+                    if (modelStateValue.Errors.Count > 0)
+                    {
+                        // Xử lý lỗi cho modelStateValue
+                        // Ví dụ: In ra tên thuộc tính và thông báo lỗi đầu tiên
+                        var propertyName = modelStateValue.AttemptedValue;
+                        var errorMessage = modelStateValue.Errors[0].ErrorMessage;
+                        Debug.WriteLine($"Property '{propertyName}' has error: {errorMessage}");
+                    }
+                }
             }
             return View(category);
         }

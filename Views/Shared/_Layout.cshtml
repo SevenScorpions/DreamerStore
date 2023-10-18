@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using System.ComponentModel.DataAnnotations
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -178,6 +180,7 @@
             });
         });
 
-    </script>   
+    </script>
+    @RenderSection("Scripts",required: false)
 </body>
 </html>
