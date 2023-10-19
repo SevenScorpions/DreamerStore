@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DreamerStore2.Models;
 using System.Diagnostics;
-using DreamerStore2.Service.GoogleUploadingService;
+using DreamerStore2.ViewModel;
 
 namespace DreamerStore2.Controllers
 {
@@ -15,11 +15,13 @@ namespace DreamerStore2.Controllers
     {
         private readonly SonungvienContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly GoogleUploadingService _uploadingService;
 
-        public CategoriesController(SonungvienContext context,IWebHostEnvironment environment)
+        public CategoriesController(SonungvienContext context,IWebHostEnvironment environment, GoogleUploadingService googleUploadingService)
         {
             _context = context;
             _webHostEnvironment = environment;
+            _uploadingService = googleUploadingService;
         }
 
         // GET: Categories
@@ -44,8 +46,10 @@ namespace DreamerStore2.Controllers
             {
                 return NotFound();
             }
+            CategoryViewModel model = new CategoryViewModel(category);
+            model.CategoryImage = _uploadingService.GetImage(category.Image);
 
-            return View(category);
+            return View(model);
         }
 
         // GET: Categories/Create
@@ -64,19 +68,17 @@ namespace DreamerStore2.Controllers
         {
             if(photo!=null)
             {
-                GoogleUploadingService.Instance.Upload(photo);
-                category.Image = photo.FileName;
+                category.Image = await _uploadingService.UploadImage(photo);
             }
             category.CreatedAt = DateTime.Now;
             category.UpdatedAt = DateTime.Now;
-            Debug.WriteLine(ModelState.IsValid);
             if (ModelState.IsValid)
             {
                 _context.Add(category);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            if (!ModelState.IsValid)
+/*            if (!ModelState.IsValid)
             {
                 foreach (var modelStateValue in ModelState.Values)
                 {
@@ -89,7 +91,7 @@ namespace DreamerStore2.Controllers
                         Debug.WriteLine($"Property '{propertyName}' has error: {errorMessage}");
                     }
                 }
-            }
+            }*/
             return View(category);
         }
 
@@ -114,19 +116,45 @@ namespace DreamerStore2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,Order,Meta,Image,Hide,CreatedAt,UpdatedAt")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,Order,Meta,Image,Hide,CreatedAt,UpdatedAt")] Category category, IFormFile photo)
         {
             if (id != category.CategoryId)
             {
                 return NotFound();
             }
+            Category existingCategory = _context.Categories.Find(id);
+            if (existingCategory == null)
+            {
+                return NotFound();
+            }
+            if (photo != null)
+            {
+                if (!string.IsNullOrEmpty(existingCategory.Image))
+                {
+                    _uploadingService.DeleteImage(existingCategory.Image);
+                }
+                category.Image = await _uploadingService.UploadImage(photo);
+                //Debug.WriteLine("photo: " + photo.Name);
+            }
+
+            existingCategory.CategoryName = category.CategoryName;
+            existingCategory.Order = category.Order;
+            existingCategory.Meta = category.Meta;
+            existingCategory.Image = category.Image;
+            existingCategory.Hide = category.Hide;
+            existingCategory.UpdatedAt = DateTime.Now;
+
+            /*Debug.WriteLine("photo: " + photo.Name +
+                            "id: " + category.Image +
+                            "valid: " + ModelState.IsValid +
+                            "create: " + existingCategory.CreatedAt);*/
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(category);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -139,8 +167,8 @@ namespace DreamerStore2.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
+
             return View(category);
         }
 

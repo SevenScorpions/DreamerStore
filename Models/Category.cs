@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -17,10 +18,11 @@ public partial class Category
     [Display(Name = "Meta")]
     public string? Meta { get; set; }
 
-    [Display(Name = "Hình ảnh")]
+    [Display(Name = "ID Image")]
     public string? Image { get; set; }
+    private string? image;
 
-    [Display(Name = "Ẩn")]
+    [Display(Name = "Hiển thị")]
     public bool? Hide { get; set; }
 
     [Display(Name = "Ngày tạo")]
@@ -28,6 +30,5 @@ public partial class Category
 
     [Display(Name = "Ngày cập nhật")]
     public DateTime UpdatedAt { get; set; }
-
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

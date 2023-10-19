@@ -1,63 +1,84 @@
 ﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Download;
 using Google.Apis.Drive.v3;
-using Google.Apis.Drive.v3.Data;
 using Google.Apis.Services;
+using Google.Apis.Util.Store;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Common;
 using System.IO;
-namespace DreamerStore2.Service.GoogleUploadingService
+using System.Threading;
+using System.Threading.Tasks;
+
+public class GoogleUploadingService
 {
-    internal class GoogleUploadingService
+    private readonly DriveService _driveService;
+    private const string FolderId = "1R_HeVqALg8t_Qk_K4MCsYJzus3u5zXET";
+
+    public GoogleUploadingService(string credentialPath)
     {
-        private static GoogleUploadingService instance;
-        private GoogleUploadingService() { }
-        public static GoogleUploadingService Instance
-        {
-            get {
-                if (instance == null)
-                {
-                            instance = new GoogleUploadingService();
-                }
-                return instance; 
-            }
-        }
-        public void Upload(IFormFile photo)
-        {
-            GoogleCredential credential;
+        GoogleCredential credential;
 
-            using(var stream = new FileStream("Service/GoogleUploading/cre.json",FileMode.Open,FileAccess.Read))
+        using (var stream = new FileStream(credentialPath, FileMode.Open, FileAccess.Read))
+        {
+            credential = GoogleCredential.FromStream(stream).CreateScoped(new[]
             {
-                credential = GoogleCredential.FromStream(stream).CreateScoped(new[]
-                {
                     DriveService.ScopeConstants.DriveFile
-                });
-                UploadFile(photo, "1R_HeVqALg8t_Qk_K4MCsYJzus3u5zXET", credential);
-            }
-
+            });
         }
-        private Google.Apis.Drive.v3.Data.File UploadFile(IFormFile formFile, string folderId, GoogleCredential credential)
+
+        _driveService = new DriveService(new BaseClientService.Initializer()
         {
-            var fileMetadata = new Google.Apis.Drive.v3.Data.File
-            {
-                Name = formFile.FileName,
-                Parents = new List<string> { folderId } // Thay "folderId" bằng ID của thư mục cha
-            };
+            HttpClientInitializer = credential,
+            ApplicationName = "Google Drive API .NET",
+        });
+    }
 
-            using (var stream = formFile.OpenReadStream())
-            {
-                var service = new DriveService(new BaseClientService.Initializer
-                {
-                    HttpClientInitializer = credential,
-                    ApplicationName = "Your Application Name"
-                });
+    public async Task<string> UploadImage(IFormFile photo)
+    {
+        var fileMetadata = new Google.Apis.Drive.v3.Data.File()
+        {
+            Name = photo.FileName,
+            Parents = new List<string> { FolderId }
+        };
 
-                var request = service.Files.Create(fileMetadata, stream, formFile.ContentType);
-                request.Fields = "id"; // Lựa chọn các trường cần trả về cho tệp tin tải lên
-                request.Upload();
-
-                var uploadedFile = request.ResponseBody;
-                return uploadedFile;
-            }
+        FilesResource.CreateMediaUpload request;
+        using (var stream = photo.OpenReadStream())
+        {
+            request = _driveService.Files.Create(fileMetadata, stream, photo.ContentType);
+            request.Fields = "id";
+            await request.UploadAsync();
         }
+
+        var file = request.ResponseBody;
+        return file.Id;
+    }
+
+    public string GetImage(string id)
+    {
+        var request = _driveService.Files.Get(id);
+        var stream = new MemoryStream();
+        request.MediaDownloader.ProgressChanged += (IDownloadProgress progress) =>
+        {
+            switch (progress.Status)
+            {
+                case DownloadStatus.Downloading:
+                    break;
+                case DownloadStatus.Completed:
+                    break;
+                case DownloadStatus.Failed:
+                    throw new Exception("Failed to download the image.");
+            }
+        };
+
+        request.Download(stream);
+        stream.Position = 0;
+        var dataUrl = $"data:image/jpeg;base64,{Convert.ToBase64String(stream.ToArray())}";
+        return dataUrl;
+    }
+
+    public void DeleteImage(string id)
+    {
+        _driveService.Files.Delete(id).Execute();
     }
 }

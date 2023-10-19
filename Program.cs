@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<SonungvienContext>(options =>
                                                  options.UseSqlServer("Data Source=.\\;Initial Catalog=SONUNGVIEN;Integrated Security=True;TrustServerCertificate=true"));
+builder.Services.AddScoped<GoogleUploadingService>(provider => new GoogleUploadingService("Service/GoogleUploading/cre.json"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
