@@ -3,9 +3,6 @@
 @{
     ViewData["Title"] = "Categories";
 }
-<div class="topgap" style="margin-top:120px">
-   
-</div>
 <section class="section" id="categories">
     <div class="container">
         <div class="row">
@@ -42,50 +39,51 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach (var item in Model) {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CategoryName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Order)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Meta)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Image)
-                            </td>
-                            <td>
-                                    @if (item.Hide==true)
-                                    {
-                                        <text>Hiện</text>
-                                    }
-                                    else if(item.Hide==false)
-                                    {
-                                        <text>Ẩn</text>
-                                    }
-                                    else
-                                    {
-                                        <text>null</text>
-                                    }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                        @Html.DisplayFor(modelItem => item.CategoryName)
                                 </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CreatedAt)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UpdatedAt)
-                            </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
-                            </td>
-                        </tr>
-                    }
+                                <td>
+                                        @Html.DisplayFor(modelItem => item.Order)
+                                </td>
+                                <td>
+                                        @Html.DisplayFor(modelItem => item.Meta)
+                                </td>
+                                <td>
+                                        @Html.DisplayFor(modelItem => item.Image)
+                                </td>
+                                <td>
+                                        @if (item.Hide == true)
+                                        {
+                                            <text>Hiện</text>
+                                        }
+                                        else if (item.Hide == false)
+                                        {
+                                            <text>Ẩn</text>
+                                        }
+                                        else
+                                        {
+                                            <text>null</text>
+                                        }
+                                </td>
+                                <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                                </td>
+                                <td>
+                                        @Html.DisplayFor(modelItem => item.UpdatedAt)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
+            </div>
         </div>
-        </div>
-</div>
+    </div>
 </section>
