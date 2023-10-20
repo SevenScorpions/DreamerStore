@@ -264,7 +264,6 @@ D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Google.Apis.Auth.Platfo
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Google.Apis.Auth.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Google.Apis.Core.dll
 D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Google.Apis.Drive.v3.dll
-D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Service\GoogleUploading\cre.json
 C:\Users\phong pc\Desktop\abcxyz\DreamerStore\bin\Debug\net7.0\appsettings.Development.json
 C:\Users\phong pc\Desktop\abcxyz\DreamerStore\bin\Debug\net7.0\appsettings.json
 C:\Users\phong pc\Desktop\abcxyz\DreamerStore\bin\Debug\net7.0\Service\GoogleUploading\cre.json
