@@ -531,3 +531,4 @@ C:\Users\phong pc\Desktop\abcxyz\DreamerStore\obj\Debug\net7.0\refint\DreamerSto
 C:\Users\phong pc\Desktop\abcxyz\DreamerStore\obj\Debug\net7.0\DreamerStore2.pdb
 C:\Users\phong pc\Desktop\abcxyz\DreamerStore\obj\Debug\net7.0\DreamerStore2.genruntimeconfig.cache
 C:\Users\phong pc\Desktop\abcxyz\DreamerStore\obj\Debug\net7.0\ref\DreamerStore2.dll
+D:\Study\Work Space\My SUV\DreamerStore\bin\Debug\net7.0\Service\GoogleUploading\cre.json

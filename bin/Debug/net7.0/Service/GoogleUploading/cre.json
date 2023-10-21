@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sonungvien",
+  "private_key_id": "02e47ccbac7ae21e38e7f18c42852b8142a71c7b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC7ZahYezbn0SsU\nkvTAZnZ+ZnV4BXCN+QA7+9W/5OWmCcOCDaJqbs52Vl4DlbaSijg229DmsOXvTFMe\n+1RvphJhNc/d4lStiFx6LKYrr0SWh0Ey0PCFJs1u3CmBBZj16fNIuZDTWtGsXqw2\nJMPMwAPUOT8TI/ZeFQRSbfgvlqJOsa5q03hDu2QDQMa20o/yQa9f4gNqzji+65Gg\nVeE4c+217gVHFsibq9uFmjWoeBKQgab5c7X6+fIzDyh4iKgELg32/TKNxzZXGgpI\nhLN5GTKs5Jw65hN/wkUtey1rKI/Yw6akrChrFwSURZ9sYRDGTJ9AhZ+5eL21qFRW\noGD12WBtAgMBAAECggEAGkeGxKW+zOKF1pRHM2YLDu3CYmrs3lQBZugJkSgB1nd/\nDdFoqeFRHcI92+XWXRV6DaNk170N+bFr5KfdLu0MncpElLqlIlLBmTaCtRSWmz9r\ncrtfR2TqITZJsbi9uxqsTdIMD7+oMLJ0FwGv3Zo9zziZ8k60QXxUB1U5nT7UExHU\n9XioiGbQWgCtbnd179UcVpXXIB7hO6ldMR8OcfomANcqUpwX5DBnIX0RLBRsh0IO\n+oBSzW7U+kxEvCt5aLcORGjO7GDx5F0tjsbGsxg3f9q/RpEblFWN2Z2kgAayfTOR\nDKZ+nq0vRhibMUguuWmvRTFeGDkcH0WnYiruy02nxwKBgQD0YNWobfNEXNXA+dH9\nP7siI2SzEBwR5WKXnSfGp6UJbAdfS279wnIsQlXxra3rn+fZKyJsBktSXXWz5+LI\ncN1hLv0kbMCO6d9kzfEpgYdnM49NRI6Zmdv0VN9bYqmt7Js1O9LPOSSv4df8A7Fs\nfMputy2CZLkp8NYfsannS3YrewKBgQDETxwo24Yrk7oFRlDTVx5bGyRsVeeb+m3O\n699iVS6oQwQg0LSiKJ4M+DE8d/sIy7uEALn1fiReifsHqw/79ErzhQVocXJVVG+y\nuZ3RaxmOhosiYsGLGZvFZmdsF/o5Lj33wuqcY+HCM1R2oqfQeeitKZpt0Ks7yuZT\nkXgyRFtLNwKBgAPAUMdLGMbd3fIeY5jNl6PIg000XBnyOXc2VFv6StBANkTCNavz\nhikjw4n4LolFZRuyS874scNL5/ihAJwvD1bkj8I1YSdQc7tqZd9LO7bb1cFL4hx9\nfiDcBKm0dAJVdXR1vKCtseB5SQV3UQvnRnw4l5w+y5DXP5Iw+fiw8dltAoGAKjhV\ndxgXmCGyfVXtJjbzaWbCA6bKJErM+RbTuWNWoIuhRKl+X+3aaDGs7TNkwzSGBNLf\nK8RQcCC+45xP2MFmqU8vpZHYpC9/wnGXVqXxHi0jmWah95evX9oxXhceEtQ2MaYz\nLSVyNYEypj0/WGAPwcZT11Bss3Rk6w47SpxXAisCgYBMrJICFfnn3eULZUfwbGxm\n/iksJxUkVv/9ip0XY+gBefYOYuTSVWPtw95mxiRHinQwHTqnRnKS7Ka4iBeBnUc3\nfDFhVSvx7Wykux4BISQ2/HHBAkbb4/Hq6fSOYzZNGGxPMeFq7nxeGPqfvSeJ4esh\nNkc48kWu/7supSP6OysrdQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "sonungvien-1978@sonungvien.iam.gserviceaccount.com",
+  "client_id": "100322014288036186611",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sonungvien-1978%40sonungvien.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
