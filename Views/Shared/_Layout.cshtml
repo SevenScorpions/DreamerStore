@@ -1,5 +1,6 @@
 ﻿@using System.ComponentModel.DataAnnotations
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +23,12 @@
     <link rel="stylesheet" href="~/assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="~/assets/css/lightbox.css">
-    <!--
+    <style>
+     body{
+         font-family: 'roboto';
+     }
 
-    TemplateMo 571 Hexashop
-
-    https://templatemo.com/tm-571-hexashop
-
-    -->
+</style>
 </head>
 <body>
     <div id="preloader">
@@ -44,22 +44,20 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="~/assets/images/logo.png">
+                        <a href="~/" class="logo">
+                            <img src="~/assets/images/my-logo.png" style="max-width: 100%; max-height: 100%; height: 80px">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#home" class="active">Trang chủ</a></li>
-                            <li class="scroll-to-section"><a href="#product">Sản phẩm</a></li>
-                            <li class="scroll-to-section"><a href="#order">Đơn hàng</a></li>
-                            <li class="scroll-to-section"><a href="#kids">Kid's</a></li>
+                            <li class="scroll-to-section"><a href="#home">Trang chủ</a></li>
                             <li class="submenu">
                                     <a href="#">Sản phẩm</a>
                                     <ul id="categorySubMenu">
                                         <!-- Danh sách submenu sẽ được thêm ở đây bằng Ajax -->
                                     </ul>
                             </li>
+                            <li class="scroll-to-section"><a href="#order">Đơn hàng</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Features</a>
                                 <ul>
@@ -88,7 +86,7 @@
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="~/assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
+                            <img src="~/assets/images/my-white-logo.png" alt="hexashop ecommerce templatemo" style="max-width: 100%; max-height: 100%; height: 80px">
                         </div>
                         <ul>
                             <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>

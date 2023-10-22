@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DreamerStore2.Models;
+using System.Diagnostics;
+using Microsoft.IdentityModel.Tokens;
 
 namespace DreamerStore2.Controllers
 {
@@ -30,7 +32,7 @@ namespace DreamerStore2.Controllers
         {
             if (id == null || _context.Products == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
 
             var product = await _context.Products
@@ -38,7 +40,7 @@ namespace DreamerStore2.Controllers
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
 
             return View(product);
@@ -50,14 +52,16 @@ namespace DreamerStore2.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
             return View();
         }
-        // POST: Products/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductDescription,ProductSold,Order,Meta,Hide,CreatedAt,UpdatedAt,CategoryId")] Product product)
+        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductDescription,Order,Meta,Hide,CategoryId")] Product product)
         {
-            if (ModelState.IsValid)
+            product.Category = await _context.Categories.FindAsync(product.CategoryId);
+            product.CreatedAt = DateTime.Now;
+            product.UpdatedAt = DateTime.Now;
+            product.ProductSold = 0;
+            if (!product.ProductDescription.IsNullOrEmpty() && product.Category!=null)
             {
                 _context.Add(product);
                 await _context.SaveChangesAsync();
@@ -72,13 +76,13 @@ namespace DreamerStore2.Controllers
         {
             if (id == null || _context.Products == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
 
             var product = await _context.Products.FindAsync(id);
             if (product == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.CategoryId);
             return View(product);
@@ -93,7 +97,7 @@ namespace DreamerStore2.Controllers
         {
             if (id != product.ProductId)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
 
             if (ModelState.IsValid)
@@ -107,7 +111,7 @@ namespace DreamerStore2.Controllers
                 {
                     if (!ProductExists(product.ProductId))
                     {
-                        return NotFound();
+                        return RedirectToAction("Error", "Home");
                     }
                     else
                     {
@@ -125,7 +129,7 @@ namespace DreamerStore2.Controllers
         {
             if (id == null || _context.Products == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
 
             var product = await _context.Products
@@ -133,7 +137,7 @@ namespace DreamerStore2.Controllers
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
 
             return View(product);

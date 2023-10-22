@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\assets\\fonts\\FontAwesome.otf"
     },
     {
+      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\Roboto-Light.ttf",
+      "PackagePath": "staticwebassets\\assets\\fonts\\Roboto-Light.ttf"
+    },
+    {
       "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\flexslider-icon.eot",
       "PackagePath": "staticwebassets\\assets\\fonts\\flexslider-icon.eot"
     },
@@ -121,6 +125,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\explore-image-02.jpg"
     },
     {
+      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\giphy.gif",
+      "PackagePath": "staticwebassets\\assets\\images\\giphy.gif"
+    },
+    {
       "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\instagram-01.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\instagram-01.jpg"
     },
@@ -165,10 +173,6 @@
       "PackagePath": "staticwebassets\\assets\\images\\loading.gif"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\logo.png",
-      "PackagePath": "staticwebassets\\assets\\images\\logo.png"
-    },
-    {
       "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\men-01.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\men-01.jpg"
     },
@@ -179,6 +183,14 @@
     {
       "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\men-03.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\men-03.jpg"
+    },
+    {
+      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\my-logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\my-logo.png"
+    },
+    {
+      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\my-white-logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\my-white-logo.png"
     },
     {
       "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\next.png",
@@ -223,10 +235,6 @@
     {
       "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\team-member-03.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\team-member-03.jpg"
-    },
-    {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\white-logo.png",
-      "PackagePath": "staticwebassets\\assets\\images\\white-logo.png"
     },
     {
       "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\women-01.jpg",

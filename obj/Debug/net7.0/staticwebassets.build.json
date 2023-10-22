@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hBBJfXKMyRtWCThfUzwJ20qRAOFjVJ1PcqYIuVEt20I=",
+  "Hash": "B4wn0iER23LcYC5pMHz1RaE8gPzrzvlgKEGBRk52f3w=",
   "Source": "DreamerStore2",
   "BasePath": "_content/DreamerStore2",
   "Mode": "Default",
@@ -306,6 +306,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\fonts\\fontawesome-webfont.woff2"
     },
     {
+      "Identity": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\Roboto-Light.ttf",
+      "SourceId": "DreamerStore2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\",
+      "BasePath": "_content/DreamerStore2",
+      "RelativePath": "assets/fonts/Roboto-Light.ttf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\fonts\\Roboto-Light.ttf"
+    },
+    {
       "Identity": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\slick.eot",
       "SourceId": "DreamerStore2",
       "SourceType": "Discovered",
@@ -527,6 +544,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\explore-image-02.jpg"
     },
     {
+      "Identity": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\giphy.gif",
+      "SourceId": "DreamerStore2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\",
+      "BasePath": "_content/DreamerStore2",
+      "RelativePath": "assets/images/giphy.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\giphy.gif"
+    },
+    {
       "Identity": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\instagram-01.jpg",
       "SourceId": "DreamerStore2",
       "SourceType": "Discovered",
@@ -714,23 +748,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\loading.gif"
     },
     {
-      "Identity": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\logo.png",
-      "SourceId": "DreamerStore2",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\",
-      "BasePath": "_content/DreamerStore2",
-      "RelativePath": "assets/images/logo.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\logo.png"
-    },
-    {
       "Identity": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\men-01.jpg",
       "SourceId": "DreamerStore2",
       "SourceType": "Discovered",
@@ -780,6 +797,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\men-03.jpg"
+    },
+    {
+      "Identity": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\my-logo.png",
+      "SourceId": "DreamerStore2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\",
+      "BasePath": "_content/DreamerStore2",
+      "RelativePath": "assets/images/my-logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\my-logo.png"
+    },
+    {
+      "Identity": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\my-white-logo.png",
+      "SourceId": "DreamerStore2",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\",
+      "BasePath": "_content/DreamerStore2",
+      "RelativePath": "assets/images/my-white-logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\my-white-logo.png"
     },
     {
       "Identity": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\next.png",
@@ -967,23 +1018,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\team-member-03.jpg"
-    },
-    {
-      "Identity": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\white-logo.png",
-      "SourceId": "DreamerStore2",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\",
-      "BasePath": "_content/DreamerStore2",
-      "RelativePath": "assets/images/white-logo.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\images\\white-logo.png"
     },
     {
       "Identity": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\women-01.jpg",

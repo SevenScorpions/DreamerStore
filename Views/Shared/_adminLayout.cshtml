@@ -22,13 +22,17 @@
     <link rel="stylesheet" href="~/assets/css/owl-carousel.css">
 
     <link rel="stylesheet" href="~/assets/css/lightbox.css">
-    <!--
+    <style>
+        .preview-image {
+            max-width: 200px;
+            max-height: 200px;
+            margin-bottom: 10px;
+        }
 
-    TemplateMo 571 Hexashop
-
-    https://templatemo.com/tm-571-hexashop
-
-    -->
+        body {
+            font-family: 'roboto';
+        }
+    </style>
 </head>
 <body>
     <div id="preloader">
@@ -44,32 +48,15 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="index.html" class="logo">
-                            <img src="~/assets/images/logo.png">
+                        <a href="~/" class="logo">
+                            <img src="~/assets/images/my-logo.png" style="max-width: 100%; max-height: 100%; height: 80px">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#home" class="active">Trang chủ</a></li>
-                            <li class="scroll-to-section"><a href="#product">Sản phẩm</a></li>
-                            <li class="scroll-to-section"><a href="#order">Đơn hàng</a></li>
-                            <li class="scroll-to-section"><a href="#kids">Kid's</a></li>
-                            <li class="submenu">
-                                <a href="#">Sản phẩm</a>
-                                <ul id="categorySubMenu">
-                                    <!-- Danh sách submenu sẽ được thêm ở đây bằng Ajax -->
-                                </ul>
-                            </li>
-                            <li class="submenu">
-                                <a href="javascript:;">Features</a>
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                    <li><a href="#">Features Page 3</a></li>
-                                    <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
-                                </ul>
-                            </li>
-                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
+                            <li class="scroll-to-section"><a href="~/" class="active">Trang chủ</a></li>
+                            <li class="scroll-to-section"><a href="~/categories">Danh mục</a></li>
+                            <li class="scroll-to-section"><a href="~/products">Sản phẩm</a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -96,10 +83,10 @@
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="~/assets/images/white-logo.png" alt="hexashop ecommerce templatemo">
+                            <img src="~/assets/images/my-white-logo.png" style="max-width: 100%; max-height: 100%; height: 80px">
                         </div>
                         <ul>
-                            <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
+                            <li><a href="#">304/57/1 Nguyễn Lương Bằng, Buôn Ma Thuột, Đắk Lắk, Việt Nam</a></li>
                             <li><a href="#">hexashop@company.com</a></li>
                             <li><a href="#">010-020-0340</a></li>
                         </ul>
@@ -133,11 +120,6 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="under-footer">
-                        <p>
-                            Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
-
-                            <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
-                        </p>
                         <ul>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -206,8 +188,26 @@
 
             });
         });
+        document.getElementById('upload').addEventListener('change', function (e) {
+            var files = e.target.files; // Lấy danh sách các tệp đã chọn
 
+            // Duyệt qua từng tệp và tạo một thẻ <img> để hiển thị trước
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.classList.add('preview-image');
+                    document.getElementById('preview').appendChild(img);
+                }
+
+                reader.readAsDataURL(file);
+            }
+        });
     </script>
+
     @RenderSection("Scripts",required: false)
 </body>
 </html>
