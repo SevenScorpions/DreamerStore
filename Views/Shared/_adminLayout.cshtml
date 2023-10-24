@@ -23,11 +23,6 @@
 
     <link rel="stylesheet" href="~/assets/css/lightbox.css">
     <style>
-        .preview-image {
-            max-width: 200px;
-            max-height: 200px;
-            margin-bottom: 10px;
-        }
 
         body {
             font-family: 'roboto';
@@ -188,25 +183,9 @@
 
             });
         });
-        document.getElementById('upload').addEventListener('change', function (e) {
-            var files = e.target.files; // Lấy danh sách các tệp đã chọn
-
-            // Duyệt qua từng tệp và tạo một thẻ <img> để hiển thị trước
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    var img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.classList.add('preview-image');
-                    document.getElementById('preview').appendChild(img);
-                }
-
-                reader.readAsDataURL(file);
-            }
-        });
+        
     </script>
+
 
     @RenderSection("Scripts",required: false)
 </body>

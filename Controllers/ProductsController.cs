@@ -14,10 +14,11 @@ namespace DreamerStore2.Controllers
     public class ProductsController : Controller
     {
         private readonly SonungvienContext _context;
-
-        public ProductsController(SonungvienContext context)
+        private readonly GoogleUploadingService googleUploadingService;
+        public ProductsController(SonungvienContext context, GoogleUploadingService googleUploadingService)
         {
             _context = context;
+            this.googleUploadingService = googleUploadingService;
         }
 
         // GET: Products
@@ -55,7 +56,7 @@ namespace DreamerStore2.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductDescription,Order,Meta,Hide,CategoryId")] Product product)
+        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductDescription,Order,Meta,Hide,CategoryId")] Product product, List<IFormFile> photos)
         {
             product.Category = await _context.Categories.FindAsync(product.CategoryId);
             product.CreatedAt = DateTime.Now;
@@ -65,6 +66,18 @@ namespace DreamerStore2.Controllers
             {
                 _context.Add(product);
                 await _context.SaveChangesAsync();
+                if (!photos.IsNullOrEmpty())
+                {
+                    foreach (var i in photos)
+                    {
+                        _context.Add(new ProductImage()
+                        {
+                            ProductId = product.ProductId,
+                            ProductImageLink = await googleUploadingService.UploadImage(i)
+                        });
+                    }
+                    await _context.SaveChangesAsync();
+                }
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.CategoryId);
