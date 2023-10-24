@@ -132,48 +132,33 @@ namespace DreamerStore2.Controllers
             {
                 return RedirectToAction("Error", "Home");
             }
-            if (photo != null)
-            {
-                if (!string.IsNullOrEmpty(existingCategory.Image))
-                {
-                    _uploadingService.DeleteImage(existingCategory.Image);
-                }
-                category.Image = await _uploadingService.UploadImage(photo);
-                //Debug.WriteLine("photo: " + photo.Name);
-            }
-
-            existingCategory.CategoryName = category.CategoryName;
-            existingCategory.Order = category.Order;
-            existingCategory.Meta = category.Meta;
-            existingCategory.Image = category.Image;
-            existingCategory.Hide = category.Hide;
-            existingCategory.UpdatedAt = DateTime.Now;
-
-            /*Debug.WriteLine("photo: " + photo.Name +
-                            "id: " + category.Image +
-                            "valid: " + ModelState.IsValid +
-                            "create: " + existingCategory.CreatedAt);*/
-
             if (!category.CategoryName.IsNullOrEmpty())
             {
                 try
                 {
+                    if (photo != null)
+                    {
+                        if (!string.IsNullOrEmpty(existingCategory.Image))
+                        {
+                            _uploadingService.DeleteImage(existingCategory.Image);
+                        }
+                        category.Image = await _uploadingService.UploadImage(photo);
+                    }
+
+                    existingCategory.CategoryName = category.CategoryName;
+                    existingCategory.Order = category.Order;
+                    existingCategory.Meta = category.Meta;
+                    existingCategory.Image = category.Image;
+                    existingCategory.Hide = category.Hide;
+                    existingCategory.UpdatedAt = DateTime.Now;
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoryExists(category.CategoryId))
-                    {
-                        return RedirectToAction("Error","Home");
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return RedirectToAction("Error","Home");
                 }
             }
-
             return View(category);
         }
 

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DreamerStore2.Models;
 using System.Diagnostics;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.CodeAnalysis;
 
 namespace DreamerStore2.Controllers
 {
@@ -53,7 +54,7 @@ namespace DreamerStore2.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
             return View();
         }
-       
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductDescription,Order,Meta,Hide,CategoryId")] Product product, List<IFormFile> photos)
@@ -62,7 +63,7 @@ namespace DreamerStore2.Controllers
             product.CreatedAt = DateTime.Now;
             product.UpdatedAt = DateTime.Now;
             product.ProductSold = 0;
-            if (!product.ProductDescription.IsNullOrEmpty() && product.Category!=null)
+            if (!product.ProductDescription.IsNullOrEmpty() && product.Category != null)
             {
                 _context.Add(product);
                 await _context.SaveChangesAsync();
@@ -97,7 +98,7 @@ namespace DreamerStore2.Controllers
             {
                 return RedirectToAction("Error", "Home");
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
             return View(product);
         }
 
@@ -106,30 +107,44 @@ namespace DreamerStore2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductDescription,ProductSold,Order,Meta,Hide,CreatedAt,UpdatedAt,CategoryId")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductDescription,ProductSold,Order,Meta,Hide,CreatedAt,UpdatedAt,CategoryId")] Product product,List<IFormFile> photos)
         {
-            if (id != product.ProductId)
-            {
-                return RedirectToAction("Error", "Home");
-            }
-
-            if (ModelState.IsValid)
+            var existingProduct = await _context.Products.FindAsync(id);
+            if (!product.ProductName.IsNullOrEmpty() && !product.ProductDescription.IsNullOrEmpty())
             {
                 try
                 {
-                    _context.Update(product);
+                    existingProduct.ProductName = product.ProductName;
+                    existingProduct.ProductDescription = product.ProductDescription;
+                    existingProduct.CategoryId = product.CategoryId;
+                    existingProduct.Meta = product.Meta;
+                    existingProduct.Order = product.Order;
+                    existingProduct.Hide = product.Hide;
+                    existingProduct.UpdatedAt = DateTime.Now;
+                    if(!photos.IsNullOrEmpty())
+                    {
+                        var productImages = await _context.ProductImages
+                                                            .Where(p => p.ProductId == product.ProductId)
+                                                            .ToListAsync();
+                        foreach (var image in productImages)
+                        {
+                            googleUploadingService.DeleteImage(image.ProductImageLink);
+                            _context.Remove(image);
+                        }
+                        foreach (var i in photos)
+                        {
+                            _context.Add(new ProductImage()
+                            {
+                                ProductId = product.ProductId,
+                                ProductImageLink = await googleUploadingService.UploadImage(i)
+                            });
+                        }
+                    }
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.ProductId))
-                    {
-                        return RedirectToAction("Error", "Home");
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return RedirectToAction("Error", "Home");
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -140,20 +155,33 @@ namespace DreamerStore2.Controllers
         // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Products == null)
+            try
+            {
+                if (_context.Products == null)
+                {
+                    return Problem("Entity set 'SonungvienContext.Products'  is null.");
+                }
+                var product = await _context.Products.FindAsync(id);
+                var productImages = await _context.ProductImages
+                                                            .Where(p => p.ProductId == product.ProductId)
+                                                            .ToListAsync();
+                foreach (var image in productImages)
+                {
+                    googleUploadingService.DeleteImage(image.ProductImageLink);
+                    _context.Remove(image);
+                }
+                if (product != null)
+                {
+                    _context.Products.Remove(product);
+                }
+
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception e)
             {
                 return RedirectToAction("Error", "Home");
             }
-
-            var product = await _context.Products
-                .Include(p => p.Category)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (product == null)
-            {
-                return RedirectToAction("Error", "Home");
-            }
-
-            return View(product);
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: Products/Delete/5
@@ -161,23 +189,38 @@ namespace DreamerStore2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Products == null)
+            try
             {
-                return Problem("Entity set 'SonungvienContext.Products'  is null.");
+                if (_context.Products == null)
+                {
+                    return Problem("Entity set 'SonungvienContext.Products'  is null.");
+                }
+                var product = await _context.Products.FindAsync(id);
+                var productImages = await _context.ProductImages
+                                                            .Where(p => p.ProductId == product.ProductId)
+                                                            .ToListAsync();
+                foreach (var image in productImages)
+                {
+                    googleUploadingService.DeleteImage(image.ProductImageLink);
+                    _context.Remove(image);
+                }
+                if (product != null)
+                {
+                    _context.Products.Remove(product);
+                }
+
+                await _context.SaveChangesAsync();
             }
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
+            catch (Exception e)
             {
-                _context.Products.Remove(product);
+                return RedirectToAction("Error", "Home");
             }
-            
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductExists(int id)
         {
-          return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
+            return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
         }
     }
 }

@@ -185,6 +185,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\men-03.jpg"
     },
     {
+      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\my-left-banner.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\my-left-banner.jpg"
+    },
+    {
       "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\my-logo.png",
       "PackagePath": "staticwebassets\\assets\\images\\my-logo.png"
     },
@@ -247,6 +251,18 @@
     {
       "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\women-03.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\women-03.jpg"
+    },
+    {
+      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\z4278797829940_d02f3c09c1b9cbe97de40506fe633046.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\z4278797829940_d02f3c09c1b9cbe97de40506fe633046.jpg"
+    },
+    {
+      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg"
+    },
+    {
+      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\z4278798213774_ed14167807432fe2dea130af31b5d804.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\z4278798213774_ed14167807432fe2dea130af31b5d804.jpg"
     },
     {
       "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\accordions.js",

@@ -183,7 +183,11 @@
 
             });
         });
-        
+            function disableButton() {
+                var submitButton = document.getElementById("submitButton");
+                submitButton.disabled = true; // Vô hiệu hóa nút Submit
+                submitButton.innerText = "Đang xử lý..."; // Thay đổi nội dung của nút Submit
+            }
     </script>
 
 

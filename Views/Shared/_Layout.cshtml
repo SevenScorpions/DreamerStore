@@ -24,11 +24,11 @@
 
     <link rel="stylesheet" href="~/assets/css/lightbox.css">
     <style>
-     body{
-         font-family: 'roboto';
-     }
+        body {
+            font-family: 'roboto';
+        }
 
-</style>
+    </style>
 </head>
 <body>
     <div id="preloader">
@@ -52,10 +52,10 @@
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#home">Trang chủ</a></li>
                             <li class="submenu">
-                                    <a href="#">Sản phẩm</a>
-                                    <ul id="categorySubMenu">
-                                        <!-- Danh sách submenu sẽ được thêm ở đây bằng Ajax -->
-                                    </ul>
+                                <a href="#">Sản phẩm</a>
+                                <ul id="categorySubMenu">
+                                    <!-- Danh sách submenu sẽ được thêm ở đây bằng Ajax -->
+                                </ul>
                             </li>
                             <li class="scroll-to-section"><a href="#order">Đơn hàng</a></li>
                             <li class="submenu">
@@ -194,6 +194,11 @@
 
             });
         });
+        function disableButton() {
+            var submitButton = document.getElementById("submitButton");
+            submitButton.disabled = true; // Vô hiệu hóa nút Submit
+            submitButton.innerText = "Đang xử lý..."; // Thay đổi nội dung của nút Submit
+        }
 
     </script>
     @RenderSection("Scripts",required: false)
