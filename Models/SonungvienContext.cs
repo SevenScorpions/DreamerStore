@@ -39,7 +39,7 @@ public partial class SonungvienContext : DbContext
     {
         modelBuilder.Entity<Bill>(entity =>
         {
-            entity.HasKey(e => e.BillId).HasName("PK__Bill__11F2FC4A84DDC9AC");
+            entity.HasKey(e => e.BillId).HasName("PK__Bill__11F2FC4A0074655D");
 
             entity.ToTable("Bill");
 
@@ -73,7 +73,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<BillProduct>(entity =>
         {
-            entity.HasKey(e => new { e.BillId, e.DetailedProductId }).HasName("PK__BillProd__0F1F604DB950B2BF");
+            entity.HasKey(e => new { e.BillId, e.DetailedProductId }).HasName("PK__BillProd__0F1F604D4AAB6490");
 
             entity.ToTable("BillProduct");
 
@@ -98,7 +98,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<BillStt>(entity =>
         {
-            entity.HasKey(e => e.BillSttId).HasName("PK__BillStt__1BCF841662172510");
+            entity.HasKey(e => e.BillSttId).HasName("PK__BillStt__1BCF841671D4312B");
 
             entity.ToTable("BillStt");
 
@@ -107,7 +107,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__Category__19093A2B56CD7772");
+            entity.HasKey(e => e.CategoryId).HasName("PK__Category__19093A2B8A89AFC4");
 
             entity.ToTable("Category");
 
@@ -123,7 +123,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<DetailedProduct>(entity =>
         {
-            entity.HasKey(e => e.DetailedProductId).HasName("PK__Detailed__EED9C070C6358AF8");
+            entity.HasKey(e => e.DetailedProductId).HasName("PK__Detailed__EED9C070F457DFEF");
 
             entity.ToTable("DetailedProduct");
 
@@ -148,7 +148,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<Discount>(entity =>
         {
-            entity.HasKey(e => e.DiscountId).HasName("PK__Discount__E43F6DF6D019C4D0");
+            entity.HasKey(e => e.DiscountId).HasName("PK__Discount__E43F6DF609DB5860");
 
             entity.ToTable("Discount");
 
@@ -156,6 +156,9 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.DiscountAvailableFrom).HasColumnType("datetime");
             entity.Property(e => e.DiscountAvailableUntil).HasColumnType("datetime");
+            entity.Property(e => e.DiscountCode)
+                .HasMaxLength(20)
+                .IsUnicode(false);
             entity.Property(e => e.DiscountName).HasMaxLength(100);
             entity.Property(e => e.DiscountRemark).HasMaxLength(100);
             entity.Property(e => e.Image).HasMaxLength(100);
@@ -167,7 +170,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<DiscountUse>(entity =>
         {
-            entity.HasKey(e => new { e.DiscountId, e.BillId }).HasName("PK__Discount__55204232E351F024");
+            entity.HasKey(e => new { e.DiscountId, e.BillId }).HasName("PK__Discount__552042328910BB01");
 
             entity.ToTable("DiscountUse");
 
@@ -193,7 +196,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__Product__B40CC6EDC46EF88D");
+            entity.HasKey(e => e.ProductId).HasName("PK__Product__B40CC6EDB3075D05");
 
             entity.ToTable("Product");
 
@@ -215,7 +218,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<ProductImage>(entity =>
         {
-            entity.HasKey(e => e.ProductImageId).HasName("PK__ProductI__07B2B1D828483C5F");
+            entity.HasKey(e => e.ProductImageId).HasName("PK__ProductI__07B2B1D8753FE13F");
 
             entity.ToTable("ProductImage");
 
@@ -233,7 +236,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<TermOfPayment>(entity =>
         {
-            entity.HasKey(e => e.PaymentId).HasName("PK__TermOfPa__9B556A5816D3EAB7");
+            entity.HasKey(e => e.PaymentId).HasName("PK__TermOfPa__9B556A58FF505656");
 
             entity.ToTable("TermOfPayment");
 

@@ -11,6 +11,8 @@ public partial class Discount
 
     public int DiscountValue { get; set; }
 
+    public string DiscountCode { get; set; } = null!;
+
     public int DiscountCondition { get; set; }
 
     public int DiscountMaxValue { get; set; }

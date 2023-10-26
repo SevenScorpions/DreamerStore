@@ -38,13 +38,13 @@ CREATE TABLE Product
 	CategoryID INT NOT NULL,
 	PRIMARY KEY (ProductID),
 	FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
-)
-
+);
 CREATE TABLE Discount
 (
 	DiscountID INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
 	DiscountName NVARCHAR(100) NOT NULL,
 	DiscountValue INT NOT NULL,
+	DiscountCode VARCHAR(20) NOT NULL,
 	DiscountCondition INT NOT NULL,
 	DiscountMaxValue INT NOT NULL,
 	DiscountRemark NVARCHAR(100) NOT NULL,
