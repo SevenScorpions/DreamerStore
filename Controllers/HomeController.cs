@@ -1,7 +1,7 @@
 ﻿using DreamerStore2.Models;
 using DreamerStore2.ViewModel;
 using Microsoft.AspNetCore.Mvc;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace DreamerStore2.Controllers
@@ -21,35 +21,33 @@ namespace DreamerStore2.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<Category> categories = _sonungvienContext.Categories.ToList();
-            List<CategoryViewModel> categoryViewModels = new List<CategoryViewModel>();
-            int i = 0;
+            var categories = await _sonungvienContext.Categories
+                .Where(c => c.Hide==true)
+                .Take(2)
+                .ToListAsync();
+
+            var categoryViewModels = new List<CategoryViewModel>();
+
             foreach (var category in categories)
             {
-                i++;
-                if(i>2)
+                var categoryViewModel = new CategoryViewModel(category);
+                categoryViewModel.Products = new List<ProductViewModel>();
+
+                var products = await _sonungvienContext.Products
+                    .Where(p => p.CategoryId == category.CategoryId && p.Hide == true)
+                    .Take(8)
+                    .ToListAsync();
+
+                foreach (var product in products)
                 {
-                    break;
+                    var productViewModel = new ProductViewModel(product);
+                    productViewModel.Image = _googleUploadingService.GetImage(product.Image);
+                    categoryViewModel.Products.Add(productViewModel);
                 }
-                if(category.Hide==true)
-                {
-                    var categoryViewModel = new CategoryViewModel(category);
-                    categoryViewModel.Products = new List<ProductViewModel>();
-                    var products  = _sonungvienContext.Products.Where(p => p.CategoryId == category.CategoryId).ToList();
-                    var j = 0;
-                    foreach (var product in products)
-                    {
-                        j++;
-                        if (j > 8)
-                            break;
-                        var productViewModel = new ProductViewModel(product);
-                        productViewModel.Image = _googleUploadingService.GetImage(product.Image);
-                        categoryViewModel.Products.Add(productViewModel);
-                    }
-                    Debug.WriteLine(categoryViewModel.Products.Count);
-                    categoryViewModels.Add(categoryViewModel);
-                }
+
+                categoryViewModels.Add(categoryViewModel);
             }
+
             return View(categoryViewModels);
         }
         public IActionResult GetCategories()
