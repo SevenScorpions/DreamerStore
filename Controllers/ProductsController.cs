@@ -59,23 +59,29 @@ namespace DreamerStore2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductDescription,Order,Meta,Hide,CategoryId")] Product product, List<IFormFile> photos)
         {
-            product.Category = await _context.Categories.FindAsync(product.CategoryId);
-            product.CreatedAt = DateTime.Now;
-            product.UpdatedAt = DateTime.Now;
-            product.ProductSold = 0;
+            var category = await _context.Categories.FindAsync(product.CategoryId);
+            product.Category = category;
             if (!product.ProductDescription.IsNullOrEmpty() && product.Category != null)
             {
+                product.CreatedAt = DateTime.Now;
+                product.UpdatedAt = DateTime.Now;
+                product.ProductSold = 0;
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 if (!photos.IsNullOrEmpty())
                 {
                     foreach (var i in photos)
                     {
-                        _context.Add(new ProductImage()
+                        var productImage = new ProductImage()
                         {
                             ProductId = product.ProductId,
                             ProductImageLink = await googleUploadingService.UploadImage(i)
-                        });
+                        };
+                        if (product.Image.IsNullOrEmpty())
+                        {
+                            product.Image = productImage.ProductImageLink;
+                        }
+                        _context.Add(productImage);
                     }
                     await _context.SaveChangesAsync();
                 }
@@ -133,11 +139,16 @@ namespace DreamerStore2.Controllers
                         }
                         foreach (var i in photos)
                         {
-                            _context.Add(new ProductImage()
+                            var productImage = new ProductImage()
                             {
                                 ProductId = product.ProductId,
                                 ProductImageLink = await googleUploadingService.UploadImage(i)
-                            });
+                            };
+                            if (product.Image.IsNullOrEmpty())
+                            {
+                                product.Image = productImage.ProductImageLink;
+                            }
+                            _context.Add(productImage);
                         }
                     }
                     await _context.SaveChangesAsync();

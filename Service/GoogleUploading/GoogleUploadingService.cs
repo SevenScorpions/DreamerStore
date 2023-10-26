@@ -4,6 +4,7 @@ using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Microsoft.AspNetCore.Http;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -79,6 +80,7 @@ public class GoogleUploadingService
 
     public void DeleteImage(string id)
     {
+        if(id.IsNullOrEmpty()) return;
         _driveService.Files.Delete(id).Execute();
     }
 }

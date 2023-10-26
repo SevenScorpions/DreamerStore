@@ -1,5 +1,7 @@
 ﻿using DreamerStore2.Models;
+using DreamerStore2.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.Entity;
 using System.Diagnostics;
 
 namespace DreamerStore2.Controllers
@@ -17,17 +19,38 @@ namespace DreamerStore2.Controllers
             _googleUploadingService = googleUploadingService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             List<Category> categories = _sonungvienContext.Categories.ToList();
+            List<CategoryViewModel> categoryViewModels = new List<CategoryViewModel>();
+            int i = 0;
             foreach (var category in categories)
             {
-                if(category.Hide==false)
+                i++;
+                if(i>2)
                 {
-                    categories.Remove(category);
+                    break;
+                }
+                if(category.Hide==true)
+                {
+                    var categoryViewModel = new CategoryViewModel(category);
+                    categoryViewModel.Products = new List<ProductViewModel>();
+                    var products  = _sonungvienContext.Products.Where(p => p.CategoryId == category.CategoryId).ToList();
+                    var j = 0;
+                    foreach (var product in products)
+                    {
+                        j++;
+                        if (j > 8)
+                            break;
+                        var productViewModel = new ProductViewModel(product);
+                        productViewModel.Image = _googleUploadingService.GetImage(product.Image);
+                        categoryViewModel.Products.Add(productViewModel);
+                    }
+                    Debug.WriteLine(categoryViewModel.Products.Count);
+                    categoryViewModels.Add(categoryViewModel);
                 }
             }
-            return View(categories);
+            return View(categoryViewModels);
         }
         public IActionResult GetCategories()
         {

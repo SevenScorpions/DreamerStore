@@ -13,6 +13,8 @@ public partial class Product
 
     public int ProductSold { get; set; }
 
+    public string? Image { get; set; }
+
     public int? Order { get; set; }
 
     public string? Meta { get; set; }

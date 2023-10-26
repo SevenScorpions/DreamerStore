@@ -30,7 +30,6 @@ namespace DreamerStore2.Controllers
         {
             return _context.Categories != null ?
                         View(await _context.Categories.ToListAsync()) :RedirectToAction("Error", "Home");
-            ;
         }
 
         // GET: Categories/Details/5
@@ -48,7 +47,6 @@ namespace DreamerStore2.Controllers
                 return RedirectToAction("Error", "Home");
             }
             CategoryViewModel model = new CategoryViewModel(category);
-            model.CategoryImage = _uploadingService.GetImage(category.Image);
 
             return View(model);
         }

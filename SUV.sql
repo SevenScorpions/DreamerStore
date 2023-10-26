@@ -28,6 +28,7 @@ CREATE TABLE Product
 	ProductDescription NVARCHAR(MAX) NOT NULL,
 	ProductSold INT NOT NULL,
 
+	[Image] NVARCHAR(100),
 	[Order] INT,
 	Meta VARCHAR(100),
 	Hide BIT,

@@ -16,7 +16,6 @@ namespace DreamerStore2.ViewModel
             Hide = category.Hide;
             CreatedAt = category.CreatedAt;
             UpdatedAt = category.UpdatedAt;
-            
         }
         public int CategoryId { get; set; }
 
@@ -41,5 +40,6 @@ namespace DreamerStore2.ViewModel
         [Display(Name = "Ngày cập nhật")]
         public DateTime UpdatedAt { get; set; }
         public string CategoryImage { get; set; }
+        public ICollection<ProductViewModel> Products { get; set; }
     }
 }
