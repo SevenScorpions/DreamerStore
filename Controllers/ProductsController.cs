@@ -9,17 +9,20 @@ using DreamerStore2.Models;
 using System.Diagnostics;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.CodeAnalysis;
+using DreamerStore2.Service.ImageUploading;
 
 namespace DreamerStore2.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly SonungvienContext _context;
-        private readonly GoogleUploadingService googleUploadingService;
-        public ProductsController(SonungvienContext context, GoogleUploadingService googleUploadingService)
+        private readonly GoogleUploadingService _googleUploadingService;
+        private readonly ImageUploadingService _imageUploadingService;
+        public ProductsController(SonungvienContext context, GoogleUploadingService googleUploadingService, ImageUploadingService imageUploadingService)
         {
             _context = context;
-            this.googleUploadingService = googleUploadingService;
+            _googleUploadingService = googleUploadingService;
+            _imageUploadingService = imageUploadingService;
         }
 
         // GET: Products
@@ -30,16 +33,16 @@ namespace DreamerStore2.Controllers
         }
 
         // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string? id)
         {
-            if (id == null || _context.Products == null)
+            if (id.IsNullOrEmpty() || _context.Products == null)
             {
                 return RedirectToAction("Error", "Home");
             }
 
             var product = await _context.Products
                 .Include(p => p.Category)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
+                .FirstOrDefaultAsync(m => m.Meta == id);
             if (product == null)
             {
                 return RedirectToAction("Error", "Home");
@@ -57,12 +60,16 @@ namespace DreamerStore2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductDescription,Order,Meta,Hide,CategoryId")] Product product, List<IFormFile> photos)
+        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductPrice,ProductDescription,Order,Meta,Hide,CategoryId")] Product product, List<IFormFile> photos)
         {
             var category = await _context.Categories.FindAsync(product.CategoryId);
             product.Category = category;
-            if (!product.ProductDescription.IsNullOrEmpty() && product.Category != null)
+            if (product.Category != null)
             {
+                if(product.Meta.IsNullOrEmpty())
+                {
+                    product.Meta = Guid.NewGuid().ToString();
+                }
                 product.CreatedAt = DateTime.Now;
                 product.UpdatedAt = DateTime.Now;
                 product.ProductSold = 0;
@@ -75,7 +82,7 @@ namespace DreamerStore2.Controllers
                         var productImage = new ProductImage()
                         {
                             ProductId = product.ProductId,
-                            ProductImageLink = await googleUploadingService.UploadImage(i)
+                            ProductImageLink = await _imageUploadingService.AddImageAsync(i)
                         };
                         if (product.Image.IsNullOrEmpty())
                         {
@@ -92,14 +99,14 @@ namespace DreamerStore2.Controllers
         }
 
         // GET: Products/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string? id)
         {
-            if (id == null || _context.Products == null)
+            if (id.IsNullOrEmpty() || _context.Products == null)
             {
                 return RedirectToAction("Error", "Home");
             }
 
-            var product = await _context.Products.FindAsync(id);
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.Meta == id);
             if (product == null)
             {
                 return RedirectToAction("Error", "Home");
@@ -113,10 +120,10 @@ namespace DreamerStore2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductDescription,ProductSold,Order,Meta,Hide,CreatedAt,UpdatedAt,CategoryId")] Product product,List<IFormFile> photos)
+        public async Task<IActionResult> Edit(string id, [Bind("ProductId,ProductName,ProductPrice,ProductDescription,ProductSold,Order,Meta,Hide,CreatedAt,UpdatedAt,CategoryId")] Product product,List<IFormFile> photos)
         {
-            var existingProduct = await _context.Products.FindAsync(id);
-            if (!product.ProductName.IsNullOrEmpty() && !product.ProductDescription.IsNullOrEmpty())
+            var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.Meta == id);
+            if (!product.ProductName.IsNullOrEmpty())
             {
                 try
                 {
@@ -126,15 +133,20 @@ namespace DreamerStore2.Controllers
                     existingProduct.Meta = product.Meta;
                     existingProduct.Order = product.Order;
                     existingProduct.Hide = product.Hide;
+                    existingProduct.ProductPrice = product.ProductPrice;
                     existingProduct.UpdatedAt = DateTime.Now;
-                    if(!photos.IsNullOrEmpty())
+                    if (existingProduct.Meta.IsNullOrEmpty())
+                    {
+                        existingProduct.Meta = Guid.NewGuid().ToString();
+                    }
+                    if (!photos.IsNullOrEmpty())
                     {
                         var productImages = await _context.ProductImages
                                                             .Where(p => p.ProductId == product.ProductId)
                                                             .ToListAsync();
                         foreach (var image in productImages)
                         {
-                            googleUploadingService.DeleteImage(image.ProductImageLink);
+                            await _imageUploadingService.DeleteImageAsync(image.ProductImageLink);
                             _context.Remove(image);
                         }
                         foreach (var i in photos)
@@ -142,7 +154,7 @@ namespace DreamerStore2.Controllers
                             var productImage = new ProductImage()
                             {
                                 ProductId = product.ProductId,
-                                ProductImageLink = await googleUploadingService.UploadImage(i)
+                                ProductImageLink = await _imageUploadingService.AddImageAsync(i)
                             };
                             if (product.Image.IsNullOrEmpty())
                             {
@@ -162,9 +174,7 @@ namespace DreamerStore2.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.CategoryId);
             return View(product);
         }
-
-        // GET: Products/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string? id)
         {
             try
             {
@@ -172,13 +182,13 @@ namespace DreamerStore2.Controllers
                 {
                     return Problem("Entity set 'SonungvienContext.Products'  is null.");
                 }
-                var product = await _context.Products.FindAsync(id);
+                var product = await _context.Products.FirstOrDefaultAsync(p => p.Meta == id);
                 var productImages = await _context.ProductImages
                                                             .Where(p => p.ProductId == product.ProductId)
                                                             .ToListAsync();
                 foreach (var image in productImages)
                 {
-                    googleUploadingService.DeleteImage(image.ProductImageLink);
+                    await _imageUploadingService.DeleteImageAsync(image.ProductImageLink);
                     _context.Remove(image);
                 }
                 if (product != null)
@@ -194,41 +204,6 @@ namespace DreamerStore2.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
-
-        // POST: Products/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            try
-            {
-                if (_context.Products == null)
-                {
-                    return Problem("Entity set 'SonungvienContext.Products'  is null.");
-                }
-                var product = await _context.Products.FindAsync(id);
-                var productImages = await _context.ProductImages
-                                                            .Where(p => p.ProductId == product.ProductId)
-                                                            .ToListAsync();
-                foreach (var image in productImages)
-                {
-                    googleUploadingService.DeleteImage(image.ProductImageLink);
-                    _context.Remove(image);
-                }
-                if (product != null)
-                {
-                    _context.Products.Remove(product);
-                }
-
-                await _context.SaveChangesAsync();
-            }
-            catch (Exception e)
-            {
-                return RedirectToAction("Error", "Home");
-            }
-            return RedirectToAction(nameof(Index));
-        }
-
         private bool ProductExists(int id)
         {
             return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();

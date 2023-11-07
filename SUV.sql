@@ -25,8 +25,9 @@ CREATE TABLE Product
 (
 	ProductID INT NOT NULL IDENTITY (1,1),
 	ProductName NVARCHAR(100) NOT NULL,
-	ProductDescription NVARCHAR(MAX) NOT NULL,
+	ProductDescription NVARCHAR(MAX),
 	ProductSold INT NOT NULL,
+	ProductPrice Decimal NOT NULL,
 
 	[Image] NVARCHAR(100),
 	[Order] INT,
@@ -43,7 +44,7 @@ CREATE TABLE Discount
 (
 	DiscountID INT NOT NULL IDENTITY (1,1) PRIMARY KEY,
 	DiscountName NVARCHAR(100) NOT NULL,
-	DiscountValue INT NOT NULL,
+	DiscountValue DECIMAL NOT NULL,
 	DiscountCode VARCHAR(20) NOT NULL,
 	DiscountCondition INT NOT NULL,
 	DiscountMaxValue INT NOT NULL,
@@ -62,7 +63,7 @@ CREATE TABLE Discount
 CREATE TABLE DetailedProduct
 (
 	DetailedProductID INT NOT NULL IDENTITY (1,1),
-	DetailedProductPrice INT NOT NULL,
+	DetailedProductPrice DECIMAL NOT NULL,
 	DetailedProductQuantity INT NOT NULL,
 	DetailedProductName CHAR(100) NOT NULL,
 	ProductID INT NOT NULL,
@@ -77,15 +78,6 @@ CREATE TABLE DetailedProduct
 	PRIMARY KEY (DetailedProductID),
 	FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
 );
-
-CREATE TABLE BillStt
-(
-	BillSttID INT NOT NULL IDENTITY (1,1),
-	BillSttName INT NOT NULL,
-
-	PRIMARY KEY (BillSttID)
-);
-
 CREATE TABLE TermOfPayment
 (
 	PaymentID INT NOT NULL IDENTITY (1,1),
@@ -111,14 +103,15 @@ CREATE TABLE Bill
 	BillEmail NVARCHAR(100) NOT NULL,
 	BillProvince NVARCHAR(100) NOT NULL,
 	BillWard NVARCHAR(100) NOT NULL,
-	BillAddress NVARCHAR(100) NOT NULL,
+	BillAddress NVARCHAR(MAX) NOT NULL,
 	BillUpdatedAt DATETIME NOT NULL,
 	BillCreatedAt DATETIME NOT NULL,
-	BillOldPrice INT NOT NULL,
-	BillTaxAmount INT NOT NULL,
-	BillPrice INT NOT NULL,
-	BillFinalPrice INT NOT NULL,
-	BillDiscountAmount INT NOT NULL,
+	BillOldPrice DECIMAL NOT NULL,
+	BillTaxAmount DECIMAL NOT NULL,
+	BillPrice DECIMAL NOT NULL,
+	BillDiscountAmount DECIMAL NOT NULL,
+	BillFinalPrice DECIMAL NOT NULL,
+	BillStt NVARCHAR(200) NOT NULL,
 
 	Meta VARCHAR(100),
 	Hide BIT,
@@ -126,9 +119,7 @@ CREATE TABLE Bill
 	UpdatedAt DATETIME NOT NULL,
 
 	BillTermOfPayment INT NOT NULL,
-	BillStt INT NOT NULL,
 	PRIMARY KEY (BillID),
-	FOREIGN KEY (BillStt) REFERENCES BillStt(BillSttID),
 	FOREIGN KEY (BillTermOfPayment) REFERENCES TermOfPayment(PaymentID)
 );
 

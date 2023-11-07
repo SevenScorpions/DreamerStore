@@ -9,6 +9,7 @@ using DreamerStore2.Models;
 using System.Diagnostics;
 using DreamerStore2.ViewModel;
 using Microsoft.IdentityModel.Tokens;
+using DreamerStore2.Service.ImageUploading;
 
 namespace DreamerStore2.Controllers
 {
@@ -17,12 +18,14 @@ namespace DreamerStore2.Controllers
         private readonly SonungvienContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly GoogleUploadingService _uploadingService;
+        private readonly ImageUploadingService _imageUploadingService;
 
-        public CategoriesController(SonungvienContext context,IWebHostEnvironment environment, GoogleUploadingService googleUploadingService)
+        public CategoriesController(SonungvienContext context,IWebHostEnvironment environment, GoogleUploadingService googleUploadingService, ImageUploadingService imageUploadingService)
         {
             _context = context;
             _webHostEnvironment = environment;
             _uploadingService = googleUploadingService;
+            _imageUploadingService = imageUploadingService;
         }
 
         // GET: Categories
@@ -33,15 +36,14 @@ namespace DreamerStore2.Controllers
         }
 
         // GET: Categories/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string? id)
         {
-            if (id == null || _context.Categories == null)
+            if (id.IsNullOrEmpty() || _context.Categories == null)
             {
                 return RedirectToAction("Error", "Home");
             }
 
-            var category = await _context.Categories
-                .FirstOrDefaultAsync(m => m.CategoryId == id);
+            var category = await _context.Categories.FirstOrDefaultAsync(m => m.Meta == id);
             if (category == null)
             {
                 return RedirectToAction("Error", "Home");
@@ -71,7 +73,11 @@ namespace DreamerStore2.Controllers
             }
             if(photo!=null)
             {
-                category.Image = await _uploadingService.UploadImage(photo);
+                category.Image = await _imageUploadingService.AddImageAsync(photo);
+            }
+            if(category.Meta.IsNullOrEmpty())
+            {
+                category.Meta = Guid.NewGuid().ToString();
             }
             category.CreatedAt = DateTime.Now;
             category.UpdatedAt = DateTime.Now;
@@ -81,35 +87,21 @@ namespace DreamerStore2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-/*            if (!ModelState.IsValid)
-            {
-                foreach (var modelStateValue in ModelState.Values)
-                {
-                    if (modelStateValue.Errors.Count > 0)
-                    {
-                        // Xử lý lỗi cho modelStateValue
-                        // Ví dụ: In ra tên thuộc tính và thông báo lỗi đầu tiên
-                        var propertyName = modelStateValue.AttemptedValue;
-                        var errorMessage = modelStateValue.Errors[0].ErrorMessage;
-                        Debug.WriteLine($"Property '{propertyName}' has error: {errorMessage}");
-                    }
-                }
-            }*/
             return View(category);
         }
 
         // GET: Categories/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string? id)
         {
-            if (id == null || _context.Categories == null)
+            if (id.IsNullOrEmpty() || _context.Categories == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
 
-            var category = await _context.Categories.FindAsync(id);
+            var category = await _context.Categories.FirstOrDefaultAsync(c=>c.Meta==id);
             if (category == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
             return View(category);
         }
@@ -119,13 +111,13 @@ namespace DreamerStore2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CategoryId,CategoryName,Order,Meta,Image,Hide,CreatedAt,UpdatedAt")] Category category, IFormFile photo)
+        public async Task<IActionResult> Edit(string id, [Bind("CategoryId,CategoryName,Order,Meta,Image,Hide,CreatedAt,UpdatedAt")] Category category, IFormFile photo)
         {
-            if (id != category.CategoryId)
+            if (id != category.Meta)
             {
                 return RedirectToAction("Error", "Home");
             }
-            Category existingCategory = await _context.Categories.FindAsync(id);
+            var existingCategory = await _context.Categories.FirstOrDefaultAsync(c => c.Meta == id);
             if (existingCategory == null)
             {
                 return RedirectToAction("Error", "Home");
@@ -138,11 +130,14 @@ namespace DreamerStore2.Controllers
                     {
                         if (!string.IsNullOrEmpty(existingCategory.Image))
                         {
-                            _uploadingService.DeleteImage(existingCategory.Image);
+                            await _imageUploadingService.DeleteImageAsync(existingCategory.Image);
                         }
-                        category.Image = await _uploadingService.UploadImage(photo);
+                        category.Image = await _imageUploadingService.AddImageAsync(photo);
                     }
-
+                    if (existingCategory.Meta.IsNullOrEmpty())
+                    {
+                        existingCategory.Meta = Guid.NewGuid().ToString();
+                    }
                     existingCategory.CategoryName = category.CategoryName;
                     existingCategory.Order = category.Order;
                     existingCategory.Meta = category.Meta;
@@ -159,44 +154,30 @@ namespace DreamerStore2.Controllers
             }
             return View(category);
         }
-
-        // GET: Categories/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string? id)
         {
-            if (_context.Categories == null)
+            try
             {
-                return Problem("Entity set 'SonungvienContext.Categories'  is null.");
+                if (_context.Categories == null)
+                {
+                    return Problem("Entity set 'SonungvienContext.Categories'  is null.");
+                }
+                var category = await _context.Categories.FirstOrDefaultAsync(c => c.Meta == id);
+                if (category != null)
+                {
+                    if(!category.Image.IsNullOrEmpty())
+                        await _imageUploadingService.DeleteImageAsync(category.Image);
+                    _context.Categories.Remove(category);
+                }
+                await _context.SaveChangesAsync();
             }
-            var category = await _context.Categories.FindAsync(id);
-            if (category != null)
-            {
-                if(!category.Image.IsNullOrEmpty())
-                    _uploadingService.DeleteImage(category.Image);
-                _context.Categories.Remove(category);
+            catch { 
+                RedirectToAction("Error", "Home");
             }
-
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         // POST: Categories/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Categories == null)
-            {
-                return Problem("Entity set 'SonungvienContext.Categories'  is null.");
-            }
-            var category = await _context.Categories.FindAsync(id);
-            if (category != null)
-            {
-                _context.Categories.Remove(category);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
 
         private bool CategoryExists(int id)
         {

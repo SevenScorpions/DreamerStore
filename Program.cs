@@ -1,12 +1,16 @@
 using DreamerStore2.Models;
+using DreamerStore2.Service.ImageUploading;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var configuration = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .Build();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<SonungvienContext>(options =>
-                                                 options.UseSqlServer("Data Source=.\\;Initial Catalog=SONUNGVIEN;Integrated Security=True;TrustServerCertificate=true"));
+                                                 options.UseSqlServer(configuration.GetConnectionString("MyConnectionString")));
+builder.Services.AddScoped<ImageUploadingService>();
 builder.Services.AddScoped<GoogleUploadingService>(provider => new GoogleUploadingService("Service/GoogleUploading/cre.json"));
 var app = builder.Build();
 

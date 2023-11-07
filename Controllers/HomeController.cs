@@ -1,7 +1,9 @@
 ﻿using DreamerStore2.Models;
 using DreamerStore2.ViewModel;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Diagnostics;
 
 namespace DreamerStore2.Controllers
@@ -26,29 +28,42 @@ namespace DreamerStore2.Controllers
                 .Take(2)
                 .ToListAsync();
 
-            var categoryViewModels = new List<CategoryViewModel>();
 
             foreach (var category in categories)
             {
-                var categoryViewModel = new CategoryViewModel(category);
-                categoryViewModel.Products = new List<ProductViewModel>();
 
                 var products = await _sonungvienContext.Products
                     .Where(p => p.CategoryId == category.CategoryId && p.Hide == true)
                     .Take(8)
                     .ToListAsync();
-
-                foreach (var product in products)
-                {
-                    var productViewModel = new ProductViewModel(product);
-                    productViewModel.Image = _googleUploadingService.GetImage(product.Image);
-                    categoryViewModel.Products.Add(productViewModel);
-                }
-
-                categoryViewModels.Add(categoryViewModel);
+                category.Products = products;
             }
 
-            return View(categoryViewModels);
+            return View(categories);
+        }
+        public async Task<IActionResult> ListProduct(string? c, int page)
+        {
+            var products = new List<Product>();
+            Category category = await _sonungvienContext.Categories.FirstOrDefaultAsync(m => m.Meta == c);
+            if((category==null && !c.IsNullOrEmpty())|| page<0)
+            {
+                return RedirectToAction("Error");
+            }
+            else if(category==null)
+            {
+                products = await _sonungvienContext.Products
+                    .Where(p => p.Hide == true)
+                    .Take(20)
+                    .ToListAsync();
+            }
+            else
+            {
+                products = await _sonungvienContext.Products
+                    .Where(p => p.CategoryId == category.CategoryId && p.Hide == true)
+                    .Take(20)
+                    .ToListAsync();
+            }
+            return View(products);
         }
         public IActionResult GetCategories()
         {

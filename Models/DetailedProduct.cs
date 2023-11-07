@@ -7,7 +7,7 @@ public partial class DetailedProduct
 {
     public int DetailedProductId { get; set; }
 
-    public int DetailedProductPrice { get; set; }
+    public decimal DetailedProductPrice { get; set; }
 
     public int DetailedProductQuantity { get; set; }
 

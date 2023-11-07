@@ -1312,6 +1312,54 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\site.css))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\450a77f6-332e-4cf3-9c7f-c42b5722c845_z4278797836701_7c2237f11b270974402ef99e4a84cc23.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>DreamerStore2</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DreamerStore2</BasePath>
+      <RelativePath>images/450a77f6-332e-4cf3-9c7f-c42b5722c845_z4278797836701_7c2237f11b270974402ef99e4a84cc23.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\450a77f6-332e-4cf3-9c7f-c42b5722c845_z4278797836701_7c2237f11b270974402ef99e4a84cc23.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\7ee51151-13d2-4e00-91c4-e5272115ab1c_z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>DreamerStore2</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DreamerStore2</BasePath>
+      <RelativePath>images/7ee51151-13d2-4e00-91c4-e5272115ab1c_z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\7ee51151-13d2-4e00-91c4-e5272115ab1c_z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\cd7ecb8a-3615-44d2-bca7-704bd50ed50e_z4278796434678_6373c6ebfe4bde4f4f2b1515bf3722a0.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>DreamerStore2</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/DreamerStore2</BasePath>
+      <RelativePath>images/cd7ecb8a-3615-44d2-bca7-704bd50ed50e_z4278796434678_6373c6ebfe4bde4f4f2b1515bf3722a0.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\cd7ecb8a-3615-44d2-bca7-704bd50ed50e_z4278796434678_6373c6ebfe4bde4f4f2b1515bf3722a0.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\js\site.js))">
       <SourceType>Package</SourceType>
       <SourceId>DreamerStore2</SourceId>

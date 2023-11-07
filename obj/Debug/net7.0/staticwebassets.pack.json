@@ -329,6 +329,18 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\images\\450a77f6-332e-4cf3-9c7f-c42b5722c845_z4278797836701_7c2237f11b270974402ef99e4a84cc23.jpg",
+      "PackagePath": "staticwebassets\\images\\450a77f6-332e-4cf3-9c7f-c42b5722c845_z4278797836701_7c2237f11b270974402ef99e4a84cc23.jpg"
+    },
+    {
+      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\images\\7ee51151-13d2-4e00-91c4-e5272115ab1c_z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg",
+      "PackagePath": "staticwebassets\\images\\7ee51151-13d2-4e00-91c4-e5272115ab1c_z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg"
+    },
+    {
+      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\images\\cd7ecb8a-3615-44d2-bca7-704bd50ed50e_z4278796434678_6373c6ebfe4bde4f4f2b1515bf3722a0.jpg",
+      "PackagePath": "staticwebassets\\images\\cd7ecb8a-3615-44d2-bca7-704bd50ed50e_z4278796434678_6373c6ebfe4bde4f4f2b1515bf3722a0.jpg"
+    },
+    {
       "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

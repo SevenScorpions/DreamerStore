@@ -52,7 +52,7 @@
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#home">Trang chủ</a></li>
                             <li class="submenu">
-                                <a href="#">Sản phẩm</a>
+                                <a asp-action="ListProduct" asp-route-page="1">Sản phẩm</a>
                                 <ul id="categorySubMenu">
                                     <!-- Danh sách submenu sẽ được thêm ở đây bằng Ajax -->
                                 </ul>
@@ -171,7 +171,7 @@
                     // Xử lý dữ liệu JSON và xây dựng submenu
                     var categorySubMenu = $('#categorySubMenu');
                     $.each(data, function (index, category) {
-                        categorySubMenu.append('<li><a href="">' + category.categoryName + '</a></li>');
+                        categorySubMenu.append('<li><a href="/Home/ListProduct/?page=1&c=' + category.meta + '">' + category.categoryName + '</a></li>');
                     });
                 },
                 error: function () {
@@ -199,8 +199,8 @@
             submitButton.disabled = true; // Vô hiệu hóa nút Submit
             submitButton.innerText = "Đang xử lý..."; // Thay đổi nội dung của nút Submit
         }
-
     </script>
     @RenderSection("Scripts",required: false)
+
 </body>
 </html>

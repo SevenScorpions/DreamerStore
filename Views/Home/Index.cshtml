@@ -1,4 +1,5 @@
-﻿@model IEnumerable<DreamerStore2.ViewModel.CategoryViewModel>
+﻿@model IEnumerable<DreamerStore2.Models.Category>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <style>
     .main-banner .left-content .thumb img {
         filter: brightness(60%);
@@ -144,18 +145,11 @@
                                                 <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                             </ul>
                                         </div>
-                                        <img src="@product.Image" alt="">
+                                        <img src="~/images/@product.Image" alt="">
                                     </div>
                                     <div class="down-content">
                                         <h4>@product.ProductName</h4>
-                                        <span>$120.00</span>
-                                        <ul class="stars">
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
+                                        <span>@product.ProductPrice.ToString("N0") VNĐ</span>
                                     </div>
                                 </div>
                             }

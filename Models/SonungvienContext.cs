@@ -19,8 +19,6 @@ public partial class SonungvienContext : DbContext
 
     public virtual DbSet<BillProduct> BillProducts { get; set; }
 
-    public virtual DbSet<BillStt> BillStts { get; set; }
-
     public virtual DbSet<Category> Categories { get; set; }
 
     public virtual DbSet<DetailedProduct> DetailedProducts { get; set; }
@@ -39,19 +37,24 @@ public partial class SonungvienContext : DbContext
     {
         modelBuilder.Entity<Bill>(entity =>
         {
-            entity.HasKey(e => e.BillId).HasName("PK__Bill__11F2FC4A0074655D");
+            entity.HasKey(e => e.BillId).HasName("PK__Bill__11F2FC4ADDFF20F6");
 
             entity.ToTable("Bill");
 
             entity.Property(e => e.BillId).HasColumnName("BillID");
-            entity.Property(e => e.BillAddress).HasMaxLength(100);
             entity.Property(e => e.BillCreatedAt).HasColumnType("datetime");
+            entity.Property(e => e.BillDiscountAmount).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.BillEmail).HasMaxLength(100);
+            entity.Property(e => e.BillFinalPrice).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.BillFirstName).HasMaxLength(100);
             entity.Property(e => e.BillLastName).HasMaxLength(100);
+            entity.Property(e => e.BillOldPrice).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.BillPhoneNumber).HasMaxLength(100);
             entity.Property(e => e.BillPostcode).HasMaxLength(100);
+            entity.Property(e => e.BillPrice).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.BillProvince).HasMaxLength(100);
+            entity.Property(e => e.BillStt).HasMaxLength(200);
+            entity.Property(e => e.BillTaxAmount).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.BillUpdatedAt).HasColumnType("datetime");
             entity.Property(e => e.BillWard).HasMaxLength(100);
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
@@ -60,20 +63,15 @@ public partial class SonungvienContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
-            entity.HasOne(d => d.BillSttNavigation).WithMany(p => p.Bills)
-                .HasForeignKey(d => d.BillStt)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Bill__BillStt__44FF419A");
-
             entity.HasOne(d => d.BillTermOfPaymentNavigation).WithMany(p => p.Bills)
                 .HasForeignKey(d => d.BillTermOfPayment)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Bill__BillTermOf__45F365D3");
+                .HasConstraintName("FK__Bill__BillTermOf__4316F928");
         });
 
         modelBuilder.Entity<BillProduct>(entity =>
         {
-            entity.HasKey(e => new { e.BillId, e.DetailedProductId }).HasName("PK__BillProd__0F1F604D4AAB6490");
+            entity.HasKey(e => new { e.BillId, e.DetailedProductId }).HasName("PK__BillProd__0F1F604D8BFDA3DD");
 
             entity.ToTable("BillProduct");
 
@@ -88,26 +86,17 @@ public partial class SonungvienContext : DbContext
             entity.HasOne(d => d.Bill).WithMany(p => p.BillProducts)
                 .HasForeignKey(d => d.BillId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__BillProdu__BillI__48CFD27E");
+                .HasConstraintName("FK__BillProdu__BillI__45F365D3");
 
             entity.HasOne(d => d.DetailedProduct).WithMany(p => p.BillProducts)
                 .HasForeignKey(d => d.DetailedProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__BillProdu__Detai__49C3F6B7");
-        });
-
-        modelBuilder.Entity<BillStt>(entity =>
-        {
-            entity.HasKey(e => e.BillSttId).HasName("PK__BillStt__1BCF841671D4312B");
-
-            entity.ToTable("BillStt");
-
-            entity.Property(e => e.BillSttId).HasColumnName("BillSttID");
+                .HasConstraintName("FK__BillProdu__Detai__46E78A0C");
         });
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoryId).HasName("PK__Category__19093A2B8A89AFC4");
+            entity.HasKey(e => e.CategoryId).HasName("PK__Category__19093A2B5F0C719E");
 
             entity.ToTable("Category");
 
@@ -123,7 +112,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<DetailedProduct>(entity =>
         {
-            entity.HasKey(e => e.DetailedProductId).HasName("PK__Detailed__EED9C070F457DFEF");
+            entity.HasKey(e => e.DetailedProductId).HasName("PK__Detailed__EED9C0702FAF0908");
 
             entity.ToTable("DetailedProduct");
 
@@ -133,6 +122,7 @@ public partial class SonungvienContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .IsFixedLength();
+            entity.Property(e => e.DetailedProductPrice).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.Image).HasMaxLength(100);
             entity.Property(e => e.Meta)
                 .HasMaxLength(100)
@@ -148,7 +138,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<Discount>(entity =>
         {
-            entity.HasKey(e => e.DiscountId).HasName("PK__Discount__E43F6DF609DB5860");
+            entity.HasKey(e => e.DiscountId).HasName("PK__Discount__E43F6DF608E71238");
 
             entity.ToTable("Discount");
 
@@ -161,6 +151,7 @@ public partial class SonungvienContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.DiscountName).HasMaxLength(100);
             entity.Property(e => e.DiscountRemark).HasMaxLength(100);
+            entity.Property(e => e.DiscountValue).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.Image).HasMaxLength(100);
             entity.Property(e => e.Meta)
                 .HasMaxLength(100)
@@ -170,7 +161,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<DiscountUse>(entity =>
         {
-            entity.HasKey(e => new { e.DiscountId, e.BillId }).HasName("PK__Discount__552042328910BB01");
+            entity.HasKey(e => new { e.DiscountId, e.BillId }).HasName("PK__Discount__5520423230628B1C");
 
             entity.ToTable("DiscountUse");
 
@@ -186,17 +177,17 @@ public partial class SonungvienContext : DbContext
             entity.HasOne(d => d.Bill).WithMany(p => p.DiscountUses)
                 .HasForeignKey(d => d.BillId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__DiscountU__BillI__4D94879B");
+                .HasConstraintName("FK__DiscountU__BillI__4AB81AF0");
 
             entity.HasOne(d => d.Discount).WithMany(p => p.DiscountUses)
                 .HasForeignKey(d => d.DiscountId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__DiscountU__Disco__4CA06362");
+                .HasConstraintName("FK__DiscountU__Disco__49C3F6B7");
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__Product__B40CC6EDB3075D05");
+            entity.HasKey(e => e.ProductId).HasName("PK__Product__B40CC6ED3AD602AA");
 
             entity.ToTable("Product");
 
@@ -208,6 +199,7 @@ public partial class SonungvienContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false);
             entity.Property(e => e.ProductName).HasMaxLength(100);
+            entity.Property(e => e.ProductPrice).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
             entity.HasOne(d => d.Category).WithMany(p => p.Products)
@@ -218,7 +210,7 @@ public partial class SonungvienContext : DbContext
 
         modelBuilder.Entity<ProductImage>(entity =>
         {
-            entity.HasKey(e => e.ProductImageId).HasName("PK__ProductI__07B2B1D8753FE13F");
+            entity.HasKey(e => e.ProductImageId).HasName("PK__ProductI__07B2B1D8FAA1730B");
 
             entity.ToTable("ProductImage");
 
@@ -231,12 +223,12 @@ public partial class SonungvienContext : DbContext
             entity.HasOne(d => d.Product).WithMany(p => p.ProductImages)
                 .HasForeignKey(d => d.ProductId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__ProductIm__Produ__5070F446");
+                .HasConstraintName("FK__ProductIm__Produ__4D94879B");
         });
 
         modelBuilder.Entity<TermOfPayment>(entity =>
         {
-            entity.HasKey(e => e.PaymentId).HasName("PK__TermOfPa__9B556A58FF505656");
+            entity.HasKey(e => e.PaymentId).HasName("PK__TermOfPa__9B556A586E23763B");
 
             entity.ToTable("TermOfPayment");
 

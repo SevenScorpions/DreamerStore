@@ -9,7 +9,7 @@ public partial class Discount
 
     public string DiscountName { get; set; } = null!;
 
-    public int DiscountValue { get; set; }
+    public decimal DiscountValue { get; set; }
 
     public string DiscountCode { get; set; } = null!;
 

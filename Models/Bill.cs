@@ -29,15 +29,17 @@ public partial class Bill
 
     public DateTime BillCreatedAt { get; set; }
 
-    public int BillOldPrice { get; set; }
+    public decimal BillOldPrice { get; set; }
 
-    public int BillTaxAmount { get; set; }
+    public decimal BillTaxAmount { get; set; }
 
-    public int BillPrice { get; set; }
+    public decimal BillPrice { get; set; }
 
-    public int BillFinalPrice { get; set; }
+    public decimal BillDiscountAmount { get; set; }
 
-    public int BillDiscountAmount { get; set; }
+    public decimal BillFinalPrice { get; set; }
+
+    public string BillStt { get; set; } = null!;
 
     public string? Meta { get; set; }
 
@@ -49,11 +51,7 @@ public partial class Bill
 
     public int BillTermOfPayment { get; set; }
 
-    public int BillStt { get; set; }
-
     public virtual ICollection<BillProduct> BillProducts { get; set; } = new List<BillProduct>();
-
-    public virtual BillStt BillSttNavigation { get; set; } = null!;
 
     public virtual TermOfPayment BillTermOfPaymentNavigation { get; set; } = null!;
 
