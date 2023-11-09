@@ -8,27 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
     <title>@ViewBag.Title - Sơn Ưng Viên</title>
 
-
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="~/assets/images/favicon.png" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.css">
 
-    <link rel="stylesheet" href="~/assets/css/templatemo-hexashop.css">
-
     <link rel="stylesheet" href="~/assets/css/owl-carousel.css">
-
     <link rel="stylesheet" href="~/assets/css/lightbox.css">
-    <style>
-        body {
-            font-family: 'roboto';
+    <link rel="stylesheet" href="~/assets/css/templatemo-hexashop.css">
+    <!-- Facebook Page -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=483084210611065" nonce="TrKvK4QO"></script>   
+    @{
+        if (ViewBag.Title == "Trang chủ")
+        {
+            <style>
+                .header-area {
+                        border-bottom: none !important;
+                    }
+             </style>
         }
-
-    </style>
+     }  
 </head>
 <body>
     <div id="preloader">
@@ -56,9 +61,8 @@
                                 <ul id="categorySubMenu">
                                     <!-- Danh sách submenu sẽ được thêm ở đây bằng Ajax -->
                                 </ul>
-                            </li>
-                            <li class="scroll-to-section"><a href="#order">Đơn hàng</a></li>
-                            <li class="submenu">
+                            </li>            
+                            @* <li class="submenu">
                                 <a href="javascript:;">Features</a>
                                 <ul>
                                     <li><a href="#">Features Page 1</a></li>
@@ -66,8 +70,12 @@
                                     <li><a href="#">Features Page 3</a></li>
                                     <li><a rel="nofollow" href="https://templatemo.com/page/4" target="_blank">Template Page 4</a></li>
                                 </ul>
+                            </li> *@
+                            <li class="scroll-to-section"><a href="#blog">Bài viết</a></li>
+                            <li class="scroll-to-section"><a href="#aboutus">Liên hệ</a></li>
+                            <li class="scroll-to-section">
+                                <a href="#order">Giỏ Hàng<img src="~/assets/images/icon/cart.png" style="max-width:30px"/></a>
                             </li>
-                            <li class="scroll-to-section"><a href="#explore">Explore</a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -78,8 +86,11 @@
             </div>
         </div>
     </header>
-    <div class="topgap" style="margin-top:160px"></div>
+    <!-- Phần trừ ra cho menu nổi -->
+    <div class="topgap" style="margin-top:100px"></div>
+
     @RenderBody()
+
     <footer>
         <div class="container">
             <div class="row">
@@ -89,51 +100,53 @@
                             <img src="~/assets/images/my-white-logo.png" alt="hexashop ecommerce templatemo" style="max-width: 100%; max-height: 100%; height: 80px">
                         </div>
                         <ul>
-                            <li><a href="#">16501 Collins Ave, Sunny Isles Beach, FL 33160, United States</a></li>
-                            <li><a href="#">hexashop@company.com</a></li>
+                            <li><a href="#">19 Nguyễn Hữu Thọ, Quận 7, TPHCM</a></li>
+                            <li><a href="#">dreamstore.com</a></li>
                             <li><a href="#">010-020-0340</a></li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Shopping &amp; Categories</h4>
+                </div> 
+                <div class="col-lg-2">
+                    <h4>DreamStore</h4>
                     <ul>
-                        <li><a href="#">Men’s Shopping</a></li>
-                        <li><a href="#">Women’s Shopping</a></li>
-                        <li><a href="#">Kid's Shopping</a></li>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Bài viết</a></li>
+                        <li><a href="#">Liên hệ</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
-                    <h4>Useful Links</h4>
+                    <h4>Hỗ trợ khách hàng</h4>
                     <ul>
-                        <li><a href="#">Homepage</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Hướng dẫn thanh toán và đặt hàng</a></li>
+                        <li><a href="#">Chính sách giao hàng và đổi trả</a></li>
+                        <li><a href="#">Thỏa thuận người dùng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
                     </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h4>Help &amp; Information</h4>
-                    <ul>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Tracking ID</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-12">
-                    <div class="under-footer">
-                        <p>
-                            Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
-
-                            <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
-                        </p>
+                </div>     
+                <div class="col-lg-4">
+                    <div class="social">
                         <ul>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                             <li><a href="#"><i class="fa fa-behance"></i></a></li>
                         </ul>
+                    </div>
+                    <div class="fb-page" data-href="https://www.facebook.com/peaceful.corners"
+                        data-height="350"
+                         data-hide-cover="false"
+                         data-show-facepile="true"></div>                               
+                </div>
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <p>
+                            Copyright ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            DreamStore. All Rights Reserved.
+                        </p>                      
                     </div>
                 </div>
             </div>
@@ -201,6 +214,5 @@
         }
     </script>
     @RenderSection("Scripts",required: false)
-
 </body>
 </html>

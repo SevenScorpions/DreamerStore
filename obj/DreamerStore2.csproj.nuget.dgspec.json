@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study\\Work Space\\My SUV\\DreamerStore\\DreamerStore2.csproj": {}
+    "D:\\DreamerStore\\DreamerStore2.csproj": {}
   },
   "projects": {
-    "D:\\Study\\Work Space\\My SUV\\DreamerStore\\DreamerStore2.csproj": {
+    "D:\\DreamerStore\\DreamerStore2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\DreamerStore2.csproj",
+        "projectUniqueName": "D:\\DreamerStore\\DreamerStore2.csproj",
         "projectName": "DreamerStore2",
-        "projectPath": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\DreamerStore2.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\obj\\",
+        "projectPath": "D:\\DreamerStore\\DreamerStore2.csproj",
+        "packagesPath": "C:\\Users\\thuho\\.nuget\\packages\\",
+        "outputPath": "D:\\DreamerStore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\thuho\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,25 +50,25 @@
             },
             "Google.Apis.Drive.v3": {
               "target": "Package",
-              "version": "[1.62.0.3155, )"
+              "version": "[1.63.0.3155, )"
             },
             "Microsoft.Data.Sqlite.Core": {
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.13, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.13, )"
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
@@ -76,7 +76,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[7.0.11, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -138,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

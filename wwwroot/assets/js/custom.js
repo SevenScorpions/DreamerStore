@@ -1,62 +1,63 @@
 (function ($) {
 	
 	"use strict";
-	$('.owl-men-item').owlCarousel({
-		items:5,
+	var owl1 = $('.sec1');
+	var owl2 = $('.sec2');
+	owl1.owlCarousel({
 		loop:true,
-		dots: true,
-		nav: true,
-		margin:30,
-		  responsive:{
-			  0:{
-				  items:1
-			  },
-			  600:{
-				  items:2
-			  },
-			  1000:{
-				  items:3
-			  }
-		 }
+		autoHeight: true,
+		autoplay: true,
+		autoplayTimeout: 2000,
+		autoplayHoverPause: true,
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 3
+			},
+			1000: {
+				items: 4
+			}
+		}
 	})
 
-	$('.owl-women-item').owlCarousel({
-		items:5,
-		loop:true,
-		dots: true,
-		nav: true,
-		margin:30,
-		  responsive:{
-			  0:{
-				  items:1
-			  },
-			  600:{
-				  items:2
-			  },
-			  1000:{
-				  items:3
-			  }
-		 }
-	 })
+	owl1.on('mousewheel', '.owl-stage', function (e) {
+		if (e.deltaY > 0) {
+			owl.trigger('next.owl');
+		} else {
+			owl.trigger('prev.owl');
+		}
+		e.preventDefault();
+	});
 
-	$('.owl-kid-item').owlCarousel({
-		items:5,
+	owl2.owlCarousel({
 		loop:true,
-		dots: true,
-		nav: true,
-		margin:30,
-		  responsive:{
-			  0:{
-				  items:1
-			  },
-			  600:{
-				  items:2
-			  },
-			  1000:{
-				  items:3
-			  }
-		 }
-	 })
+		autoHeight: true,
+		autoplay: true,
+		autoplayTimeout: 2000,
+		autoplayHoverPause: true,
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 3
+			},
+			1000: {
+				items: 4
+			}
+		}
+	})
+
+	owl2.on('mousewheel', '.owl-stage', function (e) {
+		if (e.deltaY > 0) {
+			owl.trigger('next.owl');
+		} else {
+			owl.trigger('prev.owl');
+		}
+		e.preventDefault();
+	});
 
 	$(window).scroll(function() {
 	  var scroll = $(window).scrollTop();

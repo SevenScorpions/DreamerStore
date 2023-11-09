@@ -1,575 +1,603 @@
 {
   "Files": [
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\css\\bootstrap.min.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\assets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\css\\flex-slider.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\css\\flex-slider.css",
       "PackagePath": "staticwebassets\\assets\\css\\flex-slider.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\css\\font-awesome.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\css\\font-awesome.css",
       "PackagePath": "staticwebassets\\assets\\css\\font-awesome.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\css\\lightbox.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\css\\lightbox.css",
       "PackagePath": "staticwebassets\\assets\\css\\lightbox.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\css\\owl-carousel.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\css\\owl-carousel.css",
       "PackagePath": "staticwebassets\\assets\\css\\owl-carousel.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\css\\templatemo-hexashop.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\css\\templatemo-hexashop.css",
       "PackagePath": "staticwebassets\\assets\\css\\templatemo-hexashop.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\Flaticon.woff",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\Flaticon.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\Flaticon.woff"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\FontAwesome.otf",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\FontAwesome.otf",
       "PackagePath": "staticwebassets\\assets\\fonts\\FontAwesome.otf"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\Roboto-Light.ttf",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\Roboto-Light.ttf",
       "PackagePath": "staticwebassets\\assets\\fonts\\Roboto-Light.ttf"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\flexslider-icon.eot",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\flexslider-icon.eot",
       "PackagePath": "staticwebassets\\assets\\fonts\\flexslider-icon.eot"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\flexslider-icon.svg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\flexslider-icon.svg",
       "PackagePath": "staticwebassets\\assets\\fonts\\flexslider-icon.svg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\flexslider-icon.ttf",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\flexslider-icon.ttf",
       "PackagePath": "staticwebassets\\assets\\fonts\\flexslider-icon.ttf"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\flexslider-icon.woff",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\flexslider-icon.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\flexslider-icon.woff"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\fontawesome-webfont.eot",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\fontawesome-webfont.eot",
       "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.eot"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\fontawesome-webfont.svg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\fontawesome-webfont.svg",
       "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.svg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\fontawesome-webfont.ttf",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\fontawesome-webfont.ttf",
       "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.ttf"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\fontawesome-webfont.woff",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\fontawesome-webfont.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.woff"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\fontawesome-webfont.woff2",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\fontawesome-webfont.woff2",
       "PackagePath": "staticwebassets\\assets\\fonts\\fontawesome-webfont.woff2"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\slick.eot",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\slick.eot",
       "PackagePath": "staticwebassets\\assets\\fonts\\slick.eot"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\slick.svg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\slick.svg",
       "PackagePath": "staticwebassets\\assets\\fonts\\slick.svg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\slick.ttf",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\slick.ttf",
       "PackagePath": "staticwebassets\\assets\\fonts\\slick.ttf"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\fonts\\slick.woff",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\fonts\\slick.woff",
       "PackagePath": "staticwebassets\\assets\\fonts\\slick.woff"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\about-left-image.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\about-left-image.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\about-left-image.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\about-us-page-heading.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\about-us-page-heading.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\about-us-page-heading.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\baner-right-image-01.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\baner-right-image-01.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\baner-right-image-01.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\baner-right-image-02.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\baner-right-image-02.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\baner-right-image-02.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\baner-right-image-03.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\baner-right-image-03.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\baner-right-image-03.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\baner-right-image-04.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\baner-right-image-04.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\baner-right-image-04.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\close.png",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\close.png",
       "PackagePath": "staticwebassets\\assets\\images\\close.png"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\explore-image-01.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\explore-image-01.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\explore-image-01.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\explore-image-02.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\explore-image-02.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\explore-image-02.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\giphy.gif",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\favicon.png",
+      "PackagePath": "staticwebassets\\assets\\images\\favicon.png"
+    },
+    {
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\giphy.gif",
       "PackagePath": "staticwebassets\\assets\\images\\giphy.gif"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\instagram-01.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\icon\\cart.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\cart.png"
+    },
+    {
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\icon\\heart.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\heart.png"
+    },
+    {
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\icon\\star.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon\\star.png"
+    },
+    {
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\instagram-01.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\instagram-01.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\instagram-02.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\instagram-02.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\instagram-02.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\instagram-03.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\instagram-03.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\instagram-03.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\instagram-04.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\instagram-04.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\instagram-04.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\instagram-05.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\instagram-05.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\instagram-05.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\instagram-06.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\instagram-06.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\instagram-06.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\kid-01.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\kid-01.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\kid-01.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\kid-02.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\kid-02.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\kid-02.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\kid-03.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\kid-03.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\kid-03.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\left-banner-image.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\left-banner-image.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\left-banner-image.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\loading.gif",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\loading.gif",
       "PackagePath": "staticwebassets\\assets\\images\\loading.gif"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\men-01.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\men-01.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\men-01.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\men-02.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\men-02.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\men-02.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\men-03.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\men-03.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\men-03.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\my-left-banner.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\my-left-banner.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\my-left-banner.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\my-logo.png",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\my-logo.png",
       "PackagePath": "staticwebassets\\assets\\images\\my-logo.png"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\my-white-logo.png",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\my-white-logo.png",
       "PackagePath": "staticwebassets\\assets\\images\\my-white-logo.png"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\next.png",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\next.png",
       "PackagePath": "staticwebassets\\assets\\images\\next.png"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\prev.png",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\prev.png",
       "PackagePath": "staticwebassets\\assets\\images\\prev.png"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\products-page-heading.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\products-page-heading.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\products-page-heading.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\service-01.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\service-01.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\service-01.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\service-02.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\service-02.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\service-02.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\service-03.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\service-03.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\service-03.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\single-product-01.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\single-product-01.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\single-product-01.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\single-product-02.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\single-product-02.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\single-product-02.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\team-member-01.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\team-member-01.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\team-member-01.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\team-member-02.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\team-member-02.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\team-member-02.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\team-member-03.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\team-member-03.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\team-member-03.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\women-01.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\women-01.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\women-01.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\women-02.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\women-02.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\women-02.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\women-03.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\women-03.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\women-03.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\z4278797829940_d02f3c09c1b9cbe97de40506fe633046.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\xuong-rong-khe-xanh.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\xuong-rong-khe-xanh.jpg"
+    },
+    {
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\xuong-rong-kim-ho.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\xuong-rong-kim-ho.jpg"
+    },
+    {
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\xuong-rong-thanh-son.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\xuong-rong-thanh-son.jpg"
+    },
+    {
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\z4278797829940_d02f3c09c1b9cbe97de40506fe633046.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\z4278797829940_d02f3c09c1b9cbe97de40506fe633046.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\images\\z4278798213774_ed14167807432fe2dea130af31b5d804.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\images\\z4278798213774_ed14167807432fe2dea130af31b5d804.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\z4278798213774_ed14167807432fe2dea130af31b5d804.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\accordions.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\accordions.js",
       "PackagePath": "staticwebassets\\assets\\js\\accordions.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\bootstrap.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\custom.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\custom.js",
       "PackagePath": "staticwebassets\\assets\\js\\custom.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\datepicker.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\datepicker.js",
       "PackagePath": "staticwebassets\\assets\\js\\datepicker.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\imgfix.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\imgfix.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\imgfix.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\isotope.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\isotope.js",
       "PackagePath": "staticwebassets\\assets\\js\\isotope.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\jquery-2.1.0.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\jquery-2.1.0.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\jquery-2.1.0.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\jquery.counterup.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\jquery.counterup.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\jquery.counterup.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\lightbox.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\lightbox.js",
       "PackagePath": "staticwebassets\\assets\\js\\lightbox.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\owl-carousel.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\owl-carousel.js",
       "PackagePath": "staticwebassets\\assets\\js\\owl-carousel.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\popper.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\popper.js",
       "PackagePath": "staticwebassets\\assets\\js\\popper.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\quantity.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\quantity.js",
       "PackagePath": "staticwebassets\\assets\\js\\quantity.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\scrollreveal.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\scrollreveal.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\scrollreveal.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\slick.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\slick.js",
       "PackagePath": "staticwebassets\\assets\\js\\slick.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\assets\\js\\waypoints.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\assets\\js\\waypoints.min.js",
       "PackagePath": "staticwebassets\\assets\\js\\waypoints.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\css\\site.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\images\\450a77f6-332e-4cf3-9c7f-c42b5722c845_z4278797836701_7c2237f11b270974402ef99e4a84cc23.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\images\\450a77f6-332e-4cf3-9c7f-c42b5722c845_z4278797836701_7c2237f11b270974402ef99e4a84cc23.jpg",
       "PackagePath": "staticwebassets\\images\\450a77f6-332e-4cf3-9c7f-c42b5722c845_z4278797836701_7c2237f11b270974402ef99e4a84cc23.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\images\\7ee51151-13d2-4e00-91c4-e5272115ab1c_z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\images\\7ee51151-13d2-4e00-91c4-e5272115ab1c_z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg",
       "PackagePath": "staticwebassets\\images\\7ee51151-13d2-4e00-91c4-e5272115ab1c_z4278797837063_353f2ce41aa0850e8f1e25f2e274e2f9.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\images\\cd7ecb8a-3615-44d2-bca7-704bd50ed50e_z4278796434678_6373c6ebfe4bde4f4f2b1515bf3722a0.jpg",
+      "Id": "D:\\DreamerStore\\wwwroot\\images\\cd7ecb8a-3615-44d2-bca7-704bd50ed50e_z4278796434678_6373c6ebfe4bde4f4f2b1515bf3722a0.jpg",
       "PackagePath": "staticwebassets\\images\\cd7ecb8a-3615-44d2-bca7-704bd50ed50e_z4278796434678_6373c6ebfe4bde4f4f2b1515bf3722a0.jpg"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\js\\site.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "D:\\Study\\Work Space\\My SUV\\DreamerStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\DreamerStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

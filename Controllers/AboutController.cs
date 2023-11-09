@@ -1,29 +1,28 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace DreamerStore2.Controllers
 {
-    public class HomeController1 : Controller
+    public class AboutController : Controller
     {
-        // GET: HomeController1
+        // GET: AboutController
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: HomeController1/Details/5
+        // GET: AboutController/Details/5
         public ActionResult Details()
         {
             return View();
         }
 
-        // GET: HomeController1/Create
+        // GET: AboutController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: HomeController1/Create
+        // POST: AboutController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -38,6 +37,6 @@ namespace DreamerStore2.Controllers
             }
         }
 
-        // GET: HomeController1/Edit/5
+        // GET: AboutController/Edit/5
     }
 }

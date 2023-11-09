@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<DreamerStore2.Models.Category>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewBag.Title = "Trang chủ";
+}
 <style>
-    .main-banner .left-content .thumb img {
+    .main-banner .left-content .tb ihummg {
         filter: brightness(60%);
     }
 </style>
-<div style="padding-top: 0px;" class="main-banner" id="top">
+<div class="main-banner" id="top">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6">
@@ -29,15 +32,15 @@
                             <div class="right-first-image">
                                 <div class="thumb">
                                     <div class="inner-content">
-                                        <h4>Women</h4>
+                                        <h4>Sen Đá Kim Cương</h4>
                                         <span>Best Clothes For Women</span>
                                     </div>
                                     <div class="hover-content">
                                         <div class="inner">
-                                            <h4>Women</h4>
-                                            <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                            <h4>Sen Đá Kim Cương</h4>
+                                            <p>Như những viên kim cương mong manh, mọng nước tạo cảm giác khó có thể chạm vào.</p>
                                             <div class="main-border-button">
-                                                <a href="#">Discover More</a>
+                                                <a href="#">Xem thêm</a>
                                             </div>
                                         </div>
                                     </div>
@@ -49,15 +52,15 @@
                             <div class="right-first-image">
                                 <div class="thumb">
                                     <div class="inner-content">
-                                        <h4>Men</h4>
+                                        <h4>Sen Đá Hoa Hồng</h4>
                                         <span>Best Clothes For Men</span>
                                     </div>
                                     <div class="hover-content">
                                         <div class="inner">
-                                            <h4>Men</h4>
-                                            <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                            <h4>Sen Đá Hoa Hồng</h4>
+                                            <p>Lá của cây xếp quanh trục, giống hình bông hoa hồng đang nở.</p>
                                             <div class="main-border-button">
-                                                <a href="#">Discover More</a>
+                                                <a href="#">Xem thêm</a>
                                             </div>
                                         </div>
                                     </div>
@@ -69,15 +72,15 @@
                             <div class="right-first-image">
                                 <div class="thumb">
                                     <div class="inner-content">
-                                        <h4>Kids</h4>
+                                        <h4>Cây Móng Rồng</h4>
                                         <span>Best Clothes For Kids</span>
                                     </div>
                                     <div class="hover-content">
                                         <div class="inner">
-                                            <h4>Kids</h4>
-                                            <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                            <h4>Cây Móng Rồng</h4>
+                                            <p>Lá cây dài, thon và nhọn dần về phía đầu lá, trên mặt lá có những đường vân trắng.</p>
                                             <div class="main-border-button">
-                                                <a href="#">Discover More</a>
+                                                <a href="#">Xem thêm</a>
                                             </div>
                                         </div>
                                     </div>
@@ -89,15 +92,15 @@
                             <div class="right-first-image">
                                 <div class="thumb">
                                     <div class="inner-content">
-                                        <h4>Accessories</h4>
+                                        <h4>Sen Đá Lá Thơm</h4>
                                         <span>Best Trend Accessories</span>
                                     </div>
                                     <div class="hover-content">
                                         <div class="inner">
-                                            <h4>Accessories</h4>
-                                            <p>Lorem ipsum dolor sit amet, conservisii ctetur adipiscing elit incid.</p>
+                                            <h4>Sen Đá Lá Thơm</h4>
+                                            <p>Khi chạm vào cây thường có mùi thơm dịu nhẹ, thanh mát.</p>
                                             <div class="main-border-button">
-                                                <a href="#">Discover More</a>
+                                                <a href="#">Xem thêm</a>
                                             </div>
                                         </div>
                                     </div>
@@ -112,68 +115,127 @@
     </div>
 </div>
 <!-- ***** Main Banner Area End ***** -->
-
-<!-- ***** Men Area Starts ***** -->
-@foreach (var category in Model)
-{
-    <section class="section" id="men">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="section-heading">
-                        <h2>
-                            @category.CategoryName
-                        </h2>
-                        <span>Details to details is what makes Hexashop different from the other themes.</span>
-                    </div>
+<!-- ***** About Area Starts ***** -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center section-heading mb-4">
+                    <h2>Giới thiệu</h2>
+                    <span>Sơn Ưng Viên xin gửi lời chúc sức khỏe và lời cảm ơn sâu sắc tới Quý khách hàng đã và đang quan tâm đến sản phẩm và dịch vụ của chúng tôi.<br />Chúng tôi tự hào là đơn vị đang hoạt động một cách chuyên nghiệp và giàu kinh nghiệm trong lĩnh vực cung cấp cây.</span>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="men-item-carousel">
-                        <div class="owl-men-item owl-carousel">
-                            @foreach(var product in category.Products)
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <img src="https://i.ibb.co/bdvKL6H/cheap-price.png" alt="Price" width="80px" />
+                <h4>Affordable Price</h4>
+                <p>
+                    My design is the cheapeast, many easy methods you can
+                    pay with.
+                </p>
+            </div>
+            <div class="col-4">
+                <<img src="https://i.ibb.co/17W1hVy/performance.png" alt="Performance" width="80px" />
+                <h4>Best Practice Code</h4>
+                <p>
+                    My code is clean and professional, the speed and
+                    performance is my target.
+                </p>
+            </div>
+            <div class="col-4">
+                <img src="https://i.ibb.co/y4sTrtT/web-design.png" alt="Web Design" width="80px" />
+                <h4>Design Quality</h4>
+                <p>
+                    My design is the best, I craft it with a very high
+                    quality from scratch.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** About Area Ends ***** -->
+<!-- ***** Product Area Starts ***** -->
+
+<section class="section" id="product-home">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading text-center">
+                    <h2>Sản phẩm nổi bật</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    @{
+        var i = 1;
+        foreach (var category in Model)
+        {
+            <div class="container mt-3">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="section-heading">
+                            <h3>@category.CategoryName</h3>
+                            <span>Details to details is what makes Hexashop different from the other themes.</span>
+                        </div>
+                        @{
+                            var tmp = "sec" + i;
+                        }
+                        <div class="owl-carousel owl-theme @tmp">
+                            @foreach (var product in category.Products)
                             {
-                                <div class="item">
-                                    <div class="thumb">
-                                        <div class="hover-content">
-                                            <ul>
-                                                <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                                <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                            </ul>
+                                <div class="card border-0 rounded-1 shadow m-3">
+                                    <img src="~/assets/images/@product.Image" class="product-img card-img-top rounded-1" alt="...">
+                                    <div class="card-body d-flex align-content-between flex-wrap">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <h4 class="product-title">@product.ProductName</h4>
+                                                <p>
+                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:10%" />
+                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:10%" />
+                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:10%" />
+                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:10%" />
+                                                    (123)
+                                                </p>
+                                            </div>
+                                            <div class="col-2 p-0 text-center">
+                                                <img src="~/assets/images/icon/heart.png" alt="" style="max-width:60%" />
+                                            </div>
                                         </div>
-                                        <img src="~/images/@product.Image" alt="">
-                                    </div>
-                                    <div class="down-content">
-                                        <h4>@product.ProductName</h4>
-                                        <span>@product.ProductPrice.ToString("N0") VNĐ</span>
+                                        <div class="row mt-2 align-items-center" style="width: -webkit-fill-available;">
+                                            <div class="col-10">
+                                                <h6>@product.ProductPrice ₫</h6>
+                                            </div>
+                                            <div class="col-2 p-0">
+                                                <a href="#" class="btn btn-white p-1 rounded-1"><img src="~/assets/images/icon/cart.png" style="max-width:30px" /></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             }
                         </div>
+                        <div class="text-center main-border-black-button">
+                            <a href="products.html">Xem thêm</a>
+                        </div>
                     </div>
+
                 </div>
             </div>
-        </div>
-    </section>
-}
+            i = i + 1;
+        }
+    }
+</section>
 
-<!-- ***** Men Area Ends ***** -->
-
-<!-- ***** Women Area Starts ***** -->
-
-<!-- ***** Kids Area Ends ***** -->
-
+<!-- ***** Social Area Ends ***** -->
 <!-- ***** Explore Area Starts ***** -->
 <section class="section" id="explore">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
                 <div class="left-content">
-                    <h2>Explore Our Products</h2>
+                    <h2>Bài viết</h2>
                     <span>You are allowed to use this HexaShop HTML CSS template. You can feel free to modify or edit this layout. You can convert this template as any kind of ecommerce CMS theme as you wish.</span>
                     <div class="quote">
                         <i class="fa fa-quote-left"></i><p>You are not allowed to redistribute this template ZIP file on any other website.</p>
@@ -217,92 +279,6 @@
     </div>
 </section>
 <!-- ***** Explore Area Ends ***** -->
-
-<!-- ***** Social Area Starts ***** -->
-<section class="section" id="social">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-heading">
-                    <h2>Social Media</h2>
-                    <span>Details to details is what makes Hexashop different from the other themes.</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row images">
-            <div class="col-2">
-                <div class="thumb">
-                    <div class="icon">
-                        <a href="http://instagram.com">
-                            <h6>Fashion</h6>
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                    </div>
-                    <img src="~/assets/images/instagram-01.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="thumb">
-                    <div class="icon">
-                        <a href="http://instagram.com">
-                            <h6>New</h6>
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                    </div>
-                    <img src="~/assets/images/instagram-02.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="thumb">
-                    <div class="icon">
-                        <a href="http://instagram.com">
-                            <h6>Brand</h6>
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                    </div>
-                    <img src="~/assets/images/instagram-03.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="thumb">
-                    <div class="icon">
-                        <a href="http://instagram.com">
-                            <h6>Makeup</h6>
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                    </div>
-                    <img src="~/assets/images/instagram-04.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="thumb">
-                    <div class="icon">
-                        <a href="http://instagram.com">
-                            <h6>Leather</h6>
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                    </div>
-                    <img src="~/assets/images/instagram-05.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="thumb">
-                    <div class="icon">
-                        <a href="http://instagram.com">
-                            <h6>Bag</h6>
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                    </div>
-                    <img src="~/assets/images/instagram-06.jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ***** Social Area Ends ***** -->
-
 <!-- ***** Subscribe Area Starts ***** -->
 <div class="subscribe">
     <div class="container">
@@ -315,19 +291,19 @@
                 <form id="subscribe" action="" method="get">
                     <div class="row">
                         <div class="col-lg-5">
-                        <fieldset>
-                            <input name="name" type="text" id="name" placeholder="Your Name" required="">
-                        </fieldset>
+                            <fieldset>
+                                <input name="name" type="text" id="name" placeholder="Your Name" required="">
+                            </fieldset>
                         </div>
                         <div class="col-lg-5">
-                        <fieldset>
-                            <input name="email" type="text" id="email" pattern="[^ @@]*@@[^ @@]*" placeholder="Your Email Address" required="">
-                        </fieldset>
+                            <fieldset>
+                                <input name="email" type="text" id="email" pattern="[^ @@]*@@[^ @@]*" placeholder="Your Email Address" required="">
+                            </fieldset>
                         </div>
                         <div class="col-lg-2">
-                        <fieldset>
-                            <button type="submit" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
-                        </fieldset>
+                            <fieldset>
+                                <button type="submit" id="form-submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
+                            </fieldset>
                         </div>
                     </div>
                 </form>
