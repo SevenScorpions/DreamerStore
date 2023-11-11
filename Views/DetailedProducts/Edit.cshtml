@@ -1,0 +1,81 @@
+﻿@model DreamerStore2.Models.DetailedProduct
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>DetailedProduct</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DetailedProductId" />
+            <div class="form-group">
+                <label asp-for="DetailedProductPrice" class="control-label"></label>
+                <input asp-for="DetailedProductPrice" class="form-control" />
+                <span asp-validation-for="DetailedProductPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DetailedProductQuantity" class="control-label"></label>
+                <input asp-for="DetailedProductQuantity" class="form-control" />
+                <span asp-validation-for="DetailedProductQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DetailedProductName" class="control-label"></label>
+                <input asp-for="DetailedProductName" class="form-control" />
+                <span asp-validation-for="DetailedProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductId" class="control-label"></label>
+                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                <span asp-validation-for="ProductId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order" class="control-label"></label>
+                <input asp-for="Order" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meta" class="control-label"></label>
+                <input asp-for="Meta" class="form-control" />
+                <span asp-validation-for="Meta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hide" class="control-label"></label>
+                <input asp-for="Hide" class="form-control" />
+                <span asp-validation-for="Hide" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedAt" class="control-label"></label>
+                <input asp-for="CreatedAt" class="form-control" />
+                <span asp-validation-for="CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdatedAt" class="control-label"></label>
+                <input asp-for="UpdatedAt" class="form-control" />
+                <span asp-validation-for="UpdatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
