@@ -20,7 +20,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Meta)
             </th>
-            <th>
+            <th style="max-width: 200px">
                 @Html.DisplayNameFor(model => model.Image)
             </th>
             <th>
@@ -48,7 +48,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Meta)
                 </td>
-                <td>
+                <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
                     @Html.DisplayFor(modelItem => item.Image)
                 </td>
                 <td>

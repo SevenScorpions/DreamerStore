@@ -73,6 +73,10 @@ namespace DreamerStore2.Controllers
                 product.CreatedAt = DateTime.Now;
                 product.UpdatedAt = DateTime.Now;
                 product.ProductSold = 0;
+                if(product.Order==null)
+                {
+                    product.Order = 0;
+                }
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 if (!photos.IsNullOrEmpty())
@@ -94,7 +98,7 @@ namespace DreamerStore2.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryId", product.CategoryId);
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
             return View(product);
         }
 
@@ -135,6 +139,10 @@ namespace DreamerStore2.Controllers
                     existingProduct.Hide = product.Hide;
                     existingProduct.ProductPrice = product.ProductPrice;
                     existingProduct.UpdatedAt = DateTime.Now;
+                    if (existingProduct.Order == null)
+                    {
+                        existingProduct.Order = 0;
+                    }
                     if (existingProduct.Meta.IsNullOrEmpty())
                     {
                         existingProduct.Meta = Guid.NewGuid().ToString();

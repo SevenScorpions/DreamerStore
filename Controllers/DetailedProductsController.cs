@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DreamerStore2.Models;
+using Microsoft.IdentityModel.Tokens;
 
 namespace DreamerStore2.Controllers
 {
@@ -21,38 +22,33 @@ namespace DreamerStore2.Controllers
         // GET: DetailedProducts
         public async Task<IActionResult> Index(string? id)
         {
-            var product = await _context.Products.Where(p=>p.Meta==id).FirstOrDefaultAsync();
-            if (product == null)
+            var sonungvienContext = new List<DetailedProduct>();
+            if (id.IsNullOrEmpty())
             {
-                return NotFound();
+                sonungvienContext = await _context.DetailedProducts.Include(d => d.Product).ToListAsync();
             }
-            var sonungvienContext = _context.DetailedProducts.Include(d => d.Product);
-            return View(await sonungvienContext.Where(d=>d.ProductId==product.ProductId).ToListAsync());
+            else
+            {
+                var product = await _context.Products.Where(p => p.Meta == id).FirstOrDefaultAsync();
+                sonungvienContext = await _context.DetailedProducts.Include(d => d.Product).Where(d => d.ProductId == product.ProductId).ToListAsync();
+            }
+            ViewBag.id = id;
+            return View(sonungvienContext);
         }
 
         // GET: DetailedProducts/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.DetailedProducts == null)
-            {
-                return NotFound();
-            }
-
-            var detailedProduct = await _context.DetailedProducts
-                .Include(d => d.Product)
-                .FirstOrDefaultAsync(m => m.DetailedProductId == id);
-            if (detailedProduct == null)
-            {
-                return NotFound();
-            }
-
-            return View(detailedProduct);
-        }
 
         // GET: DetailedProducts/Create
-        public IActionResult Create()
+        public IActionResult Create(string? id)
         {
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId");
+            if (id.IsNullOrEmpty())
+            {
+                ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName");
+            }
+            else
+            {
+                ViewData["ProductId"] = new SelectList(_context.Products.Where(p=>p.Meta==id), "ProductId", "ProductName");
+            }
             return View();
         }
 
@@ -69,7 +65,7 @@ namespace DreamerStore2.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", detailedProduct.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", detailedProduct.ProductId);
             return View(detailedProduct);
         }
 
@@ -86,7 +82,7 @@ namespace DreamerStore2.Controllers
             {
                 return NotFound();
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", detailedProduct.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", detailedProduct.ProductId);
             return View(detailedProduct);
         }
 

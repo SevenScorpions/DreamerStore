@@ -78,10 +78,17 @@
                 <td>
                     <a asp-controller="DetailedProducts" asp-action="Index" asp-route-id="@item.Meta">Thêm chi tiết sản phẩm</a> |
                     <a asp-action="Edit" asp-route-id="@item.Meta">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Meta">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Meta">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Bạn có chắc chắn muốn xóa?</p>
+        <button id="confirmDelete">Xác nhận</button>
+        <button id="cancelDelete">Hủy</button>
+    </div>
+</div>

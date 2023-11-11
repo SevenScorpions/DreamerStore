@@ -1,5 +1,6 @@
 ﻿@using System.ComponentModel.DataAnnotations
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,27 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
     <title>@ViewBag.Title - Sơn Ưng Viên</title>
 
-
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="~/assets/images/favicon.png" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.css">
 
-    <link rel="stylesheet" href="~/assets/css/templatemo-hexashop.css">
-
     <link rel="stylesheet" href="~/assets/css/owl-carousel.css">
-
     <link rel="stylesheet" href="~/assets/css/lightbox.css">
-    <style>
-
-        body {
-            font-family: 'roboto';
+    <link rel="stylesheet" href="~/assets/css/templatemo-hexashop.css">
+    <!-- Facebook Page -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=483084210611065" nonce="TrKvK4QO"></script>
+    @{
+        if (ViewBag.Title == "Trang chủ")
+        {
+            <style>
+                .header-area {
+                    border-bottom: none !important;
+                }
+            </style>
         }
-    </style>
+    }
 </head>
 <body>
     <div id="preloader">
@@ -49,9 +54,9 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="~/" class="active">Trang chủ</a></li>
-                            <li class="scroll-to-section"><a href="~/categories">Danh mục</a></li>
-                            <li class="scroll-to-section"><a href="~/products">Sản phẩm</a></li>
+                            <li class="scroll-to-section"><a asp-controller="Categories" asp-action="Index">Danh mục</a></li>
+                            <li class="scroll-to-section"><a asp-controller="Products" asp-action="Index">Sản phẩm</a></li>
+                            <li class="scroll-to-section"><a asp-controller="DetailedProducts" asp-action="Index">Chi tiết sản phẩm</a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -62,65 +67,70 @@
             </div>
         </div>
     </header>
-    <div class="topgap" style="margin-top:160px"></div>
-    <section class="section" id="categories">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    @RenderBody()
-                </div>
-            </div>
+    <!-- Phần trừ ra cho menu nổi -->
+    <div class="topgap" style="margin-top:100px"></div>
+        <div class="col-lg-12">
+    <div class="container">
+            @RenderBody()
         </div>
-    </section>
+    </div>
+
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="~/assets/images/my-white-logo.png" style="max-width: 100%; max-height: 100%; height: 80px">
+                            <img src="~/assets/images/my-white-logo.png" alt="hexashop ecommerce templatemo" style="max-width: 100%; max-height: 100%; height: 80px">
                         </div>
                         <ul>
-                            <li><a href="#">304/57/1 Nguyễn Lương Bằng, Buôn Ma Thuột, Đắk Lắk, Việt Nam</a></li>
-                            <li><a href="#">hexashop@company.com</a></li>
+                            <li><a href="#">19 Nguyễn Hữu Thọ, Quận 7, TPHCM</a></li>
+                            <li><a href="#">dreamstore.com</a></li>
                             <li><a href="#">010-020-0340</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <h4>Shopping &amp; Categories</h4>
+                <div class="col-lg-2">
+                    <h4>DreamStore</h4>
                     <ul>
-                        <li><a href="#">Men’s Shopping</a></li>
-                        <li><a href="#">Women’s Shopping</a></li>
-                        <li><a href="#">Kid's Shopping</a></li>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Bài viết</a></li>
+                        <li><a href="#">Liên hệ</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
-                    <h4>Useful Links</h4>
+                    <h4>Hỗ trợ khách hàng</h4>
                     <ul>
-                        <li><a href="#">Homepage</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Hướng dẫn thanh toán và đặt hàng</a></li>
+                        <li><a href="#">Chính sách giao hàng và đổi trả</a></li>
+                        <li><a href="#">Thỏa thuận người dùng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3">
-                    <h4>Help &amp; Information</h4>
-                    <ul>
-                        <li><a href="#">Help</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Tracking ID</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-12">
-                    <div class="under-footer">
+                <div class="col-lg-4">
+                    <div class="social">
                         <ul>
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                             <li><a href="#"><i class="fa fa-behance"></i></a></li>
                         </ul>
+                    </div>
+                    <div class="fb-page" data-href="https://www.facebook.com/peaceful.corners"
+                         data-height="350"
+                         data-hide-cover="false"
+                         data-show-facepile="true"></div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <p>
+                            Copyright ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            DreamStore. All Rights Reserved.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -158,7 +168,7 @@
                     // Xử lý dữ liệu JSON và xây dựng submenu
                     var categorySubMenu = $('#categorySubMenu');
                     $.each(data, function (index, category) {
-                        categorySubMenu.append('<li><a href="">' + category.categoryName + '</a></li>');
+                        categorySubMenu.append('<li><a href="/Home/ListProduct/?page=1&c=' + category.meta + '">' + category.categoryName + '</a></li>');
                     });
                 },
                 error: function () {
@@ -167,8 +177,6 @@
                 }
             });
         });
-    </script>
-    <script>
 
         $(function () {
             var selectedClass = "";
@@ -185,18 +193,10 @@
         });
         function disableButton() {
             var submitButton = document.getElementById("submitButton");
-            submitButton.disabled = true;
-            submitButton.innerText = "Đang xử lý...";
-
-            setTimeout(function () {
-                submitButton.disabled = false; // Enable lại nút Submit
-                submitButton.innerText = "Submit"; // Đặt lại nội dung của nút Submit
-            }, 5000); // Đặt thời gian 5 giây (5000 milliseconds)
+            submitButton.disabled = true; // Vô hiệu hóa nút Submit
+            submitButton.innerText = "Đang xử lý..."; // Thay đổi nội dung của nút Submit
         }
-        
     </script>
-
-
     @RenderSection("Scripts",required: false)
 </body>
 </html>
