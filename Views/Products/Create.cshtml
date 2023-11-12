@@ -39,8 +39,19 @@
         <span asp-validation-for="Meta" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label>Photo:</label>
-        <input type="file" id="image-input" name="photos" accept="image/*" multiple>
+        <div class="wrap-upload-buttons">
+            <div class="container">
+                <div class="upload__box">
+                    <div class="upload__btn-box">
+                        <label class="upload__btn">
+                            <p>Photo</p>
+                            <input type="file" id="image-input" click-type="type1" class="upload__inputfile" name="photos" accept="image/*" multiple>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div id="image-preview"></div>
     </div>
     <div class="form-group">
@@ -63,6 +74,37 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+
+<!--boostatrp modal-->
+<div class="modal fade" id="hint_brand" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Đăng hình</h4>
+            </div>
+            <div class="modal-body">
+                <div class="upload__box">
+                    <div class="upload__img-wrap">
+                        <div class="upload__img-box">
+                            <label class="plus__btn">
+                                <div style="background-image: url('~/assets/images/icon/plus.png')" class="img-bg"></div>
+                                <input type="file" id="image-input" click-type="type2" class="upload__inputfile" name="photos" accept="image/*" multiple>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--post btn wrap-->
+            <div class="modal-footer user-post-btn-wrap">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary">Lưu</button>
+            </div>
+            <!--post btn wrap end-->
+        </div>
+    </div>
+</div>
+<!--bootstrap modal end-->
 <script>
 </script>
 @section Scripts {

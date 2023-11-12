@@ -1,62 +1,36 @@
 (function ($) {
 	
 	"use strict";
-	var owl1 = $('.sec1');
-	var owl2 = $('.sec2');
-	owl1.owlCarousel({
-		loop:true,
-		autoHeight: true,
-		autoplay: true,
-		autoplayTimeout: 2000,
-		autoplayHoverPause: true,
-		responsive: {
-			0: {
-				items: 1
-			},
-			600: {
-				items: 3
-			},
-			1000: {
-				items: 4
+	$(".owl-carousel").each(function () {
+		var current = $(this);
+		current.owlCarousel({
+			nav: true,
+			loop:true,
+			autoHeight: true,
+			autoplay: true,
+			autoplayTimeout: 4000,
+			autoplayHoverPause: true,
+			responsive: {
+				0: {
+					items: 1
+				},
+				600: {
+					items: 3
+				},
+				1000: {
+					items: 4
+				}
 			}
-		}
-	})
+		});
 
-	owl1.on('mousewheel', '.owl-stage', function (e) {
-		if (e.deltaY > 0) {
-			owl.trigger('next.owl');
-		} else {
-			owl.trigger('prev.owl');
-		}
-		e.preventDefault();
-	});
-
-	owl2.owlCarousel({
-		loop:true,
-		autoHeight: true,
-		autoplay: true,
-		autoplayTimeout: 2000,
-		autoplayHoverPause: true,
-		responsive: {
-			0: {
-				items: 1
-			},
-			600: {
-				items: 3
-			},
-			1000: {
-				items: 4
+		current.on('mousewheel', '.owl-stage', function (e) {
+			if (e.originalEvent.deltaY > 0) {
+				current.trigger('next.owl');
+			} else {
+				current.trigger('prev.owl');
 			}
-		}
-	})
-
-	owl2.on('mousewheel', '.owl-stage', function (e) {
-		if (e.deltaY > 0) {
-			owl.trigger('next.owl');
-		} else {
-			owl.trigger('prev.owl');
-		}
-		e.preventDefault();
+			e.preventDefault();
+		});
 	});
 
 	$(window).scroll(function() {
@@ -184,6 +158,7 @@
 			}
 		});
 	}
+
 
 
 })(window.jQuery);
