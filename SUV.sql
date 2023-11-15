@@ -65,7 +65,7 @@ CREATE TABLE DetailedProduct
 	DetailedProductID INT NOT NULL IDENTITY (1,1),
 	DetailedProductPrice DECIMAL NOT NULL,
 	DetailedProductQuantity INT NOT NULL,
-	DetailedProductName CHAR(100) NOT NULL,
+	DetailedProductName NVARCHAR(100) NOT NULL,
 	ProductID INT NOT NULL,
 
 	[Order] INT,

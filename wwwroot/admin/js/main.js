@@ -13,7 +13,7 @@
                 $('.upload__img-wrap').html(
                     `<div class="upload__img-box">
                     <label class="plus__btn">                   
-                        <div style="background-image: url('images/plus.png')" class="img-bg"></div>
+                        <div style="background-image: url('~/assets/images/plus.png')" class="img-bg"></div>
                         <input type="file" click-type="type2" multiple="" class="upload__inputfile">                    
                     </label>
                 </div>`,

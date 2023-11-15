@@ -7,15 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DreamerStore2.Models;
 using Microsoft.IdentityModel.Tokens;
+using DreamerStore2.Service.ImageUploading;
+using System.Diagnostics;
 
 namespace DreamerStore2.Controllers
 {
     public class DetailedProductsController : Controller
     {
+        private readonly ImageUploadingService _imageUploadingService;
         private readonly SonungvienContext _context;
 
-        public DetailedProductsController(SonungvienContext context)
+        public DetailedProductsController(SonungvienContext context, ImageUploadingService imageUploadingService)
         {
+            _imageUploadingService = imageUploadingService;
             _context = context;
         }
 
@@ -36,9 +40,6 @@ namespace DreamerStore2.Controllers
             return View(sonungvienContext);
         }
 
-        // GET: DetailedProducts/Details/5
-
-        // GET: DetailedProducts/Create
         public IActionResult Create(string? id)
         {
             if (id.IsNullOrEmpty())
@@ -49,6 +50,7 @@ namespace DreamerStore2.Controllers
             {
                 ViewData["ProductId"] = new SelectList(_context.Products.Where(p=>p.Meta==id), "ProductId", "ProductName");
             }
+            ViewBag.id = id;
             return View();
         }
 
@@ -57,31 +59,62 @@ namespace DreamerStore2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DetailedProductId,DetailedProductPrice,DetailedProductQuantity,DetailedProductName,ProductId,Order,Meta,Image,Hide,CreatedAt,UpdatedAt")] DetailedProduct detailedProduct)
+        public async Task<IActionResult> Create([Bind("DetailedProductId,DetailedProductPrice,DetailedProductQuantity,DetailedProductName,ProductId,Order,Meta,Image,Hide,CreatedAt,UpdatedAt")] DetailedProduct detailedProduct,IFormFile photo, string? id)
         {
-            if (ModelState.IsValid)
+            
+            if (!detailedProduct.DetailedProductName.IsNullOrEmpty())
             {
+                if(!detailedProduct.Order.HasValue)
+                {
+                    detailedProduct.Order = 0;
+                }
+                if(detailedProduct.Meta.IsNullOrEmpty())
+                {
+                    detailedProduct.Meta = Guid.NewGuid().ToString();
+                }
+                if(detailedProduct.DetailedProductQuantity<0)
+                {
+                    detailedProduct.DetailedProductQuantity = 0;
+                }
+                if(detailedProduct.DetailedProductPrice<0)
+                {
+                    detailedProduct.DetailedProductPrice = 0;
+                }
+                detailedProduct.CreatedAt = DateTime.Now;
+                detailedProduct.UpdatedAt = DateTime.Now;
+                if(photo!=null)
+                {
+                    detailedProduct.Image = await _imageUploadingService.AddImageAsync(photo);
+                }
                 _context.Add(detailedProduct);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                if(id.IsNullOrEmpty())
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return RedirectToAction("Index", new { id = id});
+                }
             }
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", detailedProduct.ProductId);
             return View(detailedProduct);
         }
 
         // GET: DetailedProducts/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(string? id, string? pid)
         {
-            if (id == null || _context.DetailedProducts == null)
+            if (id.IsNullOrEmpty() || _context.DetailedProducts == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
 
-            var detailedProduct = await _context.DetailedProducts.FindAsync(id);
+            var detailedProduct = await _context.DetailedProducts.Where(dp=>dp.Meta==id).FirstOrDefaultAsync();
             if (detailedProduct == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
+            ViewBag.id = pid;
             ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", detailedProduct.ProductId);
             return View(detailedProduct);
         }
@@ -91,54 +124,97 @@ namespace DreamerStore2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DetailedProductId,DetailedProductPrice,DetailedProductQuantity,DetailedProductName,ProductId,Order,Meta,Image,Hide,CreatedAt,UpdatedAt")] DetailedProduct detailedProduct)
+        public async Task<IActionResult> Edit(string id, [Bind("DetailedProductId,DetailedProductPrice,DetailedProductQuantity,DetailedProductName,ProductId,Order,Meta,Image,Hide,CreatedAt,UpdatedAt")] DetailedProduct detailedProduct,IFormFile? photo, string? pid)
         {
-            if (id != detailedProduct.DetailedProductId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
+            var existingDP = await _context.DetailedProducts.FirstOrDefaultAsync(p => p.Meta == id);
+            if (!detailedProduct.DetailedProductName.IsNullOrEmpty())
             {
                 try
                 {
-                    _context.Update(detailedProduct);
+                    existingDP.DetailedProductName = detailedProduct.DetailedProductName;
+                    existingDP.Meta = detailedProduct.Meta;
+                    existingDP.DetailedProductPrice = detailedProduct.DetailedProductPrice;
+                    existingDP.DetailedProductQuantity = detailedProduct.DetailedProductQuantity;
+                    existingDP.Hide = detailedProduct.Hide;
+                    existingDP.Order = detailedProduct.Order;
+                    existingDP.UpdatedAt = DateTime.Now;
+                    existingDP.ProductId = detailedProduct.ProductId;
+                    if (!existingDP.Order.HasValue)
+                    {
+                        existingDP.Order = 0;
+                    }
+                    if (existingDP.Meta.IsNullOrEmpty())
+                    {
+                        existingDP.Meta = Guid.NewGuid().ToString();
+                    }
+                    if (existingDP.DetailedProductQuantity < 0)
+                    {
+                        existingDP.DetailedProductQuantity = 0;
+                    }
+                    if (existingDP.DetailedProductPrice < 0)
+                    {
+                        existingDP.DetailedProductPrice = 0;
+                    }
+                    if (photo != null)
+                    {
+                        if(!existingDP.Image.IsNullOrEmpty())
+                        { 
+                            await _imageUploadingService.DeleteImageAsync(existingDP.Image);
+                        }
+                        existingDP.Image = await _imageUploadingService.AddImageAsync(photo);
+                    }
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!DetailedProductExists(detailedProduct.DetailedProductId))
                     {
-                        return NotFound();
+                        return RedirectToAction("Error", "Home");
                     }
                     else
                     {
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                if(id.IsNullOrEmpty())
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return RedirectToAction("Index", new { id = pid });
+                }
             }
-            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductId", detailedProduct.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ProductName", detailedProduct.ProductId);
             return View(detailedProduct);
         }
 
         // GET: DetailedProducts/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string? id, string? pid)
         {
-            if (id == null || _context.DetailedProducts == null)
+            if (_context.DetailedProducts == null)
             {
-                return NotFound();
+                return Problem("Entity set 'SonungvienContext.DetailedProducts'  is null.");
+            }
+            var detailedProduct = await _context.DetailedProducts.Where(dp=>dp.Meta==id).FirstOrDefaultAsync();
+            if (detailedProduct != null)
+            {
+                if(!detailedProduct.Image.IsNullOrEmpty())
+                {
+                    await _imageUploadingService.DeleteImageAsync(detailedProduct.Image);
+                }
+                _context.DetailedProducts.Remove(detailedProduct);
             }
 
-            var detailedProduct = await _context.DetailedProducts
-                .Include(d => d.Product)
-                .FirstOrDefaultAsync(m => m.DetailedProductId == id);
-            if (detailedProduct == null)
+            await _context.SaveChangesAsync();
+            if (id.IsNullOrEmpty())
             {
-                return NotFound();
+                return RedirectToAction(nameof(Index));
             }
-
-            return View(detailedProduct);
+            else
+            {
+                return RedirectToAction("Index", new { id = pid });
+            }
         }
 
         // POST: DetailedProducts/Delete/5

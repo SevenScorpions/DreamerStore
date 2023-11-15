@@ -119,9 +119,7 @@ public partial class SonungvienContext : DbContext
             entity.Property(e => e.DetailedProductId).HasColumnName("DetailedProductID");
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
             entity.Property(e => e.DetailedProductName)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .IsFixedLength();
+                .HasMaxLength(100);
             entity.Property(e => e.DetailedProductPrice).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.Image).HasMaxLength(100);
             entity.Property(e => e.Meta)
