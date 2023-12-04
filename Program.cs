@@ -8,6 +8,13 @@ var configuration = new ConfigurationBuilder()
     .Build();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromDays(7);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 builder.Services.AddDbContext<SonungvienContext>(options =>
                                                  options.UseSqlServer(configuration.GetConnectionString("MyConnectionString")));
 builder.Services.AddScoped<ImageUploadingService>();
@@ -22,16 +29,13 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseSession();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.MapControllerRoute(
-    name: "DetailedProducts",
-    pattern: "DetailedProducts/Index/{id?}");
 app.Run();

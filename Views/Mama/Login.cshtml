@@ -1,0 +1,153 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Đăng nhập";
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - Sơn Ưng Viên</title>
+
+    <!-- Favicon -->
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.css">
+
+    <link rel="stylesheet" href="~/assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="~/assets/css/lightbox.css">
+    <link rel="stylesheet" href="~/assets/css/templatemo-hexashop.css">
+    <!-- Facebook Page -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=483084210611065" nonce="TrKvK4QO"></script>
+    @{
+        if (ViewBag.Title == "Trang chủ")
+        {
+            <style>
+                .header-area {
+                    border-bottom: none !important;
+                }
+            </style>
+        }
+    }
+</head>
+<body>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <!--Pulling Awesome Font -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        .colorgraph {
+        height: 5px;
+        border-top: 0;
+        background: #c4e17f;
+        border-radius: 5px;
+        background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+        background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+        background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+        background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+        }
+    </style>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <div class="container">
+        <div class="row" style="margin-top:20px">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                <form role="form" asp-action="Login" method="post">
+                    <fieldset>
+                        <h2>Đăng Nhập</h2>
+                        <hr class="colorgraph">
+                        <div class="form-group">
+                            <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Tài khoản">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Mật khẩu">
+                        </div>
+                        @* <span class="button-checkbox">
+                        <button type="button" class="btn" data-color="info">Remember Me</button>
+                        <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
+                        </span> *@
+                        @if(ViewBag.State=="failed")
+                        {
+                            <p style="color: red">Sai tên đăng nhập hoặc mật khẩu</p>
+                        }
+                        <hr class="colorgraph">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Đăng nhập">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.button-checkbox').each(function () {
+                var $widget = $(this),
+                    $button = $widget.find('button'),
+                    $checkbox = $widget.find('input:checkbox'),
+                    color = $button.data('color'),
+                    settings = {
+                        on: {
+                            icon: 'glyphicon glyphicon-check'
+                        },
+                        off: {
+                            icon: 'glyphicon glyphicon-unchecked'
+                        }
+                    };
+
+                $button.on('click', function () {
+                    $checkbox.prop('checked', !$checkbox.is(':checked'));
+                    $checkbox.triggerHandler('change');
+                    updateDisplay();
+                });
+
+                $checkbox.on('change', function () {
+                    updateDisplay();
+                });
+
+                function updateDisplay() {
+                    var isChecked = $checkbox.is(':checked');
+                    // Set the button's state
+                    $button.data('state', (isChecked) ? "on" : "off");
+
+                    // Set the button's icon
+                    $button.find('.state-icon')
+                        .removeClass()
+                        .addClass('state-icon ' + settings[$button.data('state')].icon);
+
+                    // Update the button's color
+                    if (isChecked) {
+                        $button
+                            .removeClass('btn-default')
+                            .addClass('btn-' + color + ' active');
+                    }
+                    else {
+                        $button
+                            .removeClass('btn-' + color + ' active')
+                            .addClass('btn-default');
+                    }
+                }
+                function init() {
+                    updateDisplay();
+                    // Inject the icon if applicable
+                    if ($button.find('.state-icon').length == 0) {
+                        $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+                    }
+                }
+                init();
+            });
+        });
+    </script>
+</body>
