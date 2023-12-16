@@ -2,67 +2,85 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
-    ViewData["Title"] = "Product";
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
 
-<h1>Product</h1>
+<h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Tạo mới</a>
+    <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-responsive table-hover">
+<table class="table">
     <thead>
         <tr>
-            <th scope="col" class="text-center align-middle">NO</th>
-            <th class="text-center align-middle">Tên sản phẩm</th>
-            <th class="text-center align-middle">Giá bán</th>
-            <th class="text-center align-middle">Số lượng đã bán</th>
-            <th class="text-center align-middle">Thứ tự hiển thị</th>
-            <th class="text-center align-middle">Hiển thị</th>
-            <th class="text-center align-middle">Ngày cập nhật</th>
-            <th class="text-center align-middle">Category</th>
-            <th class="text-center align-middle">Options</th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductSold)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hide)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        @if (Model.Count() == 0)
+        @foreach (var item in Model)
         {
             <tr>
-                <td colspan="8">No match any document</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @item.ProductPrice.ToString("N0")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductSold)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Meta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hide)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    <a asp-controller="DetailedProducts" asp-action="Index" asp-route-id="@item.Meta">Thêm chi tiết sản phẩm</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Meta">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Meta">Delete</a>
+                </td>
             </tr>
-        }
-        else
-        {
-            int stt = 0;
-            foreach (var item in Model)
-            {
-                stt++;
-                <tr>
-                    <th scope="row" class="text-center align-middle font-weight-medium">@stt </th>
-                    <td class="text-center align-middle">@item.ProductName</td>
-                    <td class="text-center align-middle">@String.Format( "{0:#,0}", item.ProductPrice)</td>
-                    <td class="text-center align-middle">@item.ProductSold</td>
-                    <td class="text-center align-middle">@item.Order</td>
-                    <td class="text-center align-middle">
-                        @if (item.Hide == true)
-                        {
-                            <i class="fa fa-circle text-success font-12" data-toggle="tooltip" data-placement="top" title="Checked"></i>
-                        }
-                        else if (item.Hide == false)
-                        {
-                            <i class="fa fa-circle text-danger font-12" data-toggle="tooltip" data-placement="top" title="Unhecked"></i>
-                        }
-                    </td>
-                    <td class="text-center align-middle">@item.UpdatedAt.ToString("dd/MM/yyyy")</td>
-                    <td class="text-center align-middle">@item.Category.CategoryName</td>
-                    <td>
-                        <a asp-controller="DetailedProducts" asp-action="Index" asp-route-id="@item.Meta">Thêm chi tiết sản phẩm</a> |
-                        <a asp-action="Edit" asp-route-id="@item.Meta">Edit</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Meta">Delete</a>
-                    </td>
-                </tr>
-            }
         }
     </tbody>
 </table>

@@ -36,13 +36,11 @@
             <div class="col-lg-3">
                 <div class="shop__sidebar">
                     <div class="shop__sidebar__search">
-                        <form>
-                            <input type="text" placeholder="Search...">
-                            <button type="submit">Tìm kiếm</button>
-                        </form>                       
+                        <input type="text" placeholder="Search...">
+                        <button type="submit">Tìm kiếm</button>
                     </div>
                     <div class="shop__sidebar__accordion">
-                        <div id="accordionExample">
+                        <div class="accordion" id="accordionExample">
                             <div class="card p-3">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseOne">Danh mục sản phẩm</a>
@@ -65,16 +63,16 @@
                             </div>
                             <div class="card p-3">
                                 <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseTwo">Giá cả</a>
+                                    <a data-toggle="collapse" data-target="#collapseThree">Giá cả</a>
                                 </div>
-                                <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
                                     <div class="card-body">
                                         <div class="shop__sidebar__price">
-                                            <ul class="nice-scroll">
-                                                <li><input type="checkbox" id="p1" /><label for="p1"> Dưới 25000 ₫</label></li>
-                                                <li><input type="checkbox" id="p2" /><label for="p2"> 25000 ₫ - 100000₫</label></li>
-                                                <li><input type="checkbox" id="p3" /><label for="p3"> 100000₫ - 300000₫</label></li>
-                                                <li><input type="checkbox" id="p4" /><label for="p4"> Trên 300000 ₫</label></li>
+                                            <ul>
+                                                <li><input type="checkbox" id="p1" /><label for="p1">Dưới 25000 ₫</label></li>
+                                                <li><input type="checkbox" id="p1" /><label for="p1">25000 ₫ - 100000₫</label></li>
+                                                <li><input type="checkbox" id="p1" /><label for="p1">100000₫ - 300000₫</label></li>
+                                                <li><input type="checkbox" id="p1" /><label for="p1">Trên 300000 ₫</label></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -89,18 +87,18 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__left">
-                                <p>@Model.Count() sản phẩm</p>
+                                <p>7 sản phẩm</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__right">
+                                <p>Sắp xếp</p>
                                 <select>
-                                    <option value="" selected disabled>Sắp xếp</option>
                                     <option value="">Mới nhất</option>
                                     <option value="">Nổi bật</option>
                                     <option value="">Giảm giá</option>
                                     <option value="">Giá giảm dần</option>
-                                    <option value="">Giá tăng dần</option>
+                                    <option value="">Gía tăng dần</option>
                                     <option value="">Tên giảm dần</option>
                                     <option value="">Tên tăng dần</option>
                                 </select>
@@ -115,29 +113,29 @@
                         {
                             <div class="col-3">
                                 <div class="card border-0 rounded-1 shadow mb-3">
-                                    <img src="~/images/@product.Image" class="product-img card-img-top rounded-1" alt="...">
+                                    <img src="~/assets/images/@product.Image" class="product-img card-img-top rounded-1" alt="...">
                                     <div class="card-body d-flex align-content-between flex-wrap">
-                                        <div class="row" style="width: -webkit-fill-available;">
+                                        <div class="row">
                                             <div class="col-10">
                                                 <h4 class="product-title">@product.ProductName</h4>
                                                 <p>
-                                                    <i class="fa-regular fa-star" style="color:#f5d03b"></i>
-                                                    <i class="fa-regular fa-star" style="color:#f5d03b"></i>
-                                                    <i class="fa-regular fa-star" style="color:#f5d03b"></i>
-                                                    <i class="fa-regular fa-star" style="color:#f5d03b"></i>
+                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:15px" />
+                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:15px" />
+                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:15px" />
+                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:15px" />
                                                     (123)
                                                 </p>
                                             </div>
-                                            <div class="col-2 pl-0 text-right">
-                                                <i class="fa-regular fa-heart" style="color:red"></i>
+                                            <div class="col-2 p-0 text-center">
+                                                <img src="~/assets/images/icon/heart.png" alt="" style="max-width:60%" />
                                             </div>
                                         </div>
                                         <div class="row mt-2 align-items-center" style="width: -webkit-fill-available;">
                                             <div class="col-10">
                                                 <h6>@product.ProductPrice ₫</h6>
                                             </div>
-                                            <div class="col-2 pl-0 text-right">
-                                                <a href="#" class="btn btn-white p-0 rounded-1"><i class="fa-solid fa-cart-plus" style="color:#20c96b"></i></a>
+                                            <div class="col-2 p-0">
+                                                <a href="#" class="btn btn-white p-1 rounded-1"><img src="~/assets/images/icon/cart.png" style="max-width:100%" /></a>
                                             </div>
                                         </div>
                                     </div>

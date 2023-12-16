@@ -4,224 +4,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Breeze Admin</title>
-@*     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css" />
-    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css" />
-    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css" /> *@
-    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css" />
-@*     <link rel="stylesheet" href="assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" /> *@
-    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/admin/css/main.css" />
-    <link rel="shortcut icon" href="~/assets/images/favicon.png" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - Sơn Ưng Viên</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="~/assets/images/favicon.png" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.css">
+
+    <link rel="stylesheet" href="~/assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="~/assets/css/lightbox.css">
+    <link rel="stylesheet" href="~/assets/css/templatemo-hexashop.css">
+    <link rel="stylesheet" href="~/admin/css/main.css">
+    <!-- Facebook Page -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v18.0&appId=483084210611065" nonce="TrKvK4QO"></script>
+    @{
+        if (ViewBag.Title == "Trang chủ")
+        {
+            <style>
+                .header-area {
+                    border-bottom: none !important;
+                }
+            </style>
+        }
+    }
 </head>
 <body>
-    <div class="container-scroller sidebar-fixed">
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-            <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-                <a class="sidebar-brand brand-logo" href="index.html"><img src="~/assets/images/my-logo.png" alt="logo" /></a>
-                <a class="sidebar-brand brand-logo-mini pt-3" href="index.html">
-                    <img src="~/assets/images/favicon.png" alt="logo"/>
-                </a>
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="~/" class="logo">
+                            <img src="~/assets/images/my-logo.png" style="max-width: 100%; max-height: 100%; height: 80px">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a asp-controller="Categories" asp-action="Index">Danh mục</a></li>
+                            <li class="scroll-to-section"><a asp-controller="Products" asp-action="Index">Sản phẩm</a></li>
+                            <li class="scroll-to-section"><a asp-controller="DetailedProducts" asp-action="Index">Chi tiết sản phẩm</a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
             </div>
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        <i class="fa-solid fa-house menu-icon"></i>
-                        <span class="menu-title">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                        <i class="fa-solid fa-house menu-icon"></i>
-                        <span class="menu-title">Basic UI Elements</span>
-                        <i class="fa-solid fa-chevron-down menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="ui-basic">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item">
-                                <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
-                            </li>
+        </div>
+    </header>
+    <!-- Phần trừ ra cho menu nổi -->
+    <div class="topgap" style="margin-top:100px"></div>
+        <div class="col-lg-12">
+    <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="first-item">
+                        <div class="logo">
+                            <img src="~/assets/images/my-white-logo.png" alt="hexashop ecommerce templatemo" style="max-width: 100%; max-height: 100%; height: 80px">
+                        </div>
+                        <ul>
+                            <li><a href="#">19 Nguyễn Hữu Thọ, Quận 7, TPHCM</a></li>
+                            <li><a href="#">dreamstore.com</a></li>
+                            <li><a href="#">010-020-0340</a></li>
                         </ul>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fa-solid fa-list-ol menu-icon"></i>
-                        <span class="menu-title">Menu</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fa-solid fa-clipboard-list menu-icon"></i>
-                        <span class="menu-title">Category</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fa-solid fa-boxes-packing menu-icon"></i>
-                        <span class="menu-title">Product</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://www.bootstrapdash.com/demo/breeze-free/documentation/documentation.html">
-                        <i class="fa-solid fa-house menu-icon"></i>
-                        <span class="menu-title">Documentation</span>
-                    </a>
-                </li>
-                <li class="nav-item sidebar-actions">
-                    <div class="nav-link">
-                        <div class="mt-4">
-                            <div class="border-none">
-                                <p class="text-black">Notification</p>
-                            </div>
-                            <ul class="mt-4 pl-0">
-                                <li>Sign Out</li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="col-lg-2">
+                    <h4>DreamStore</h4>
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Bài viết</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Hỗ trợ khách hàng</h4>
+                    <ul>
+                        <li><a href="#">Hướng dẫn thanh toán và đặt hàng</a></li>
+                        <li><a href="#">Chính sách giao hàng và đổi trả</a></li>
+                        <li><a href="#">Thỏa thuận người dùng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="social">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
                     </div>
-                </li>
-            </ul>
-        </nav>
-        <div class="container-fluid page-body-wrapper">
-            <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
-                <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
-                    <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="index.html"><img src="~/assets/images/my-white-logo.png" alt="logo" /></a>
-                    <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                                <i class="fa-regular fa-bell"></i>
-                                <span class="count count-varient1">7</span>
-                            </a>
-                            <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="notificationDropdown">
-                                <h6 class="p-3 mb-0">Notifications</h6>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face4.jpg" alt="" class="profile-pic" />
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <p class="mb-0">
-                                            Dany Miles <span class="text-small text-muted">commented on your photo</span>
-                                        </p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face3.jpg" alt="" class="profile-pic" />
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <p class="mb-0">
-                                            James <span class="text-small text-muted">posted a photo on your wall</span>
-                                        </p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-thumbnail">
-                                        <img src="assets/images/faces/face2.jpg" alt="" class="profile-pic" />
-                                    </div>
-                                    <div class="preview-item-content">
-                                        <p class="mb-0">
-                                            Alex <span class="text-small text-muted">just mentioned you in his post</span>
-                                        </p>
-                                    </div>
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <p class="p-3 mb-0">View all activities</p>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown d-none d-sm-flex">
-                            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown">
-                                <i class="fa-regular fa-envelope"></i>
-                                <span class="count count-varient2">5</span>
-                            </a>
-                            <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="messageDropdown">
-                                <h6 class="p-3 mb-0">Messages</h6>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-item-content flex-grow">
-                                        <span class="badge badge-pill badge-success">Request</span>
-                                        <p class="text-small text-muted ellipsis mb-0"> Suport needed for user123 </p>
-                                    </div>
-                                    <p class="text-small text-muted align-self-start"> 4:10 PM </p>
-                                </a>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-item-content flex-grow">
-                                        <span class="badge badge-pill badge-warning">Invoices</span>
-                                        <p class="text-small text-muted ellipsis mb-0"> Invoice for order is mailed </p>
-                                    </div>
-                                    <p class="text-small text-muted align-self-start"> 4:10 PM </p>
-                                </a>
-                                <a class="dropdown-item preview-item">
-                                    <div class="preview-item-content flex-grow">
-                                        <span class="badge badge-pill badge-danger">Projects</span>
-                                        <p class="text-small text-muted ellipsis mb-0"> New project will start tomorrow </p>
-                                    </div>
-                                    <p class="text-small text-muted align-self-start"> 4:10 PM </p>
-                                </a>
-                                <h6 class="p-3 mb-0">See all activity</h6>
-                            </div>
-                        </li>
-                        <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
-                            <form class="nav-link form-inline mt-2 mt-md-0">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search" />
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">
-                                            <i class="fa-solid fa-magnifying-glass"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </form>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav navbar-nav-right ml-lg-auto">
-                        <li class="nav-item dropdown d-none d-xl-flex border-0">
-                            <a class="nav-link dropdown-toggle" id="languageDropdown" href="#" data-toggle="dropdown">
-                                <i class="fa-solid fa-earth-americas"></i> English
-                            </a>
-                            <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
-                                <a class="dropdown-item" href="#"> French </a>
-                                <a class="dropdown-item" href="#"> Spain </a>
-                                <a class="dropdown-item" href="#"> Latin </a>
-                                <a class="dropdown-item" href="#"> Japanese </a>
-                            </div>
-                        </li>
-                        <li class="nav-item nav-profile dropdown border-0">
-                            <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
-                                <img class="nav-profile-img mr-2" alt="" src="~/admin/images/user.png" />
-                                <span class="profile-name">Henry Klein</span>
-                            </a>
-                            <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="mdi mdi-logout mr-2 text-primary"></i> Signout
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                        <span class="mdi mdi-menu"></span>
-                    </button>
+                    <div class="fb-page" data-href="https://www.facebook.com/peaceful.corners"
+                         data-height="350"
+                         data-hide-cover="false"
+                         data-show-facepile="true"></div>
                 </div>
-            </nav>
-            <div class="main-panel">
-                <div class="content-wrapper pb-0">
-                    @RenderBody()
-                </div>
-                <footer class="footer">
-                    <div class="d-sm-flex justify-content-center">
+                <div class="col-lg-12">
+                    <div class="under-footer">
                         <p>
                             Copyright ©
                             <script>
@@ -230,35 +133,72 @@
                             DreamStore. All Rights Reserved.
                         </p>
                     </div>
-                </footer>
+                </div>
             </div>
-            <!-- main-panel ends -->
         </div>
-        <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-    @* <script src="assets/vendors/js/vendor.bundle.base.js"></script> *@
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    @* <script src="assets/vendors/chart.js/Chart.min.js"></script> *@
-    <script src="~/assets/js/datepicker.js"></script>
-    @* <script src="assets/vendors/flot/jquery.flot.js"></script>
-    <script src="assets/vendors/flot/jquery.flot.resize.js"></script>
-    <script src="assets/vendors/flot/jquery.flot.categories.js"></script>
-    <script src="assets/vendors/flot/jquery.flot.fillbetween.js"></script>
-    <script src="assets/vendors/flot/jquery.flot.stack.js"></script>
-    <script src="assets/vendors/flot/jquery.flot.pie.js"></script> *@
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    @* <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <script src="assets/js/misc.js"></script> *@
-    <!-- endinject -->
+    </footer>
     <script src="~/assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="~/assets/js/popper.js"></script>
     <script src="~/assets/js/bootstrap.min.js"></script>
-    <!-- Custom js for this page -->
+
+    <!-- Plugins -->
+    <script src="~/assets/js/owl-carousel.js"></script>
+    <script src="~/assets/js/accordions.js"></script>
+    <script src="~/assets/js/datepicker.js"></script>
+    <script src="~/assets/js/scrollreveal.min.js"></script>
+    <script src="~/assets/js/waypoints.min.js"></script>
+    <script src="~/assets/js/jquery.counterup.min.js"></script>
+    <script src="~/assets/js/imgfix.min.js"></script>
+    <script src="~/assets/js/slick.js"></script>
+    <script src="~/assets/js/lightbox.js"></script>
+    <script src="~/assets/js/isotope.js"></script>
+
+    <!-- Global Init -->
+    <script src="~/assets/js/custom.js"></script>
     <script src="~/admin/js/main.js"></script>
-    <!-- End custom js for this page -->
+    <script src="~/js/site.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Sử dụng Ajax để lấy danh sách danh mục
+            $.ajax({
+                url: '@Url.Action("GetCategories", "Home")', // Đường dẫn tới hành động GetCategories
+                method: 'GET',
+                success: function (data) {
+                    // Xử lý dữ liệu JSON và xây dựng submenu
+                    var categorySubMenu = $('#categorySubMenu');
+                    $.each(data, function (index, category) {
+                        categorySubMenu.append('<li><a href="/Home/ListProduct/?page=1&c=' + category.meta + '">' + category.categoryName + '</a></li>');
+                    });
+                },
+                error: function () {
+                    // Xử lý lỗi
+                    alert('Không thể lấy danh sách danh mục.');
+                }
+            });
+        });
+
+        $(function () {
+            var selectedClass = "";
+            $("p").click(function () {
+                selectedClass = $(this).attr("data-rel");
+                $("#portfolio").fadeTo(50, 0.1);
+                $("#portfolio div").not("." + selectedClass).fadeOut();
+                setTimeout(function () {
+                    $("." + selectedClass).fadeIn();
+                    $("#portfolio").fadeTo(50, 1);
+                }, 500);
+
+            });
+        });
+        function disableButton() {
+            var submitButton = document.getElementById("submitButton");
+            submitButton.disabled = true; // Vô hiệu hóa nút Submit
+            submitButton.innerText = "Đang xử lý..."; // Thay đổi nội dung của nút Submit
+        }
+    </script>
+    @RenderSection("Scripts",required: false)
 </body>
 </html>

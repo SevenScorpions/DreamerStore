@@ -8,7 +8,7 @@
 			loop:true,
 			autoHeight: true,
 			autoplay: true,
-			autoplayTimeout: 5000,
+			autoplayTimeout: 4000,
 			autoplayHoverPause: true,
 			responsive: {
 				0: {
@@ -158,5 +158,7 @@
 			}
 		});
 	}
+
+
 
 })(window.jQuery);
