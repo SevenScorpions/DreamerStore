@@ -157,6 +157,7 @@ namespace DreamerStore2.Controllers
                             await _imageUploadingService.DeleteImageAsync(image.ProductImageLink);
                             _context.Remove(image);
                         }
+                        existingProduct.Image = "";
                         foreach (var i in photos)
                         {
                             var productImage = new ProductImage()
@@ -164,9 +165,9 @@ namespace DreamerStore2.Controllers
                                 ProductId = product.ProductId,
                                 ProductImageLink = await _imageUploadingService.AddImageAsync(i)
                             };
-                            if (product.Image.IsNullOrEmpty())
+                            if (existingProduct.Image.IsNullOrEmpty())
                             {
-                                product.Image = productImage.ProductImageLink;
+                                existingProduct.Image = productImage.ProductImageLink;
                             }
                             _context.Add(productImage);
                         }

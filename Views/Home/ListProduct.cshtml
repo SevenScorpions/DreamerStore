@@ -11,9 +11,6 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="breadcrumb__text">
-                    <h4>Sản phẩm</h4>
-                </div>
             </div>
         </div>
     </div>
@@ -113,29 +110,20 @@
                         {
                             <div class="col-3">
                                 <div class="card border-0 rounded-1 shadow mb-3">
-                                    <img src="~/assets/images/@product.Image" class="product-img card-img-top rounded-1" alt="...">
+                                    <img src="~/images/@product.Image" class="product-img card-img-top rounded-1" alt="...">
                                     <div class="card-body d-flex align-content-between flex-wrap">
                                         <div class="row">
-                                            <div class="col-10">
-                                                <h4 class="product-title">@product.ProductName</h4>
-                                                <p>
-                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:15px" />
-                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:15px" />
-                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:15px" />
-                                                    <img src="~/assets/images/icon/star.png" alt="" style="width:15px" />
-                                                    (123)
-                                                </p>
-                                            </div>
-                                            <div class="col-2 p-0 text-center">
-                                                <img src="~/assets/images/icon/heart.png" alt="" style="max-width:60%" />
+                                            <div class="col-12">
+                                                <p style="font-size: 20px">@product.ProductName</p>
                                             </div>
                                         </div>
                                         <div class="row mt-2 align-items-center" style="width: -webkit-fill-available;">
-                                            <div class="col-10">
-                                                <h6>@product.ProductPrice ₫</h6>
+                                            <div class="col-9">
+                                                <p style="font-size: 16px">@product.ProductPrice.ToString("N0") ₫</p>
                                             </div>
-                                            <div class="col-2 p-0">
-                                                <a href="#" class="btn btn-white p-1 rounded-1"><img src="~/assets/images/icon/cart.png" style="max-width:100%" /></a>
+
+                                            <div class="col-3 p-0">
+                                                <a href="#" class="btn btn-white p-1 rounded-1"><i class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                     </div>

@@ -15,6 +15,8 @@ public partial class SonungvienContext : DbContext
     {
     }
 
+    public virtual DbSet<Account> Accounts { get; set; }
+
     public virtual DbSet<Bill> Bills { get; set; }
 
     public virtual DbSet<BillProduct> BillProducts { get; set; }
@@ -35,6 +37,17 @@ public partial class SonungvienContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Account>(entity =>
+        {
+            entity.HasKey(e => e.AccountId).HasName("PK__Account__349DA586DC9EB0D3");
+
+            entity.ToTable("Account");
+
+            entity.Property(e => e.AccountId).HasColumnName("AccountID");
+            entity.Property(e => e.Password).HasMaxLength(64);
+            entity.Property(e => e.Username).HasMaxLength(50);
+        });
+
         modelBuilder.Entity<Bill>(entity =>
         {
             entity.HasKey(e => e.BillId).HasName("PK__Bill__11F2FC4ADDFF20F6");
@@ -118,10 +131,7 @@ public partial class SonungvienContext : DbContext
 
             entity.Property(e => e.DetailedProductId).HasColumnName("DetailedProductID");
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
-            entity.Property(e => e.DetailedProductName)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .IsFixedLength();
+            entity.Property(e => e.DetailedProductName).HasMaxLength(100);
             entity.Property(e => e.DetailedProductPrice).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.Image).HasMaxLength(100);
             entity.Property(e => e.Meta)

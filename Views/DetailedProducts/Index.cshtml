@@ -26,10 +26,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Order)
             </th>
-            <th>
+            <th style="max-width: 200px">
                 @Html.DisplayNameFor(model => model.Meta)
             </th>
-            <th>
+            <th style="max-width: 200px">
                 @Html.DisplayNameFor(model => model.Image)
             </th>
             <th>
@@ -48,44 +48,44 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DetailedProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DetailedProductQuantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DetailedProductPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Order)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Meta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hide)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.ProductName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.DetailedProductId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DetailedProductId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DetailedProductId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DetailedProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DetailedProductQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DetailedProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order)
+                </td>
+                <td style ="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
+                    @Html.DisplayFor(modelItem => item.Meta)
+                </td>
+                <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hide)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.ProductName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Meta" asp-route-pid="@ViewBag.id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Meta" asp-route-pid="@ViewBag.id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -9,6 +9,12 @@ CREATE DATABASE SONUNGVIEN
 GO
 USE SONUNGVIEN
 GO
+CREATE TABLE Account
+(
+	AccountID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    Username NVARCHAR(50),
+    [Password] VARBINARY(64)
+)
 CREATE TABLE Category
 ( 
 	CategoryID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
@@ -65,7 +71,7 @@ CREATE TABLE DetailedProduct
 	DetailedProductID INT NOT NULL IDENTITY (1,1),
 	DetailedProductPrice DECIMAL NOT NULL,
 	DetailedProductQuantity INT NOT NULL,
-	DetailedProductName CHAR(100) NOT NULL,
+	DetailedProductName NVARCHAR(100) NOT NULL,
 	ProductID INT NOT NULL,
 
 	[Order] INT,
@@ -163,3 +169,4 @@ CREATE TABLE ProductImage
 	ProductID INT NOT NULL,
 	FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
 )
+INSERT INTO Account (Username, [Password]) VALUES ('btth', HASHBYTES('SHA2_256', '12111978'));
