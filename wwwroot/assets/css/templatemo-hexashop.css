@@ -28,6 +28,11 @@ Table of contents
 font & reset css
 --------------------------------------------- 
 */
+@font-face {
+    font-family: 'Nunito';
+    font-display: swap;
+    src: url(../webfonts/Nunito.ttf);
+}
 /* 
 ---------------------------------------------
 reset
@@ -78,16 +83,6 @@ header, nav, section, article, aside, footer, hgroup {
     box-sizing: border-box;
 }
 
-html, body {
-    font-weight: 400;
-    background-color: #fff;
-    font-family: 'Nunito', sans-serif;
-    font-size: 18px;
-    -ms-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 a {
     text-decoration: none !important;
 }
@@ -112,10 +107,14 @@ p {
 global styles
 --------------------------------------------- 
 */
-html,
-body {
+html, body {
+    font-weight: 400;
+    background-color: #fff;
     font-family: 'Nunito', sans-serif;
-    background: #fff;
+    font-size: 18px;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
@@ -373,7 +372,7 @@ header
 .header-area .main-nav .nav li.submenu ul {
     position: absolute;
     width: 200px;
-    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 28px 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
     top: 50px;
     opacity: 0;
@@ -929,7 +928,7 @@ Men
             color: #2a2a2a;
             font-size: 25px;
             font-weight: 700;
-            content: '\f104';
+            content: '\f053';
             width: 50px;
             height: 50px;
             background-color: transparent;
@@ -967,7 +966,7 @@ Men
             color: #2a2a2a;
             font-size: 25px;
             font-weight: 700;
-            content: '\f105';
+            content: '\f054';
             width: 50px;
             height: 50px;
             background-color: transparent;
@@ -2114,8 +2113,7 @@ responsive
     }
 
         .shop__sidebar__accordion .card:last-child .card-body {
-            padding-bottom: 0;
-            border-bottom: none;
+            padding-bottom: 0;          
         }
 
 .shop__sidebar__accordion .card-body {
@@ -2135,35 +2133,32 @@ responsive
     }
 
 .shop__sidebar__categories ul,
-.shop__sidebar__price ul,
-.shop__sidebar__brand ul {
+.shop__sidebar__price ul {
     height: 225px;
 }
 
     .shop__sidebar__categories ul li,
-    .shop__sidebar__price ul li,
-    .shop__sidebar__brand ul li {
+    .shop__sidebar__price ul li {
         list-style: none;
     }
 
         .shop__sidebar__categories ul li a,
-        .shop__sidebar__price ul li a,
-        .shop__sidebar__brand ul li a {
+        .shop__sidebar__price ul li label {
             color: #4e4e4e;
             font-size: 15px;
             line-height: 32px;
+            margin: 0;
             -webkit-transition: all, 0.3s;
             -o-transition: all, 0.3s;
             transition: all, 0.3s;
         }
 
             .shop__sidebar__categories ul li a:hover,
-            .shop__sidebar__price ul li a:hover,
-            .shop__sidebar__brand ul li a:hover {
+            .shop__sidebar__price ul li label:hover {
                 color: #111111;
             }
 
-.shop__sidebar__brand ul {
+.shop__sidebar__categories ul {
     height: auto;
 }
 
@@ -2171,124 +2166,9 @@ responsive
     height: auto;
 }
 
-.shop__sidebar__size {
-    padding-top: 15px;
+.shop__sidebar__price ul li input {
+    margin-right: 4px;
 }
-
-    .shop__sidebar__size label {
-        color: #111111;
-        font-size: 15px;
-        font-weight: 700;
-        text-transform: uppercase;
-        display: inline-block;
-        border: 1px solid #e5e5e5;
-        padding: 6px 25px;
-        margin-bottom: 10px;
-        margin-right: 5px;
-        cursor: pointer;
-    }
-
-        .shop__sidebar__size label.active {
-            background: #111111;
-            color: #ffffff;
-            border-color: #111111;
-        }
-
-        .shop__sidebar__size label input {
-            position: absolute;
-            visibility: hidden;
-        }
-
-.shop__sidebar__color {
-    padding-top: 15px;
-}
-
-    .shop__sidebar__color label {
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-        position: relative;
-        margin-right: 10px;
-        display: inline-block;
-        margin-bottom: 10px;
-        cursor: pointer;
-    }
-
-        .shop__sidebar__color label.c-1 {
-            background: #0b090c;
-        }
-
-        .shop__sidebar__color label.c-2 {
-            background: #20315f;
-        }
-
-        .shop__sidebar__color label.c-3 {
-            background: #f1af4d;
-        }
-
-        .shop__sidebar__color label.c-4 {
-            background: #636068;
-        }
-
-        .shop__sidebar__color label.c-5 {
-            background: #57594d;
-        }
-
-        .shop__sidebar__color label.c-6 {
-            background: #e8bac4;
-        }
-
-        .shop__sidebar__color label.c-7 {
-            background: #d6c1d7;
-        }
-
-        .shop__sidebar__color label.c-8 {
-            background: #ed1c24;
-        }
-
-        .shop__sidebar__color label.c-9 {
-            background: #ffffff;
-        }
-
-        .shop__sidebar__color label:after {
-            position: absolute;
-            left: -3px;
-            top: -3px;
-            height: 36px;
-            width: 36px;
-            border: 1px solid #e5e5e5;
-            content: "";
-            border-radius: 50%;
-        }
-
-        .shop__sidebar__color label input {
-            position: absolute;
-            visibility: hidden;
-        }
-
-.shop__sidebar__tags {
-    padding-top: 15px;
-}
-
-    .shop__sidebar__tags a {
-        color: #404040;
-        font-size: 13px;
-        font-weight: 700;
-        background: #f1f5f8;
-        padding: 5px 18px;
-        display: inline-block;
-        text-transform: uppercase;
-        margin-right: 6px;
-        margin-bottom: 10px;
-        -webkit-transition: all, 0.3s;
-        -o-transition: all, 0.3s;
-        transition: all, 0.3s;
-    }
-
-        .shop__sidebar__tags a:hover {
-            background: #111111;
-            color: #ffffff;
-        }
 
 .shop__sidebar__accordion .card-heading a:after,
 .shop__sidebar__accordion .card-heading > a.active[aria-expanded=false]:after {
@@ -2328,18 +2208,12 @@ responsive
     text-align: right;
 }
 
-    .shop__product__option__right p {
-        display: inline-block;
-        margin-bottom: 0;
-    }
-
     .shop__product__option__right .nice-select {
         float: none;
         display: inline-block;
         padding: 0;
         line-height: 26px;
         height: auto;
-        border: none;
         padding-right: 28px;
     }
 
