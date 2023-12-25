@@ -1,6 +1,11 @@
 ﻿using DreamerStore2.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -16,33 +21,51 @@ namespace DreamerStore2.Controllers
             _httpContextAccessor = httpContextAccessor;
             _context = context;
         }
+        [Authorize]
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult Login()
+        [HttpGet]
+        public IActionResult Login(string returnUrl = null)
         {
+            if(HttpContext.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index");
+            }    
+            ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password, string returnUrl = null)
         {
             var account = await _context.Accounts.Where(a => a.Username == username).FirstOrDefaultAsync();
-            ViewBag.State = "none";
+            ViewBag.State = "failed";
             if (account == null)
             {
-                ViewBag.State = "failed";
                 return View();
             }
             else if (!ComparePasswords(password, account.Password))
             {
-                ViewBag.State = "failed";
                 return View();
             }
-            ViewBag.State = "failed";
-            HttpContext.Session.SetString("Login State","success");
-            return RedirectToAction("Index");
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, username),
+                // Các claims khác nếu cần
+            };
+
+            var identity = new ClaimsIdentity(claims, "MyCookieAuthenticationScheme");
+            var principal = new ClaimsPrincipal(identity);
+            await HttpContext.SignInAsync("MyCookieAuthenticationScheme", principal);
+
+            ViewBag.State = "sucessed";
+            _session.SetString("UserId", username);
+            if (!string.IsNullOrEmpty(returnUrl))
+                return LocalRedirect(returnUrl);
+            else
+                return RedirectToAction("Index");
         }
         public bool ComparePasswords(string password, byte[] storedPasswordHash)
         {
@@ -69,6 +92,13 @@ namespace DreamerStore2.Controllers
             }
 
             return true;
+        }
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync("MyCookieAuthenticationScheme");
+            return RedirectToAction("Login");
         }
     }
 }
