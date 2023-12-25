@@ -10,9 +10,11 @@ using System.Diagnostics;
 using DreamerStore2.ViewModel;
 using Microsoft.IdentityModel.Tokens;
 using DreamerStore2.Service.ImageUploading;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DreamerStore2.Controllers
 {
+    [Authorize]
     public class CategoriesController : Controller
     {
         private readonly SonungvienContext _context;
