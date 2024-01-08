@@ -1,0 +1,80 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="page-heading" id="top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="inner-content">
+                    <h2>Giỏ hàng</h2>
+                    <span>Kiểm tra lại giỏ hàng và tiến hành thanh toán nhanh chóng với Son Ung Vien</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ***** Main Banner Area End ***** -->
+<section class="h-100">
+    <div class="container-fluid h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h3 class="fw-normal mb-0 text-black">Sen đá</h3>
+                    </div><hr>
+
+                    <div class="card rounded-3 mb-5">
+                        <div class="card rounded-0">
+                            <div class="card-body bg-light">
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <div class="pl-3 bg-light text-danger">
+                                        <h4><c:out value="" /></h4>
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 col-xl-2" style="text-align: center;">
+                                        <img src="" class="img-fluid rounded-3" alt="Vẹt cảnh" style="height: 150px; width: 120px;">
+                                    </div>
+                                    <div class="col-md-3 col-lg-3 col-xl-3">
+                                        <p class="lead fw-bold mb-2" style="font-size: 23px;"></p>
+                                         <p><span class="text-muted">Giống cây: </span>
+                                    </div>
+                                    <div class="col-md-2 col-lg-2 col-xl-2 d-flex">
+                                        <button class="btn btn-link px-2" style="visibility: hidden"
+                                                onclick="">
+                                            <img src="assets/images/decrease-button.png" />
+                                        </button>
+                                        <input id="form1" min="0" name="quantity" value="1" type="number" disabled=""
+                                               class="form-control form-control-sm" style="text-align: center; height: 40px; border: 1px solid; font-size: 16px;" />
+                                        <button class="btn btn-link px-2" style="visibility: hidden"
+                                                onclick="">
+                                            <img src="" />
+                                        </button>
+                                    </div>
+                                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                <h5 class="mb-0" style="font-weight: bold; display: inline-block"><del>Giá gốc ₫</del></h5>
+                                                <h5 style="display: inline-block; border-radius: 10px; background-color: #cccccc; padding: 0 5px 0 5px; color: black;"> - 100%</h5>
+                                                <h5 style="font-size: 20px; color: red;">Giá giảm ₫</h5>
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                        <a onclick="" href="" class="text-danger"><img src="" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <h3 style="text-align: right">Tổng cộng</h3>
+                <h4 id="price-cart" style="text-align: right"> ₫</h4>
+
+                <div class="card">
+                    <div class="card-body">
+                        <form action="MainController">
+                            <input type="hidden" name="action" value="NavToCheckout" />
+                            <button type="submit" class="btn btn-warning btn-block btn-lg">Tiến hành thanh toán</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
