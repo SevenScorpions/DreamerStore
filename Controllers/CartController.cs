@@ -9,29 +9,29 @@ namespace DreamerStore2.Controllers
         private readonly SonungvienContext _context;
         public IActionResult Index()
         {
-            var cart = HttpContext.Session.GetString("Cart");
-            Cart Cart = JsonConvert.DeserializeObject<Cart>(cart);
-            if(Cart == null)
+            var cartKey = HttpContext.Session.GetString("Cart_" + HttpContext.Session.Id);
+            if (cartKey == null)
             {
                 return View();
             }
             else
             {
+                Cart Cart = JsonConvert.DeserializeObject<Cart>(cartKey);
                 return View("Index", Cart);
             }
         }
         public bool AddDetailedProductToCart(int id)
         {
             bool isAdded = false;
-            string cart = HttpContext.Session.GetString("Cart");
+            var cartKey = HttpContext.Session.GetString("Cart_" + HttpContext.Session.Id);
             Cart cartObj;
-            if (cart == null)
+            if (cartKey == null)
             {
                 cartObj = new Cart();
             }
             else
             {
-                cartObj = JsonConvert.DeserializeObject<Cart>(cart);
+                cartObj = JsonConvert.DeserializeObject<Cart>(cartKey);
             }
             DetailedProduct product = _context.DetailedProducts.FirstOrDefault(p => p.DetailedProductId == id);
             if (!cartObj.ProductList.ContainsKey(product.ProductId))
@@ -53,14 +53,14 @@ namespace DreamerStore2.Controllers
                     isAdded = true;
                 }
             }
-            string jsonCart = JsonConvert.SerializeObject(cartObj);
-            HttpContext.Session.SetString("Cart", jsonCart);
+            cartKey = JsonConvert.SerializeObject(cartObj);
+            HttpContext.Session.SetString("Cart", cartKey);
             return isAdded;
         }
         public async Task<IActionResult> RemoveDetailedProduct(int id)
         {
-            string cart = HttpContext.Session.GetString("Cart");
-            Cart cartObj = JsonConvert.DeserializeObject<Cart>(cart);
+            var cartKey = HttpContext.Session.GetString("Cart_" + HttpContext.Session.Id);
+            Cart cartObj = JsonConvert.DeserializeObject<Cart>(cartKey);
             if (cartObj != null)
             {
                 DetailedProduct product = _context.DetailedProducts.FirstOrDefault(p => p.DetailedProductId == id);
@@ -70,14 +70,14 @@ namespace DreamerStore2.Controllers
                     cartObj.CartTotalPrice -= orderedDetailedProduct.DetailedProduct.DetailedProductPrice * orderedDetailedProduct.Quantity;
                     cartObj.ProductList.Remove(product.ProductId);
                 }
-                string jsonCart = JsonConvert.SerializeObject(cartObj);
-                HttpContext.Session.SetString("Cart", jsonCart);
+                cartKey = JsonConvert.SerializeObject(cartObj);
+                HttpContext.Session.SetString("Cart_" + HttpContext.Session.Id, cartKey);
             }
             return RedirectToAction("Index");
         }
         public void RemoveCart()
         {
-            HttpContext.Session.Remove("Cart");
+            HttpContext.Session.Remove("Cart_" + HttpContext.Session.Id);
         }
     }
 }
