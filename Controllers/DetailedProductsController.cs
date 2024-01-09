@@ -9,9 +9,12 @@ using DreamerStore2.Models;
 using Microsoft.IdentityModel.Tokens;
 using DreamerStore2.Service.ImageUploading;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace DreamerStore2.Controllers
 {
+    [Authorize]
     public class DetailedProductsController : Controller
     {
         private readonly ImageUploadingService _imageUploadingService;

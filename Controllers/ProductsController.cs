@@ -10,9 +10,11 @@ using System.Diagnostics;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.CodeAnalysis;
 using DreamerStore2.Service.ImageUploading;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DreamerStore2.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly SonungvienContext _context;
