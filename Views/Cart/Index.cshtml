@@ -1,4 +1,5 @@
-﻿@*
+﻿@model DreamerStore2.Models.Cart
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -24,16 +25,19 @@
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h3 class="fw-normal mb-0 text-black">Sen đá</h3>
                     </div><hr>
-
+                @if(@Model != null)
+                {
+                    @foreach(var detailedProduct in Model.ProductList)
+                    {
                     <div class="card rounded-3 mb-5">
                         <div class="card rounded-0">
                             <div class="card-body bg-light">
                                 <div class="row d-flex justify-content-between align-items-center">
                                     <div class="pl-3 bg-light text-danger">
-                                        <h4><c:out value="" /></h4>
+                                        <h4></h4>
                                     </div>
                                     <div class="col-md-2 col-lg-2 col-xl-2" style="text-align: center;">
-                                        <img src="" class="img-fluid rounded-3" alt="Vẹt cảnh" style="height: 150px; width: 120px;">
+                                        <img src="" class="img-fluid rounded-3" alt="Cây cảnh" style="height: 150px; width: 120px;">
                                     </div>
                                     <div class="col-md-3 col-lg-3 col-xl-3">
                                         <p class="lead fw-bold mb-2" style="font-size: 23px;"></p>
@@ -52,9 +56,9 @@
                                         </button>
                                     </div>
                                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                <h5 class="mb-0" style="font-weight: bold; display: inline-block"><del>Giá gốc ₫</del></h5>
-                                                <h5 style="display: inline-block; border-radius: 10px; background-color: #cccccc; padding: 0 5px 0 5px; color: black;"> - 100%</h5>
-                                                <h5 style="font-size: 20px; color: red;">Giá giảm ₫</h5>
+                                         <h5 class="mb-0" style="font-weight: bold; display: inline-block"><del>Giá gốc ₫</del></h5>
+                                         <h5 style="display: inline-block; border-radius: 10px; background-color: #cccccc; padding: 0 5px 0 5px; color: black;"> - 100%</h5>
+                                         <h5 style="font-size: 20px; color: red;">Giá giảm ₫</h5>
                                     </div>
                                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                         <a onclick="" href="" class="text-danger"><img src="" /></a>
@@ -63,6 +67,8 @@
                             </div>
                         </div>
                     </div>
+                    }
+                }
                 <h3 style="text-align: right">Tổng cộng</h3>
                 <h4 id="price-cart" style="text-align: right"> ₫</h4>
 
