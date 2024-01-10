@@ -7,6 +7,12 @@ namespace DreamerStore2.Controllers
     public class CartController : Controller
     {
         private readonly SonungvienContext _context;
+
+        public CartController(SonungvienContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             var cartKey = HttpContext.Session.GetString("Cart_" + HttpContext.Session.Id);
@@ -20,11 +26,12 @@ namespace DreamerStore2.Controllers
                 return View("Index", Cart);
             }
         }
-        public bool AddDetailedProductToCart(int id)
+        public bool AddToCart(int id)
         {
             bool isAdded = false;
             var cartKey = HttpContext.Session.GetString("Cart_" + HttpContext.Session.Id);
             Cart cartObj;
+            Console.WriteLine(cartKey);
             if (cartKey == null)
             {
                 cartObj = new Cart();
@@ -33,8 +40,8 @@ namespace DreamerStore2.Controllers
             {
                 cartObj = JsonConvert.DeserializeObject<Cart>(cartKey);
             }
-            DetailedProduct product = _context.DetailedProducts.FirstOrDefault(p => p.DetailedProductId == id);
-            if (!cartObj.ProductList.ContainsKey(product.ProductId))
+            DetailedProduct product = _context.DetailedProducts.Where(p => p.DetailedProductId == id).FirstOrDefault();
+            if (!cartObj.ProductList.ContainsKey(product.DetailedProductId))
             {
                 if (product.DetailedProductQuantity > 0)
                 {

@@ -1,0 +1,106 @@
+﻿@model DreamerStore2.ViewModel.DetailedProductViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Page Content -->
+<div class="container">
+    <h1 class="my-4">
+        @Model.Product.ProductName
+        <small></small>
+    </h1>
+    <!-- /.row -->
+
+    <!-- Portfolio Item Row -->
+    <div class="row">
+        <div class="col-lg-5">
+            <img class="img-fluid" src="https://via.placeholder.com/750x500" alt="">
+        </div>
+        <div class="col-lg-7">
+            <h3 class="my-3">@Model.Product.ProductName</h3>
+            <div>
+                <p>Đã bán: @Model.Product.ProductSold</p>
+            </div>
+            <div style="margin-top: 10px;">
+                <div style="background-color: #f5f5f5;" class="flex flex-column">
+                    <div class="flex items-center">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="flex flex-column">
+                    <div>
+                        <span>Màu sắc: </span>
+                    </div>
+                    <div>
+                        <div class="flex items-center">
+                            @foreach(var detail in Model.DetailedProducts)
+                            {
+                                <a class="getId" onclick="GetId('@detail.DetailedProductId');">@detail.DetailedProductName</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 15px;">
+                <form id="cartForm" asp-controller="Cart" asp-action="AddToCart">
+                    <input id="detailedProductId" type="hidden" asp-route-id="" />
+                    <button type="submit">Thêm vào giỏ hàng</button>
+                </form>
+                <input style="display: none; border: none; width: 280px; color: red; background: none;" id="warning" value="Bạn chưa chọn sản phẩm để mua!" disabled/>
+                @*<a id="detailedProductId" asp-controller="Cart" asp-action="AddToCart" asp-route-id="">
+                    <span>Thêm vào giỏ hàng</span>
+                </a>*@
+            </div>
+        </div>
+        <div class="w-100 d-none d-md-block"></div>
+        <div style="margin-top: 15px;" class="col-lg-5">
+            @foreach(var detail in Model.DetailedProducts)
+            {
+                <div class="col-md-4">
+                    <a href="#">
+                        <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+<!-- /.container -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    document.getElementById('cartForm').addEventListener('submit', function (event) {
+        var detailedId = document.getElementById('detailedProductId');
+        var routeIdValue = detailedId.getAttribute('asp-route-id');
+
+        if (routeIdValue) {
+        } else {
+            $('#warning').css('display', 'block');
+            event.preventDefault();
+        }
+    });
+    function GetId(dpId) {
+        var detailedId = document.getElementById('detailedProductId');
+        detailedId.setAttribute('asp-route-id', dpId);
+        console.log(dpId);
+    }
+</script>
+@*<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.getId').click(function () {
+            // Lấy giá trị ID từ thuộc tính data-id của thẻ <a>
+            var id = $(this).data('id');
+
+            // Gán giá trị ID cho thẻ a có ID là "detailedProductId"
+            $('#detailedProductId').attr('asp-route-id', id);
+
+            // In ra console để kiểm tra giá trị đã được gán hay chưa
+            console.log('Detailed Product ID:', id);
+        });
+    });
+</script>*@

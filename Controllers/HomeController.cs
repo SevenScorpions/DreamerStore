@@ -65,6 +65,20 @@ namespace DreamerStore2.Controllers
             }
             return View(products);
         }
+        public async Task<IActionResult> ListDetailedProduct(int id)
+        {
+            Product product = await _sonungvienContext.Products.FirstOrDefaultAsync(m => m.ProductId == id && m.Hide == true);
+            if(product != null)
+            {
+                var detailedProducts = await _sonungvienContext.DetailedProducts
+                        .Where(p => p.ProductId == product.ProductId && p.Hide == true)
+                        .Take(20)
+                        .ToListAsync();
+                DetailedProductViewModel detailedProductViewModel = new DetailedProductViewModel(detailedProducts, product);
+                return View(detailedProductViewModel);
+            }
+            return View("Error");
+        }
         public IActionResult GetCategories()
         {
             var categories = _sonungvienContext.Categories.ToList(); // Lấy danh sách các danh mục từ cơ sở dữ liệu
