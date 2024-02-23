@@ -7,7 +7,7 @@
 }
 
 <!-- Page Content -->
-<div class="container">
+<div class="container-fluid">
     <h1 class="my-4">
         @Model.Product.ProductName
         <small></small>
@@ -37,17 +37,20 @@
                     </div>
                     <div>
                         <div class="flex items-center">
-                            @foreach(var detail in Model.DetailedProducts)
-                            {
-                                <a class="getId" onclick="GetId('@detail.DetailedProductId');">@detail.DetailedProductName</a>
-                            }
                         </div>
                     </div>
                 </div>
             </div>
             <div style="margin-top: 15px;">
                 <form id="cartForm" asp-controller="Cart" asp-action="AddToCart">
-                    <input id="detailedProductId" type="hidden" asp-route-id="" />
+                    <select name="detailedProductId">
+                        <option selected disabled>Chọn sản phẩm muốn mua</option>
+                        @foreach (var detail in Model.DetailedProducts)
+                        {
+                            <option value="@detail.DetailedProductId">@detail.DetailedProductName</option>
+                        }
+                    </select>
+                    <input name="quantity" type="number" min="0" />
                     <button type="submit">Thêm vào giỏ hàng</button>
                 </form>
                 <input style="display: none; border: none; width: 280px; color: red; background: none;" id="warning" value="Bạn chưa chọn sản phẩm để mua!" disabled/>
@@ -73,21 +76,6 @@
 <!-- /.container -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    document.getElementById('cartForm').addEventListener('submit', function (event) {
-        var detailedId = document.getElementById('detailedProductId');
-        var routeIdValue = detailedId.getAttribute('asp-route-id');
-
-        if (routeIdValue) {
-        } else {
-            $('#warning').css('display', 'block');
-            event.preventDefault();
-        }
-    });
-    function GetId(dpId) {
-        var detailedId = document.getElementById('detailedProductId');
-        detailedId.setAttribute('asp-route-id', dpId);
-        console.log(dpId);
-    }
 </script>
 @*<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>

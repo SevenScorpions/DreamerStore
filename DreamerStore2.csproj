@@ -111,6 +111,7 @@
     <PackageReference Include="Google.Apis.Drive.v3" Version="1.63.0.3155" />
     <PackageReference Include="jQuery" Version="3.7.1" />
     <PackageReference Include="jQuery.Validation" Version="1.19.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.TagHelpers" Version="2.2.0" />
     <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="7.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.13">

@@ -1,6 +1,8 @@
 ﻿@using System.ComponentModel.DataAnnotations
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
+@{
+    var categories = ViewBag.Categories as IEnumerable<DreamerStore2.Models.Category>;
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +15,7 @@
     <!-- Favicon -->
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-jRC4hLdvoEydJ6og4wAweUnkF9qErGNoARyKk+ldQe8U9BrVkaiBsYs02TJupb45" crossorigin="anonymous">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.css">
@@ -53,7 +56,7 @@
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#home">Trang chủ</a></li>
+                            <li class="scroll-to-section"><a asp-controller="Home" asp-action="Index">Trang chủ</a></li>
                             <li class="submenu">
                                 <a asp-action="ListProduct" asp-route-page="1">Sản phẩm</a>
                                 <ul id="categorySubMenu">
