@@ -67,25 +67,6 @@ namespace DreamerStore2.Models
             return false;
         }
 
-        /*public async Task<IActionResult> RemoveDetailedProduct(int id)
-        {
-            var cartKey = HttpContext.Session.GetString("Cart_" + HttpContext.Session.Id);
-            Cart cartObj = JsonConvert.DeserializeObject<Cart>(cartKey);
-            if (cartObj != null)
-            {
-                DetailedProduct product = _context.DetailedProducts.FirstOrDefault(p => p.DetailedProductId == id);
-                if (cartObj.ProductList.ContainsKey(product.ProductId))
-                {
-                    OrderedDetailedProduct orderedDetailedProduct = cartObj.ProductList[product.ProductId];
-                    cartObj.CartTotalPrice -= orderedDetailedProduct.DetailedProduct.DetailedProductPrice * orderedDetailedProduct.Quantity;
-                    cartObj.ProductList.Remove(product.ProductId);
-                }
-                cartKey = JsonConvert.SerializeObject(cartObj);
-                HttpContext.Session.SetString("Cart_" + HttpContext.Session.Id, cartKey);
-            }
-            return RedirectToAction("Index");
-        }*/
-
         public bool RemoveItemInCart (DetailedProduct dProduct, Cart cart)
         {
             var productId = dProduct.ProductId;

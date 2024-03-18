@@ -5,19 +5,36 @@
     ViewData["Title"] = "Sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    @@media only screen and (min-width: 992px) {
+    .product-img {
+        height: 100px; /* Fixed height for laptop screens */
+    }
+}
+}
+</style>
 <!-- Page Content -->
 <div class="container-fluid">
-    <h1 class="my-4">
-        @Model.Product.ProductName
-        <small></small>
-    </h1>
     <!-- /.row -->
 
     <!-- Portfolio Item Row -->
     <div class="row">
         <div class="col-lg-5">
-            <img class="img-fluid" src="https://via.placeholder.com/750x500" alt="">
+            <img id="main-pic" style="width: 100%;" class="img-fluid" src="https://cdn.eva.vn/upload/3-2022/images/2022-07-15/image13-1657867526-681-width1080height1007.jpg" alt="">
+            <div class="container mt-3">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div style="border-color: black; border: 20px;" class="owl-carousel owl-theme">
+                            @foreach (var dProduct in Model.DetailedProducts)
+                            {
+                                <div class="card border-0 rounded-1 m-3">
+                                    <img style="max-width: 100%; height: auto;" src="@dProduct.Image" class="product-img card-img-top rounded-1">
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-lg-7">
             <h3 class="my-3">@Model.Product.ProductName</h3>
@@ -33,7 +50,6 @@
             <div>
                 <div class="flex flex-column">
                     <div>
-                        <span>Màu sắc: </span>
                     </div>
                     <div>
                         <div class="flex items-center">
@@ -43,52 +59,41 @@
             </div>
             <div style="margin-top: 15px;">
                 <form id="cartForm" asp-controller="Cart" asp-action="AddToCart">
-                    <select name="detailedProductId">
+                    <select id="dProductId" name="detailedProductId">
                         <option selected disabled>Chọn sản phẩm muốn mua</option>
                         @foreach (var detail in Model.DetailedProducts)
                         {
                             <option value="@detail.DetailedProductId">@detail.DetailedProductName</option>
                         }
                     </select>
-                    <input name="quantity" type="number" min="0" />
+                    <input name="quantity" id="quantity" type="number" min="0" />
                     <button type="submit">Thêm vào giỏ hàng</button>
+                    <span class="text-danger" id="quantityError"></span>
                 </form>
-                <input style="display: none; border: none; width: 280px; color: red; background: none;" id="warning" value="Bạn chưa chọn sản phẩm để mua!" disabled/>
-                @*<a id="detailedProductId" asp-controller="Cart" asp-action="AddToCart" asp-route-id="">
-                    <span>Thêm vào giỏ hàng</span>
-                </a>*@
             </div>
         </div>
-        <div class="w-100 d-none d-md-block"></div>
-        <div style="margin-top: 15px;" class="col-lg-5">
-            @foreach(var detail in Model.DetailedProducts)
-            {
-                <div class="col-md-4">
-                    <a href="#">
-                        <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="">
-                    </a>
-                </div>
-            }
-        </div>
     </div>
-
 </div>
 <!-- /.container -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-</script>
-@*<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('.getId').click(function () {
-            // Lấy giá trị ID từ thuộc tính data-id của thẻ <a>
-            var id = $(this).data('id');
-
-            // Gán giá trị ID cho thẻ a có ID là "detailedProductId"
-            $('#detailedProductId').attr('asp-route-id', id);
-
-            // In ra console để kiểm tra giá trị đã được gán hay chưa
-            console.log('Detailed Product ID:', id);
+        $('#quantity').change(function () {
+            var quantity = parseInt($('#quantity').val());
+            var dProductId = $('#dProductId').val();
+            @foreach(var dProduct in Model.DetailedProducts)
+            {
+                <text>
+                if (dProductId == '@dProduct.DetailedProductId')
+                {
+                    if (quantity >= @dProduct.DetailedProductQuantity)
+                    {
+                        alert('Số lượng sản phẩm không đủ.');
+                        $('#quantity').val(@dProduct.DetailedProductQuantity);
+                    }
+                }
+                </text>
+            }
         });
     });
-</script>*@
+</script>

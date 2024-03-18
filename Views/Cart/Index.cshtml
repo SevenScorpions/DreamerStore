@@ -1,91 +1,124 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model DreamerStore2.Models.Cart
-@*
+﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
-<!-- ***** Main Banner Area End ***** -->
-<section class="h-100">
-    <div class="container-fluid h-100 py-5">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-10">
-                @if (Model != null)
-                {
-                <div class="cart-title">
-                    <strong>Giỏ hàng của bạn</strong>
-                    <span class="cart-count-items">(@Model.TotalQuantity sản phẩm)</span>
-                </div>
-                <div style="text-align: right;">
-                        <a asp-action="RemoveCart" asp-controller="Cart"><i class="fas fa-trash-alt"></i>Xóa giỏ hàng</a>
-                </div>
-                <hr>
-                    @foreach(var orderedDetailedProductList in Model.ProductList.Values)
-                    {
-                        @foreach (var orderedDetailedProduct in orderedDetailedProductList)
-                        {
-                            <div class="card rounded-3 mb-5">
-                                <div class="card rounded-0">
-                                    <div class="card-body bg-light">
-                                        <div class="row d-flex justify-content-between align-items-center">
-                                            <div class="pl-3 bg-light text-danger">
-                                                <h4></h4>
-                                            </div>
-                                            <div class="col-md-2 col-lg-2 col-xl-2" style="text-align: center;">
-                                                <img src="@orderedDetailedProduct.DetailedProduct.Image" class="img-fluid rounded-3" alt="Cây cảnh" style="height: 150px; width: 120px;">
-                                            </div>
-                                            <div class="col-md-3 col-lg-3 col-xl-3">
-                                                <p class="lead fw-bold mb-2" style="font-size: 23px;"></p>
-                                                <p><span class="text-muted">Giống cây: @orderedDetailedProduct.DetailedProduct.DetailedProductName</span>
-                                            </div>
-                                            <div class="col-md-2 col-lg-2 col-xl-2 d-flex">
-                                                <button class="btn btn-link px-2" style="visibility: hidden" onclick="">
-                                                    <img src="" />
-                                                </button>
-                                                <input min="0" value="@orderedDetailedProduct.Quantity" type="number" disabled=""
-                                                class="form-control form-control-sm" style="text-align: center; height: 40px; border: 1px solid; font-size: 16px;" />
-                                                <button class="btn btn-link px-2" style="visibility: hidden" onclick="">
-                                                    <img src="" />
-                                                </button>
-                                            </div>
-                                            <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                <div style="white-space: nowrap;">
-                                                    <h5 class="mb-0" style="font-weight: bold; display: inline-block;">Giá: @orderedDetailedProduct.DetailedProduct.DetailedProductPrice₫</h5>
-                                                    @*<h5 class="mb-0" style="font-weight: bold; display: inline-block;"><del>Giá gốc: @orderedDetailedProduct.DetailedProduct.DetailedProductPrice₫</del></h5>*@
+@if (Model != null)
+{
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="image/png" href="assets/images/logo-title-bar.png"/>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+        <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
+        <link rel="stylesheet" href="assets/css/owl-carousel.css">
+        <link rel="stylesheet" href="assets/css/lightbox.css">
+        <div class="main-banner" style="border-bottom: none" id="top">
+            <main id="maincontent" class="page-checkout">
+                <div class="container">
+                    <form id="form-order" action="PaymentController" method="POST">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="text-nowrap">
+                                    <h5>Giỏ hàng của bạn</h5>
+                                    <div style="float: right" class="text-nowrap">
+                                        <i class="fas fa-trash-alt"></i>
+                                        <a href="Cart/RemoveCart">
+                                            <span style="color: black;">Xóa giỏ hàng</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="box-cart">
+                                    @foreach (var orderedDetailedProductList in Model.ProductList.Values)
+                                    {
+                                        @foreach (var orderedDetailedProduct in orderedDetailedProductList)
+                                        {
+                                        <div class="item-cart pr-3 my-3">
+                                            <div class="row align-items-center py-3 pl-3">
+                                                <div class="image-item col-lg-2 col-md-2 col-sm-2 col-2">
+                                                    <img style="width: 80px; height: 100px;" src="@orderedDetailedProduct.DetailedProduct.Image" alt="@orderedDetailedProduct.DetailedProduct.DetailedProductName" />
                                                 </div>
-                                                @*<h5 style="display: inline-block; border-radius: 10px; background-color: #cccccc; padding: 0 5px 0 5px; color: black;"> - 100%</h5>
-                                                <h5 style="font-size: 20px; color: red;">Giá giảm ₫</h5>*@
+                                                <div class="infor-item px-5 col-lg-7 col-md-6 col-sm-7 col-7">
+                                                    <h6 class="text-nowrap">@orderedDetailedProduct.DetailedProduct.DetailedProductName</h6>
+                                                    <div class="mt-2">
+                                                        <span class="text-nowrap" style="font-size: 13px; margin-right: 5px">Số lượng: @orderedDetailedProduct.Quantity</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <p class="mb-0 float-right text-nowrap" style="font-weight: bold; ">@orderedDetailedProduct.DetailedProduct.DetailedProductPrice.ToString("N0") ₫</p>
+                                                </div>
                                             </div>
-                                            <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                <a onclick="" href="" class="text-danger"><img src="" /></a>
-                                            </div>
-                                            <div>
-                                                <a asp-controller="Cart" asp-action="RemoveItem" asp-route-id="@orderedDetailedProduct.DetailedProduct.DetailedProductId" class="text-danger">Xóa sản phẩm khỏi giỏ hàng</a>
-                                            </div>
+                                        </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-lg-5 info-checkout mt-3">
+                                <div class="form-group mt-3">
+                                    <label for="user-receiver">Tên người nhận hàng:</label>
+                                    <input id="user-receiver" class="input form-control" type="text" name="name" value="" required=""/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobile">Số điện thoại nhận hàng:</label>
+                                    <input id="mobile" class="input form-control" type="text" name="mobile" value="" required=""/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Địa chỉ nhận hàng:</label>
+                                    <input id="address" class="input form-control" type="text" name="address" value="" required=""/>
+                                </div>
+                                <div class="overall-menoy">
+                                    <h5 class="mt-3">Tổng tiền thanh toán</h5>
+                                    <div class="d-flex mt-3 total-items">
+                                    <div class="d-flex align-items-center text-nowrap">
+                                        <p class="text-nowrap">Số lượng sản phẩm: @Model.TotalQuantity</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt-3 total-money">
+                                        <div class="d-flex align-items-center">
+                                            <p>Tổng tiền: </p>
+                                            <span class="ml-3 text-nowrap">@Model.CartTotalPrice.ToString("N0") ₫</span>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="payment-method mt-5">
+                                    <h5 class="mt-3">Chọn phương thức thanh toán</h5>
+                                    <table class="mt-3">
+                                        <tr class="money-payment">
+                                            <td><input id="money" class="" type="radio" name="method" value="NavToPayment" checked=""/></td>
+                                            <td><i style="font-size: 28px;" class="fa fa-money ml-3 icon-money" aria-hidden="true"></i></td>
+                                            <td><label for="money" class="ml-3">Thanh toán khi nhận hàng</label></td>
+                                        </tr>
+                                        <tr class="credit-payment">
+                                            <td><input id="credit" class="" type="radio" name="method" value="NavToVNPAY"/></td>
+                                            <td><img class="ml-2" style="height: 24px; width: 50px;"  src="assets/images/vnpay.png" alt="VNPAY"/></td>
+                                            <td><label for="credit" class="ml-3">Thanh toán qua VNPAY</label></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <button type="submit" class="mt-4 btn btn-primary w-100">Đặt hàng</button>
                             </div>
-                        }
-                    }
-                    <h3 style="text-align: right">Tổng cộng: <span style="color: red;">@Model.CartTotalPrice ₫</span></h3>
-                } else
-                {
-                    <div class="text-center">
-                        <img src="" class="empty-image">
-                        <h2 class="mb-4">Giỏ hàng của bạn đang trống</h2>
-                        <p class="lead">Hãy thêm sản phẩm vào giỏ hàng để bắt đầu mua sắm!</p>
-                    </div>
-                }
-
-                <div class="card">
-                    <div class="card-body">
-                        <form>
-                            <button type="submit" class="btn btn-warning btn-block btn-lg">Tiến hành thanh toán</button>
-                        </form>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </div>
+}
+else
+{
+    <div class="page-heading" id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-content">
+                        <h2>Giỏ hàng của bạn đang trống</h2>
+                        <span>Kiểm tra lại giỏ hàng</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+    <a href="Home/ListProduct" type="submit" class="btn btn-warning btn-block btn-lg">Tiến hành mua hàng</a>
+}

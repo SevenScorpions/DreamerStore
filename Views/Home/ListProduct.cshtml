@@ -90,14 +90,12 @@
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__right">
                                 <p>Sắp xếp</p>
-                                <select>
-                                    <option value="">Mới nhất</option>
-                                    <option value="">Nổi bật</option>
-                                    <option value="">Giảm giá</option>
-                                    <option value="">Giá giảm dần</option>
-                                    <option value="">Gía tăng dần</option>
-                                    <option value="">Tên giảm dần</option>
-                                    <option value="">Tên tăng dần</option>
+                                <select name="type" id="filter">
+                                    <option value="1">Mới nhất</option>
+                                    <option value="2">Nổi bật</option>
+                                    <option value="3">Giảm giá</option>
+                                    <option value="4">Giá giảm dần</option>
+                                    <option value="5">Giá tăng dần</option>
                                 </select>
                             </div>
                         </div>
@@ -138,3 +136,25 @@
     </div>
 </section>
 <!-- Shop Section End -->
+<script>
+    $(document).ready(function () {
+        $('#filter').on('change', function () {
+            var selectedValue = $(this).val();
+            var currentUrl = window.location.href;
+            var url = new URL(currentUrl);
+            var catValue = url.searchParams.get("c");
+            var pageValue = url.searchParams.get("page");
+            alert(url);
+            $.ajax({
+                url: '/home/filter',
+                method: 'GET',
+                data: { type: selectedValue, cat : catValue, page : pageValue},
+                success: function () {
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi nếu có
+                }
+            });
+        });
+    });
+</script>
