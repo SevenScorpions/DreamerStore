@@ -27,7 +27,7 @@ namespace DreamerStore2.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddToCart(int detailedProductId, int quantity)
+        public async Task<ActionResult> AddToCart(int detailedProductId, int quantity)
         {
             DetailedProduct detailedProduct = await _context.DetailedProducts.FindAsync(detailedProductId);
 
@@ -56,7 +56,7 @@ namespace DreamerStore2.Controllers
             //return Json(false); // Trả về false nếu sản phẩm không tồn tại
         }
 
-        public async Task<IActionResult> RemoveItem(int id)
+        public async Task<ActionResult> RemoveItem(int id)
         {
             DetailedProduct detailedProduct = await _context.DetailedProducts.FindAsync(id);
 

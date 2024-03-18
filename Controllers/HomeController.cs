@@ -41,11 +41,11 @@ namespace DreamerStore2.Controllers
 
             return View(categories);
         }
-        public async Task<IActionResult> ListProduct(string? c, int page)
+        public async Task<IActionResult> ListProduct(int? c, int page)
         {
             var products = new List<Product>();
-            Category category = await _sonungvienContext.Categories.FirstOrDefaultAsync(m => m.Meta == c);
-            if((category==null && !c.IsNullOrEmpty())|| page<0)
+            Category category = await _sonungvienContext.Categories.FirstOrDefaultAsync(m => m.CategoryId == c);
+            if(category == null && page < 0)
             {
                 return RedirectToAction("Error");
             }
@@ -78,6 +78,32 @@ namespace DreamerStore2.Controllers
                 return View(detailedProductViewModel);
             }
             return View("Error");
+        }
+
+        public async Task<IActionResult> Filter(int type, int? cat, int? page)
+        {
+            var products = new List<Product>();
+            Category category = await _sonungvienContext.Categories.FirstOrDefaultAsync(c => c.CategoryId == cat);
+            if (category == null)
+            {
+                products = await _sonungvienContext.Products
+                    .Where(p => p.Hide == true)
+                    .Take(20)
+                    .ToListAsync();
+                switch(type)
+                {
+                    case 1:
+                        break;
+                }
+            }
+            else
+            {
+                products = await _sonungvienContext.Products
+                    .Where(p => p.CategoryId == category.CategoryId && p.Hide == true)
+                    .Take(20)
+                    .ToListAsync();
+            }
+            return View(products);
         }
         public IActionResult GetCategories()
         {
