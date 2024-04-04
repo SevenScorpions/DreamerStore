@@ -1,91 +1,85 @@
 ﻿using DreamerStore2.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-namespace DreamerStore2.Controllers
+using System.Dynamic;
+
+public class CartController : Controller
 {
-    public class CartController : Controller
+    private readonly SonungvienContext _context;
+
+    public CartController(SonungvienContext context)
     {
-        private readonly SonungvienContext _context;
-
-        public CartController(SonungvienContext context)
-        {
-            _context = context;
-        }
-
-        public IActionResult Index()
-        {
-            string cartKey = HttpContext.Session.GetString("Cart_" + HttpContext.Session.Id);
-            if (cartKey == null)
-            {
-                return View();
-            }
-            else
-            {
-                Cart Cart = JsonConvert.DeserializeObject<Cart>(cartKey);
-                return View("Index", Cart);
-            }
-        }
-
-        [HttpPost]
-        public async Task<ActionResult> AddToCart(int detailedProductId, int quantity)
-        {
-            DetailedProduct detailedProduct = await _context.DetailedProducts.FindAsync(detailedProductId);
-
-            Cart cart;
-            if (detailedProduct != null)
-            {
-                string cartKey = HttpContext.Session.GetString("Cart_" + HttpContext.Session.Id);
-                if (cartKey == null)
-                {
-                    cart = new Cart();
-                }
-                else
-                {
-                    //lấy ra cart
-                    cart = JsonConvert.DeserializeObject<Cart>(cartKey);
-                }
-                bool isAdded = cart.AddToCart(detailedProduct, cart, quantity);
-                if(isAdded)
-                {
-                    cartKey = JsonConvert.SerializeObject(cart);
-                    HttpContext.Session.SetString("Cart_" + HttpContext.Session.Id, cartKey);
-                    //return Json(true); // Trả về true nếu thêm thành công
-                }
-            }
-            return RedirectToAction("Index");
-            //return Json(false); // Trả về false nếu sản phẩm không tồn tại
-        }
-
-        public async Task<ActionResult> RemoveItem(int id)
-        {
-            DetailedProduct detailedProduct = await _context.DetailedProducts.FindAsync(id);
-
-            Cart cart;
-            if (detailedProduct != null)
-            {
-                string cartKey = HttpContext.Session.GetString("Cart_" + HttpContext.Session.Id);
-                cart = JsonConvert.DeserializeObject<Cart>(cartKey);
-                if(cart.RemoveItemInCart(detailedProduct, cart))
-                {
-                    cartKey = JsonConvert.SerializeObject(cart);
-                    HttpContext.Session.SetString("Cart_" + HttpContext.Session.Id, cartKey);
-                    if(cart.isEmpty(cart))
-                    {
-                        cart.RemoveCart(HttpContext);
-                    }
-                    //return Json(true); // Trả về true nếu thêm thành công
-                }
-            }
-            return RedirectToAction("Index");
-            //return Json(false); // Trả về false nếu sản phẩm không tồn tại
-        }
-
-        public async Task<IActionResult> RemoveCart()
-        {
-            string cartKey = HttpContext.Session.GetString("Cart_" + HttpContext.Session.Id);
-            Cart cart = JsonConvert.DeserializeObject<Cart>(cartKey);
-            cart.RemoveCart(HttpContext);
-            return RedirectToAction("Index");
-        }
+        _context = context;
     }
+
+    // GET: Cart
+    public IActionResult Index()
+    {
+        return View(GetCartFromCookie());
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> AddToCart(int detailedProductId, int quantity)
+    {
+        Cart cart = GetCartFromCookie();
+        DetailedProduct? detailedProduct = await _context.DetailedProducts.FindAsync(detailedProductId);
+
+        bool isAdded = false;
+        if (detailedProduct != null)
+        {
+            isAdded = cart.AddToCart(detailedProduct, quantity);
+            SaveCartToCookie(cart);
+        }
+
+        var responseObject = new
+        {
+            Success = isAdded
+        };
+        var json = JsonConvert.SerializeObject(responseObject);
+        return Content(json, "application/json");
+    }
+
+    public ActionResult RemoveFromCart(int id, int quantity)
+    {
+        Cart cart = GetCartFromCookie();
+        bool isDeleted = cart.RemoveFromCart(id, quantity);
+        SaveCartToCookie(cart);
+        var responseObject = new
+        {
+            Success = isDeleted
+        };
+        var json = JsonConvert.SerializeObject(responseObject);
+        return Content(json, "application/json");
+    }
+
+    public ActionResult RemoveAll()
+    {
+        DeleteCartFromCookie(GetCartFromCookie());
+        return RedirectToAction("Index");
+    }
+
+    private Cart GetCartFromCookie()
+    {
+        string jsonCart = Request.Cookies["CartData"];
+        if (jsonCart != null)
+        {
+            return JsonConvert.DeserializeObject<Cart>(jsonCart);
+        }
+        return new Cart();
+    }
+
+    private void SaveCartToCookie(Cart cart)
+    {
+        string jsonCart = JsonConvert.SerializeObject(cart);
+        CookieOptions option = new CookieOptions();
+        option.Expires = DateTime.Now.AddMonths(1); // Expiration time for the cookie
+        Response.Cookies.Append("CartData", jsonCart, option);
+    }
+
+    private void DeleteCartFromCookie(Cart cart)
+    {
+        cart.RemoveAll();
+        Response.Cookies.Delete("CartData");
+    }
+
 }

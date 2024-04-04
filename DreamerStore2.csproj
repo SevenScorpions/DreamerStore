@@ -137,4 +137,10 @@
     <PackageReference Include="System.Security.Cryptography.X509Certificates" Version="4.3.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\assets\js\cart.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

@@ -6,93 +6,70 @@ namespace DreamerStore2.Models
 {
     public class Cart
     {
-        public Dictionary<int, List<OrderedDetailedProduct>> ProductList { get; set; }
+        public List<CartItem> Items { get; set; }
         public decimal CartTotalPrice { get; set; }
         public int TotalQuantity { get; set; }
 
         public Cart()
         {
-            ProductList = new Dictionary<int, List<OrderedDetailedProduct>>();
+            Items = new List<CartItem>();
             CartTotalPrice = 0;
             TotalQuantity = 0;
         }
 
-        public Cart(Dictionary<int, List<OrderedDetailedProduct>> productList, decimal cartTotalPrice, int totalQuantity)
+        public bool AddToCart(DetailedProduct detailedProduct, int quantity)
         {
-            ProductList = productList;
-            CartTotalPrice = cartTotalPrice;
-            TotalQuantity = totalQuantity;
-        }
-
-        //add theo mã chi tiết sản phẩm
-        public bool AddToCart(DetailedProduct dProduct, Cart cart, int buyingQuantity)
-        {
-            if (dProduct.DetailedProductQuantity < buyingQuantity)
-                return false;
-
-            var productId = dProduct.ProductId;
-            var detailedProductId = dProduct.DetailedProductId;
-            var detailedProductPrice = dProduct.DetailedProductPrice;
-            var detailedProductQuantity = dProduct.DetailedProductQuantity;
-
-            if (!cart.ProductList.TryGetValue(productId, out var listDetailedProduct))
+            CartItem existingItem = Items.FirstOrDefault(item => item.DetailedProduct.DetailedProductId == detailedProduct.DetailedProductId);
+            if (existingItem != null)
             {
-                listDetailedProduct = new List<OrderedDetailedProduct>();
-                cart.ProductList.Add(productId, listDetailedProduct);
-            }
-
-            var detailedProductInCart = listDetailedProduct.FirstOrDefault(item => item.DetailedProduct.DetailedProductId == detailedProductId);
-
-            if (detailedProductInCart != null)
-            {
-                var newQuantity = detailedProductInCart.Quantity + buyingQuantity;
-                if (newQuantity <= detailedProductQuantity && detailedProductQuantity > 0)
+                if(detailedProduct.DetailedProductQuantity >= existingItem.Quantity + quantity)
                 {
-                    detailedProductInCart.Quantity = newQuantity;
-                    cart.CartTotalPrice += detailedProductPrice * buyingQuantity;
-                    cart.TotalQuantity += buyingQuantity;
+                    existingItem.Quantity += quantity;
+                    TotalQuantity += quantity;
+                    CartTotalPrice += detailedProduct.DetailedProductPrice * quantity;
                     return true;
-                }
-                return false;
-            }
-
-            if (detailedProductQuantity >= buyingQuantity && detailedProductQuantity > 0)
-            {
-                listDetailedProduct.Add(new OrderedDetailedProduct(dProduct, buyingQuantity));
-                cart.CartTotalPrice += detailedProductPrice * buyingQuantity;
-                cart.TotalQuantity += buyingQuantity;
-                return true;
-            }
-
-            return false;
-        }
-
-        public bool RemoveItemInCart (DetailedProduct dProduct, Cart cart)
-        {
-            var productId = dProduct.ProductId;
-            if (cart.ProductList.ContainsKey(productId))
-            {
-                var listDetailedProduct = cart.ProductList[productId];
-                OrderedDetailedProduct itemToRemove = listDetailedProduct.FirstOrDefault(item => item.DetailedProduct.DetailedProductId == dProduct.DetailedProductId);
-                cart.ProductList[productId].Remove(itemToRemove);
-                cart.CartTotalPrice -= itemToRemove.DetailedProduct.DetailedProductPrice * itemToRemove.Quantity;
-                cart.TotalQuantity -= itemToRemove.Quantity;
-
-                if (cart.ProductList[productId].Count == 0)
+                } else
                 {
-                    cart.ProductList.Remove(productId);
+                    return false;
+                }
+            }
+            else
+            {
+                Items.Add(new CartItem(detailedProduct, quantity));
+                TotalQuantity += quantity;
+                CartTotalPrice += detailedProduct.DetailedProductPrice * quantity;
+                return true;
+            }
+        }
+
+
+        public bool RemoveFromCart(int detailedProductId, int quantity)
+        {
+            CartItem existingItem = Items.FirstOrDefault(item => item.DetailedProduct.DetailedProductId == detailedProductId);
+            if(existingItem != null)
+            {
+                existingItem.Quantity -= quantity;
+                TotalQuantity -= quantity;
+                CartTotalPrice -= existingItem.DetailedProduct.DetailedProductPrice * quantity;
+                if (existingItem.Quantity == 0)
+                {
+                    Items.Remove(existingItem);
                 }
                 return true;
             }
             return false;
         }
-        public bool isEmpty(Cart cart)
+
+        public void RemoveAll()
         {
-            return (cart.ProductList.Count == 0) ? true : false;
+            Items.Clear();
+            CartTotalPrice = 0;
+            TotalQuantity = 0;
         }
-        public void RemoveCart(HttpContext context)
+
+        public bool IsEmpty()
         {
-            context.Session.Remove("Cart_" + context.Session.Id);
+            return (Items.Count == 0) ? true : false;
         }
     }
 }
